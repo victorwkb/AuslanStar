@@ -2,8 +2,11 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <div className="font-xl">
       Hello world!
+      <div className="font-sm">
+        this is the home page
+      </div>
     </div>
   )
 }
