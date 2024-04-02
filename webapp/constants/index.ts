@@ -8,9 +8,9 @@ export const NAV_LINKS = [
 ];
 // Resource SUB-NAVIGATION
 export const RESOURCE_LINKS = [
-  { href: '/benefits', key: 'benefits', label: 'Benefits of Learning Auslan' },
-  { href: '/support', key: 'support', label: 'Supporting Your Child' },
-  { href: '/simulator', key: 'simulator', label: 'Hearing Loss Simulator' },
+  { href: '/resources/benefits', key: 'benefits', label: 'Benefits of Learning Auslan' },
+  { href: '/resources/support', key: 'support', label: 'Supporting Your Child' },
+  { href: '/resources/simulator', key: 'simulator', label: 'Hearing Loss Simulator' },
   // ... more items
 ];
 
