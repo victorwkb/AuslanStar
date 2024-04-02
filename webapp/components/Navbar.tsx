@@ -62,24 +62,24 @@ const Navbar = () => {
             </Link>
             <ul className='hidden h-full gap-12 lg:flex'>
                     {NAV_LINKS.map((link) => (
-  <li key={link.key} className="relative group">
-    <Link href={link.href}>
-      <span className={`cursor-pointer ... ${(pathname === link.href || pathname.startsWith(`${link.href}/`)) ? 'text-red-500' : ''}`}>
-        {link.label} {link.key === 'resources' ? <span aria-hidden="true">&#9662;</span> : null}
-      </span>
-    </Link>
-    {link.key === 'resources' && (
-      <ul className="absolute hidden group-hover:block">
-        {RESOURCE_LINKS.map((resourceLink) => (
-          <li key={resourceLink.key} className={`bg-white text-black px-4 py-2 hover:bg-gray-100 ${pathname.startsWith(`${resourceLink.href}`) ? 'text-red-500' : ''}`}>
-            <Link href={resourceLink.href}>
-              {resourceLink.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    )}
-  </li>
+                      <li key={link.key} className="relative group">
+                        <Link href={link.href}>
+                          <span className={`cursor-pointer ... ${(pathname === link.href || pathname.startsWith(`${link.href}/`)) ? 'text-red-500' : ''}`}>
+                            {link.label} {link.key === 'resources' ? <span aria-hidden="true">&#9662;</span> : null}
+                          </span>
+                        </Link>
+                        {link.key === 'resources' && (
+                          <ul className="absolute hidden group-hover:block">
+                            {RESOURCE_LINKS.map((resourceLink) => (
+                              <li key={resourceLink.key} className={`bg-white text-black px-4 py-2 hover:bg-gray-100 ${pathname.startsWith(`${resourceLink.href}`) ? 'text-red-500' : ''}`}>
+                                <Link href={resourceLink.href}>
+                                  {resourceLink.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
 ))}
                 </ul>
                 <Image
