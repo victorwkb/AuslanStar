@@ -6,11 +6,6 @@ import React from 'react';
 import {NAV_LINKS} from "@/constants";
 
 
-
-
-
-
-
 const Navbar = () => {
     const pathname = usePathname();
 
@@ -23,11 +18,12 @@ const Navbar = () => {
             <ul className='hidden h-full gap-12 lg:flex'>
                 {NAV_LINKS.map((link) => (
                     <Link href={link.href} key={link.key}>
-                        <a className={`regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold ${
-                            pathname === link.href ? 'text-red-500' : ''
-                        }`}>
+                        <span
+                            className={`regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold ${
+                                pathname === link.href ? 'text-red-500' : ''
+                            }`}>
                             {link.label}
-                        </a>
+                        </span>
                     </Link>
                 ))}
             </ul>
