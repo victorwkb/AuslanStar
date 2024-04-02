@@ -1,6 +1,8 @@
 import { Metadata } from "next";
+import Link from "next/link"
 
-export default function About() {
+
+export default function Dictionary() {
   return (
     <div className="flex flex-col gap-16">
       <div>
@@ -8,6 +10,8 @@ export default function About() {
         <p className="animate-in text-secondary" >
           Posts about coding, hackathons and more ...
         </p>
+
+          <Link href="/">Link to Home Page</Link>
 
       </div>
       <p className="animate-in text-secondary" >

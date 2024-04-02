@@ -4,8 +4,8 @@ import Link from 'next/link'
 import React from 'react'
 import {NAV_LINKS} from "@/constants";
 
-
 const Navbar = () => {
+
     return (
         <nav className='border-5 border-red-300 flexBetween max-container padding-container relative z-30 py-5'>
             <Link href="/">
@@ -18,6 +18,7 @@ const Navbar = () => {
                         {link.label}
                     </Link>
                 ))}
+
             </ul>
 
             <Image
@@ -35,3 +36,9 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+
+
+
+
