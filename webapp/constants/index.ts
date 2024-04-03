@@ -15,41 +15,30 @@ export const RESOURCE_LINKS = [
 ];
 
 
-
 // FOOTER SECTION
 export const FOOTER_LINKS = [
     {
-        title: 'Learn More',
+        title: 'About',
         links: [
-            'About Hilink',
-            'Press Releases',
-            'Environment',
-            'Jobs',
-            'Privacy Policy',
-            'Contact Us',
+            { label: 'About Auslan Star', href: '/resources/benefits' },
+            { label: 'Privacy Policy', href: '/privacy-policy' },
+            { label: 'Terms', href: '/terms' },
         ],
     },
     {
-        title: 'Our Community',
-        links: ['Climbing xixixi', 'Hiking hilink', 'Hilink kinthill'],
+        title: 'Service',
+        links: [
+            { label: 'Dictionary', href: '/dictionary' },
+            { label: 'Simulator', href: '/resources/simulator' },
+            { label: 'Handbook', href: '/resources/support' },
+        ],
     },
 ];
+
 
 export const FOOTER_CONTACT_INFO = {
     title: 'Contact Us',
     links: [
-        { label: 'Admin Officer', value: '123-456-7890' },
-        { label: 'Email Officer', value: 'hilink@akinthil.com' },
-    ],
-};
-
-export const SOCIALS = {
-    title: 'Social',
-    links: [
-        '/facebook.svg',
-        '/instagram.svg',
-        '/twitter.svg',
-        '/youtube.svg',
-        '/wordpress.svg',
+        { label: 'Email Officer', value: 'auslanstarservice@gmail.com' },
     ],
 };

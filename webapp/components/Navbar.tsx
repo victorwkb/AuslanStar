@@ -42,18 +42,16 @@
 //
 // export default Navbar
 //
+
 'use client'
 import { usePathname } from 'next/navigation';
 import Image from 'next/image'
 import Link from 'next/link'
 import {NAV_LINKS,RESOURCE_LINKS} from "@/constants";
-import React, { useState } from 'react';
+import React from 'react';
 
 const Navbar = () => {
-    // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const pathname = usePathname();
-
-    // const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
     return (
         <nav className='border-5 border-red-300 flexBetween max-container padding-container relative z-30 py-5'>
@@ -80,15 +78,8 @@ const Navbar = () => {
                           </ul>
                         )}
                       </li>
-))}
+                    ))}
                 </ul>
-                <Image
-                    src="menu.svg"
-                    alt='menu'
-                    width={32}
-                    height={32}
-                    className='inline-block cursor-pointer lg:hidden'
-                />
 
         </nav>
 

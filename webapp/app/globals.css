@@ -11,10 +11,15 @@
 }
 
 body {
+  /*height: 100%; !* Explicit height setting *!*/
   font-family: 'Inter', sans-serif;
 }
 
 @layer utilities {
+  .bg-green-100 {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    background-attachment: fixed;
+  }
   .btn_white {
     @apply border-white bg-white px-8 py-3 text-green-50
   }
@@ -133,19 +138,64 @@ body {
     @apply hidden absolute left-0 mt-1 w-40 bg-white shadow-md z-10;
   }
 
+    /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+  .text-primary {
+    @apply text-green-900;
+  }
+
+  .text-secondary {
+    @apply text-green-700;
+  }
+
+  .text-tertiary {
+    @apply text-gray-600;
+  }
+
+  /* Layout - Adjust the margin and padding to give more space */
+  .layout-header {
+    @apply mt-12 mb-8; /* Adjust top and bottom margin as needed */
+  }
+
+  .layout-main {
+    @apply py-12; /* Increase y-padding for more space */
+  }
+
+  /* Input and button styling for better visual hierarchy */
+  .input-search {
+    @apply text-lg border rounded-tl rounded-bl p-2 w-full;
+  }
+
+  .button-search {
+    @apply text-lg bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-tr rounded-br w-full;
+  }
+  .layout-header {
+    @apply mt-2 mb-8; /* Decrease the top margin to move the header up */
+  }
 
 
-}
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
+  }
+
