@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link"
 
 
+
+
 export default function Resources() {
     return (
         <div className="max-container padding-container">
