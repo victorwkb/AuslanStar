@@ -162,7 +162,7 @@ body {
     /* Firefox */
   }
   .text-primary {
-    @apply text-green-900;
+    @apply text-green-700;
   }
 
   .text-secondary {
@@ -170,7 +170,7 @@ body {
   }
 
   .text-tertiary {
-    @apply text-gray-600;
+    @apply text-green-700;
   }
 
   /* Layout - Adjust the margin and padding to give more space */
@@ -196,6 +196,81 @@ body {
 
 
 
-
+  .situation-button {
+  flex: 0 0 auto;
+  width: 140px;
+  height: 140px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
   }
+
+
+  .situation-button-selected {
+    background-color: #48bb78;
+    color: white;
+  }
+
+
+  .level-button {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 9999px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+  }
+
+
+  .level-button-selected {
+    background-color: #48bb78;
+    color: white;
+  }
+
+  .play-button {
+  @apply bg-green-500 text-white font-bold rounded-full p-4 inline-flex items-center justify-center shadow-md transition duration-300 ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  width: 70px;
+  height: 70px;
+}
+
+.play-button:hover {
+  @apply bg-green-600;
+  transform: translateY(-2px);
+}
+
+/* The play and pause icons should be the same size as the buttons.*/
+.play-icon,
+.pause-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* Style the button text to ensure it is on the same line as the icon and centred vertically */
+.play-text {
+  @apply ml-2 text-lg;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
