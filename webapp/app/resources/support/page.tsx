@@ -1,6 +1,6 @@
 import Link from "next/link"
 import React from 'react';
-
+import Image from 'next/image';
 
 
 const ResourcesPage = () => {
@@ -18,13 +18,20 @@ const ResourcesPage = () => {
                 </div>
             </div>
 
-            {/* Cards 1 */}
             <div className="container mx-auto px-4 py-6">
-                <div className="flex flex-wrap -mx-2">
-                    {/* Repeat this div for each card */}
-                    <div className="w-full sm:w-1/2 md:w-1/3 px-2 mb-4">
+                <div className="grid grid-cols-2 gap-6 -mx-2">
+
+                    {/* Cards 1 */}
+                    <div className="w-full px-2 mb-4">
                         <div className="bg-white rounded overflow-hidden shadow-lg">
-                            <div className="bg-gray-200 h-32 sm:h-48"></div>
+                            <div className="h-32 sm:h-48 relative">
+                                <Image
+                                    src="/support/communication strategies.png"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    alt="Description"
+                                />
+                            </div>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Communication Strategies</div>
                                 <p className="text-gray-700 text-base">
@@ -40,13 +47,20 @@ const ResourcesPage = () => {
                     </div>
 
                     {/* Cards 2 */}
-                    <div className="w-full sm:w-1/2 md:w-1/3 px-2 mb-4">
+                    <div className="w-full px-2 mb-4">
                         <div className="bg-white rounded overflow-hidden shadow-lg">
-                            <div className="bg-gray-200 h-32 sm:h-48"></div>
+                            <div className="h-32 sm:h-48 relative">
+                                <Image
+                                    src="/support/teching strategies.png"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    alt="Description"
+                                />
+                            </div>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Teaching Strategies</div>
                                 <p className="text-gray-700 text-base">
-                                Individualized teaching support to ensure that they have equal access to learning and activities.
+                                    Individualized teaching support to ensure that they have equal access to learning and activities.
                                 </p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
@@ -58,9 +72,16 @@ const ResourcesPage = () => {
                     </div>
 
                     {/* Cards 3 */}
-                    <div className="w-full sm:w-1/2 md:w-1/3 px-2 mb-4">
+                    <div className="w-full px-2 mb-4">
                         <div className="bg-white rounded overflow-hidden shadow-lg">
-                            <div className="bg-gray-200 h-32 sm:h-48"></div>
+                            <div className="h-32 sm:h-48 relative">
+                                <Image
+                                    src="/support/buildconfidence.png"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    alt="Description"
+                                />
+                            </div>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Build Confidence</div>
                                 <p className="text-gray-700 text-base">
@@ -74,9 +95,16 @@ const ResourcesPage = () => {
                     </div>
 
                     {/* Cards 4 */}
-                    <div className="w-full sm:w-1/2 md:w-1/3 px-2 mb-4">
+                    <div className="w-full px-2 mb-4">
                         <div className="bg-white rounded overflow-hidden shadow-lg">
-                            <div className="bg-gray-200 h-32 sm:h-48"></div>
+                            <div className="h-32 sm:h-48 relative">
+                                <Image
+                                    src="/support/social and emotion.png"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    alt="Description"
+                                />
+                            </div>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Social and Emotion</div>
                                 <p className="text-gray-700 text-base">

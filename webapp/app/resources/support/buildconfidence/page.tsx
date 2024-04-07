@@ -50,7 +50,9 @@ const BuildConfidence = () => {
       </div>
 
       {/* Reference and Disclaimer */}
-      <footer style={{ fontSize: '12px', color: '#aaa', textAlign: 'center', marginTop: '50px', padding: '10px' }}>
+      <footer
+        className="text-xs text-slate-400 text-center mt-6 p-3"
+        >
         Reference: Information supplied by <a
           href="https://hearandnow.cochlear.com/hearing-solutions/services/kids-with-hearing-loss/"
           target="_blank"
