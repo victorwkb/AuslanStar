@@ -55,9 +55,10 @@ const Navbar = () => {
 
     return (
         <nav className='border-5 border-red-300 flexBetween max-container padding-container relative z-30 py-5'>
-            <Link href="/">
-                <Image src="/Auslanlogo.jpg" alt='logo' width={60} height={25}></Image>
+            <Link href={NAV_LINKS.find((item) => item.key === 'home')?.href ?? '/'}>
+              <Image src="/Auslanlogo.jpg" alt='logo' width={60} height={25} />
             </Link>
+
             <ul className='hidden h-full gap-12 lg:flex'>
                     {NAV_LINKS.map((link) => (
                       <li key={link.key} className="relative group">

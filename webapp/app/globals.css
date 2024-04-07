@@ -64,75 +64,6 @@ body {
     @apply flex items-center justify-end;
   }
 
-  /* FONTS */
-  .regular-64 {
-    @apply text-[64px] font-[400] leading-[120%];
-  }
-
-  .regular-40 {
-    @apply text-[40px] font-[400] leading-[120%];
-  }
-
-  .regular-32 {
-    @apply text-[32px] font-[400];
-  }
-
-  .regular-24 {
-    @apply text-[24px] font-[400];
-  }
-
-  .regular-20 {
-    @apply text-[20px] font-[400];
-  }
-
-  .regular-18 {
-    @apply text-[18px] font-[400];
-  }
-
-  .regular-16 {
-    @apply text-[16px] font-[400];
-  }
-
-  .regular-14 {
-    @apply text-[14px] font-[400];
-  }
-
-  .medium-14 {
-    @apply text-[14px] font-[600];
-  }
-
-  .bold-88 {
-    @apply text-[88px] font-[700] leading-[120%];
-  }
-
-  .bold-64 {
-    @apply text-[64px] font-[700] leading-[120%];
-  }
-
-  .bold-52 {
-    @apply text-[52px] font-[700] leading-[120%];
-  }
-
-  .bold-40 {
-    @apply text-[40px] font-[700] leading-[120%];
-  }
-
-  .bold-32 {
-    @apply text-[32px] font-[700] leading-[120%];
-  }
-
-  .bold-20 {
-    @apply text-[20px] font-[700];
-  }
-
-  .bold-18 {
-    @apply text-[18px] font-[700];
-  }
-
-  .bold-16 {
-    @apply text-[16px] font-[700];
-  }
-
 
   .dropdown-content {
     @apply hidden absolute left-0 mt-1 w-40 bg-white shadow-md z-10;
@@ -162,7 +93,7 @@ body {
     /* Firefox */
   }
   .text-primary {
-    @apply text-green-700;
+    @apply text-black;
   }
 
   .text-secondary {
@@ -170,7 +101,7 @@ body {
   }
 
   .text-tertiary {
-    @apply text-green-700;
+    @apply text-gray-700;
   }
 
   /* Layout - Adjust the margin and padding to give more space */
@@ -233,28 +164,64 @@ body {
   }
 
   .play-button {
-  @apply bg-green-500 text-white font-bold rounded-full p-4 inline-flex items-center justify-center shadow-md transition duration-300 ease-in-out;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  width: 70px;
-  height: 70px;
-}
+    @apply bg-green-500 text-white font-bold rounded-full p-4 inline-flex items-center justify-center shadow-md transition duration-300 ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 70px;
+    height: 70px;
+  }
 
-.play-button:hover {
-  @apply bg-green-600;
-  transform: translateY(-2px);
-}
+  .play-button:hover {
+    @apply bg-green-600;
+    transform: translateY(-2px);
+  }
 
-/* The play and pause icons should be the same size as the buttons.*/
-.play-icon,
-.pause-icon {
-  width: 50px;
-  height: 50px;
-}
+  /* The play and pause icons should be the same size as the buttons.*/
+  .play-icon,
+  .pause-icon {
+    width: 50px;
+    height: 50px;
+  }
 
-/* Style the button text to ensure it is on the same line as the icon and centred vertically */
-.play-text {
-  @apply ml-2 text-lg;
-}
+  /* Style the button text to ensure it is on the same line as the icon and centred vertically */
+  .play-text {
+    @apply ml-2 text-lg;
+  }
+
+
+  .reference-text {
+    font-family: 'ReferenceFont', sans-serif;
+    font-size: 14px;
+    color: #888;
+  }
+
+  .volume-button {
+    @apply text-black bg-white border border-gray-300 hover:bg-gray-50;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 40px;  /* Circle diameter */
+    height: 40px; /* Circle diameter */
+    border-radius: 9999px; /* Circle border radius */
+    margin: 0 8px; /* Spacing between buttons */
+  }
+
+  .volume-button-selected {
+    @apply bg-green-500 text-white border-green-500 hover:bg-green-600;
+  }
+
+  /* Button is slightly larger when hovered */
+  .volume-button:hover {
+    @apply transform scale-110;
+  }
+
+  /* Container for the self-test volume buttons */
+  .volume-container {
+    @apply mt-4 mb-6 flex justify-center items-center gap-2;
+  }
+
+  /* Enhance the visual feedback of the selected volume level */
+  .volume-level-indicator {
+    @apply text-lg font-semibold mt-4;
+  }
+
 
 
 

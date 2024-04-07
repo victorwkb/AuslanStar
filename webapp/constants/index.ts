@@ -1,7 +1,7 @@
 
 // NAVIGATION
 export const NAV_LINKS = [
-    { href: '/', key: 'home', label: 'Home' },
+    { href: '/home', key: 'home', label: 'Home' },
     { href: '/dictionary', key: 'dictionary', label: 'Dictionary' },
     { href: '/resources', key: 'resources', label: 'Resources' },
     // ... more items
@@ -42,7 +42,6 @@ export const FOOTER_CONTACT_INFO = {
         { label: 'Email Officer', value: 'auslanstarservice@gmail.com' },
     ],
 };
-
 
 
 
@@ -90,3 +89,28 @@ export const SITUATION_SCRIPTS: { [key: string]: string } = {
      `
 
     };
+
+    // Hearing Loss Levels Descriptions and Recommendations
+    export const HEARING_LOSS_INFO: { [level: string]: { performance: string; recommendation: string } } = {
+      Normal: {
+        performance: 'No or very slight hearing problems. ',
+        recommendation: 'Maintain normal activities and ensure regular hearing checks to monitor hearing health.'
+      },
+      Mild: {
+        performance: 'Slight difficulty following conversations in noise.',
+        recommendation: 'Ensure that you communicate with your child in a quiet environment, face-to-face, and may require mild hearing aids.'
+      },
+      Moderate: {
+        performance: 'Even in quiet environments, people may need to repeat conversations, especially in noisy backgrounds.',
+        recommendation: 'Consider the use of hearing aids. Special educational resources and support may be needed at school.'
+      },
+      Severe: {
+        performance: 'Unable to hear conversations without hearing aids, often relying on sign language.',
+        recommendation: 'Use of advanced hearing aids or other amplification devices necessary. Require learning sign language as a means of communication. '
+      },
+      'Profound Impairment': {
+        performance: 'Unable to hear and understand even a shouted voice.',
+        recommendation: 'Consider cochlear implants and the comprehensive learning and use of sign language to communicate.'
+      }
+    };
+
