@@ -194,6 +194,7 @@ body {
     color: #888;
   }
 
+
   .volume-button {
     @apply text-black bg-white border border-gray-300 hover:bg-gray-50;
     transition: background-color 0.2s, transform 0.1s;

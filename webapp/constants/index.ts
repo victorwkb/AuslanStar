@@ -15,6 +15,7 @@ export const RESOURCE_LINKS = [
 ];
 
 
+
 // FOOTER SECTION
 export const FOOTER_LINKS = [
     {

@@ -50,6 +50,7 @@ import Link from 'next/link'
 import {NAV_LINKS,RESOURCE_LINKS} from "@/constants";
 import React from 'react';
 
+
 const Navbar = () => {
     const pathname = usePathname();
 
