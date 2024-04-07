@@ -40,7 +40,7 @@ const CommunicationStrategies = () => {
             </div>
 
             {/* Cards 1-3 */}
-            <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
+            <div className="container mx-auto pt-2 pb-6 mt-0 mb-4">
                 <div className="flex flex-wrap justify-center -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(0, 3).map((card) => (
@@ -61,7 +61,7 @@ const CommunicationStrategies = () => {
 
             {/* Cards 4-6 */}
             <div className="container mx-auto pt-2 pb-6 mt-0 mb-4">
-                <div className="flex flex-wrap -mx-2">
+                <div className="flex flex-wrap justify-center -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(3, 6).map((card) => (
                             <FlipCard
@@ -81,7 +81,7 @@ const CommunicationStrategies = () => {
 
             {/* Cards 7-8 */}
             <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
-                <div className="flex flex-wrap -mx-2">
+                <div className="flex flex-wrap justify-center -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(6, 8).map((card) => (
                             <FlipCard
@@ -101,7 +101,7 @@ const CommunicationStrategies = () => {
 
             {/* Cards 9-10 */}
             <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
-                <div className="flex flex-wrap -mx-2">
+                <div className="flex flex-wrap justify-center -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(8, 10).map((card) => (
                             <FlipCard
@@ -115,7 +115,9 @@ const CommunicationStrategies = () => {
             </div>
 
             {/* Reference and Disclaimer */}
-            <footer style={{ fontSize: '12px', color: '#aaa', textAlign: 'center', marginTop: '50px', padding: '10px' }}>
+            <footer 
+                className="text-xs text-slate-400 text-center mt-6 p-3"
+                >
                 Reference: Information supplied by <a
                     href="https://www.aussiedeafkids.org.au/"
                     target="_blank"
