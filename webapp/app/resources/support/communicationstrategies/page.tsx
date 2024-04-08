@@ -23,8 +23,8 @@ const CommunicationStrategies = () => {
     return (
         <div>
             {/* Header */}
-            <div className="bg-gray-400">
-                <div className="max-w-5xl px-4 py-10 ml-16">
+            <div className="bg-green-100 max-container padding-container">
+                <div className="max-w-5xl px-4 py-10">
                     <h1 className="text-4xl font-bold text-white leading-tight whitespace-normal">
                         Communication Strategies
                     </h1>
@@ -35,13 +35,13 @@ const CommunicationStrategies = () => {
             </div>
 
             {/* Topic 1 */}
-            <div className="max-w-5xl px-4 pt-8 pb-2 ml-16">
+            <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
                 <h1 className="text-3xl font-bold mb-4">What to Consider in the Communication Environment?</h1>
             </div>
 
             {/* Cards 1-3 */}
             <div className="container mx-auto pt-2 pb-6 mt-0 mb-4">
-                <div className="flex flex-wrap justify-center -mx-2">
+                <div className="flex flex-wrap -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(0, 3).map((card) => (
                             <FlipCard
@@ -55,13 +55,13 @@ const CommunicationStrategies = () => {
             </div>
 
             {/* Topic 2 */}
-            <div className="max-w-5xl px-4 pt-8 pb-2 ml-16">
+            <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
                 <h1 className="text-3xl font-bold mb-4">How to Ensure Effective Communication?</h1>
             </div>
 
             {/* Cards 4-6 */}
             <div className="container mx-auto pt-2 pb-6 mt-0 mb-4">
-                <div className="flex flex-wrap justify-center -mx-2">
+                <div className="flex flex-wrap -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(3, 6).map((card) => (
                             <FlipCard
@@ -75,13 +75,13 @@ const CommunicationStrategies = () => {
             </div>
 
             {/* Topic 3 */}
-            <div className="max-w-5xl px-4 pt-8 pb-2 ml-16">
+            <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
                 <h1 className="text-3xl font-bold mb-4">Communication Strategies in Groups</h1>
             </div>
 
             {/* Cards 7-8 */}
             <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
-                <div className="flex flex-wrap justify-center -mx-2">
+                <div className="flex flex-wrap -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(6, 8).map((card) => (
                             <FlipCard
@@ -95,13 +95,13 @@ const CommunicationStrategies = () => {
             </div>
 
             {/* Topic 4 */}
-            <div className="max-w-5xl px-4 pt-8 pb-2 ml-16">
+            <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
                 <h1 className="text-3xl font-bold mb-4">Enhancing Understanding and Feedback</h1>
             </div>
 
             {/* Cards 9-10 */}
             <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
-                <div className="flex flex-wrap justify-center -mx-2">
+                <div className="flex flex-wrap -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(8, 10).map((card) => (
                             <FlipCard

@@ -5,11 +5,11 @@ import Image from 'next/image';
 
 const ResourcesPage = () => {
     return (
-        <div>
+        <div> 
             {/* Header */}
-            <div className="bg-gray-400">
-                <div className="max-w-5xl px-4 py-10 ml-16">
-                    <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
+            <div className="bg-green-100 max-container padding-container">
+                <div className="max-w-5xl px-4 py-10">
+                    <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal ">
                         How to Support Hearing-Impaired Children
                     </h1>
                     <p className="text-base text-white mt-2">
@@ -108,7 +108,7 @@ const ResourcesPage = () => {
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">Social and Emotion</div>
                                 <p className="text-gray-700 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.
+                                    Promote social integration, establish a healthy self-image, and cultivate independence and self-assertion.
                                 </p>
                             </div>
                             <div className="px-6 pt-4 pb-2">
