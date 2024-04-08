@@ -1,14 +1,14 @@
 /* styles/FlipCard.module.css */
 .cardContainer {
   display: flex;
-  flex-wrap: wrap; /* 让卡片在容器宽度不够时可以换行显示 */
-  justify-content: center; /* 卡片居中对齐 */
-  gap: 20px; /* 卡片之间的间隙 */
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 20px; 
 }
 
 .flipCard {
   flex: 0 1 auto; /* flex-grow, flex-shrink, flex-basis */
-  margin: 20px; /* 根据需要添加外边距 */
+  margin: 20px; 
   background-color: transparent;
   width: 280px; 
   height: 180px;
@@ -81,9 +81,8 @@
 }
 
 .centerText {
-  font-size: 1.5em; /* 或者你想要的尺寸 */
-  font-weight: bold; /* 如果你想要粗体 */
-  /* 其他样式根据需要添加 */
+  font-size: 1.5em; 
+  font-weight: bold; 
 }
 
 .hoverText {
