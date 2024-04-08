@@ -18,24 +18,24 @@ const BuildConfidence = () => {
   return (
     <div>
       {/* Header */}
-      <div className="bg-green-100 padding-container">
-        <div className="max-w-5xl px-4 py-10 ml-16">
+      <div className="bg-green-100">
+        <div className="max-w-5xl px-4 py-10 max-container padding-container">
           <h1 className="text-4xl font-bold text-white leading-tight whitespace-normal">
             Build Confidence
           </h1>
-          <p className="text-base text-white mt-2">
+          <p className="text-1xl text-white mt-2">
             8 tips for parents to build confidence in kids with hearing loss
           </p>
         </div>
       </div>
 
       {/* Topic 1 */}
-      <div className="max-w-5xl px-4 pt-8 pb-2 ml-16">
-        <h1 className="text-3xl font-bold mb-4">8 tips for parents to build confidence in kids with hearing loss</h1>
+      <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
+        <h1 className="text-2xl font-bold mb-4">8 tips for parents to build confidence in kids with hearing loss</h1>
       </div>
 
       {/* Cards 1-3 */}
-      <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
+      <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
         <div className="flex flex-wrap -mx-2">
           <div className={styles.cardContainer}>
             {cardData.slice(0, 3).map((card) => (
@@ -50,7 +50,7 @@ const BuildConfidence = () => {
       </div>
 
       {/* Cards 4-6 */}
-      <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
+      <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
         <div className="flex flex-wrap -mx-2">
           <div className={styles.cardContainer}>
             {cardData.slice(3, 6).map((card) => (
@@ -65,7 +65,7 @@ const BuildConfidence = () => {
       </div>
 
       {/* Cards 7-8 */}
-      <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
+      <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
         <div className="flex flex-wrap -mx-2">
           <div className={styles.cardContainer}>
             {cardData.slice(6, 8).map((card) => (

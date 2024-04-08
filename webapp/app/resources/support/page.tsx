@@ -12,54 +12,57 @@ const ResourcesPage = () => {
                     <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
                         How to Support Hearing-Impaired Children
                     </h1>
-                    <p className="text-base text-white mt-2 max-container padding-container">
+                    <p className="text-1xl text-white mt-2">
                         Discover effective strategies and resources to support hearing-impaired children in their journey.
                     </p>
                 </div>
             </div>
 
-            <div className="container mx-auto px-4 py-6">
-                <div className="grid grid-cols-2 gap-6 -mx-2">
+            <div className="max-container padding-container px-4 py-6">
+                <div className="grid grid-cols-2 gap-6 -mx-2 ">
 
                     {/* Cards 1 */}
                     <div className="w-full px-2 mb-4">
                         <div className="bg-white rounded overflow-hidden shadow-lg">
-                            <div className="h-32 sm:h-48 relative">
+                            <div className="h-52 sm:h-64 relative">
                                 <Image
                                     src="/support/communication strategies.png"
                                     layout="fill"
                                     objectFit="cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     alt="Description"
                                 />
                             </div>
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Communication Strategies</div>
-                                <p className="text-gray-700 text-base">
+                            <div className="px-6 py-4 h-70">
+                                <div className="font-bold text-2xl mb-2">Communication Strategies</div>
+                                <p className="text-gray-700 text-1xl">
                                     As children grow, it's important to communicate well with them, and with the deaf adults you meet.
                                 </p>
-                            </div>
-                            <div className="px-6 pt-4 pb-2">
-                                <Link href="/resources/support/communicationstrategies" className="text-indigo-600 hover:text-indigo-900">
-                                    Learn More
-                                </Link>
+
+                                <div className="px-6 pt-4 pb-2">
+                                    <Link href="/resources/support/communicationstrategies" className="text-indigo-600 hover:text-indigo-900">
+                                        Learn More
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                </div>
 
                     {/* Cards 2 */}
                     <div className="w-full px-2 mb-4">
-                        <div className="bg-white rounded overflow-hidden shadow-lg">
-                            <div className="h-32 sm:h-48 relative">
+                        <div className="bg-white rounded overflow-hidden shadow-lg h-100">
+                            <div className="h-52 sm:h-64 relative">
                                 <Image
                                     src="/support/teching strategies.png"
                                     layout="fill"
                                     objectFit="cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     alt="Description"
                                 />
                             </div>
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Teaching Strategies</div>
-                                <p className="text-gray-700 text-base">
+                            <div className="px-6 py-4 h-70">
+                                <div className="font-bold text-2xl mb-2 h-70">Teaching Strategies</div>
+                                <p className="text-gray-700 text-1xl h-70">
                                     Individualized teaching support to ensure that they have equal access to learning and activities.
                                 </p>
                             </div>
@@ -73,18 +76,19 @@ const ResourcesPage = () => {
 
                     {/* Cards 3 */}
                     <div className="w-full px-2 mb-4">
-                        <div className="bg-white rounded overflow-hidden shadow-lg">
-                            <div className="h-32 sm:h-48 relative">
+                        <div className="bg-white rounded overflow-hidden shadow-lg ">
+                            <div className="h-52 sm:h-64 relative">
                                 <Image
                                     src="/support/buildconfidence.png"
                                     layout="fill"
                                     objectFit="cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     alt="Description"
                                 />
                             </div>
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Build Confidence</div>
-                                <p className="text-gray-700 text-base">
+                            <div className="px-6 py-4 h-90">
+                                <div className="font-bold text-2xl mb-2 h-70">Build Confidence</div>
+                                <p className="text-gray-700 text-1xl h-70">
                                     Confidence enables children to navigate life's hurdles with resilience and poise.
                                 </p>
                             </div>
@@ -97,17 +101,19 @@ const ResourcesPage = () => {
                     {/* Cards 4 */}
                     <div className="w-full px-2 mb-4">
                         <div className="bg-white rounded overflow-hidden shadow-lg">
-                            <div className="h-32 sm:h-48 relative">
+                            <div className="h-52 sm:h-64 relative">
                                 <Image
                                     src="/support/social and emotion.png"
                                     layout="fill"
                                     objectFit="cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     alt="Description"
                                 />
                             </div>
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Social and Emotion</div>
-                                <p className="text-gray-700 text-base">
+                    
+                            <div className="px-6 py-4 h-200">
+                                <div className="font-bold text-2xl mb-2 h-70">Social and Emotion</div>
+                                <p className="text-gray-700 text-1xl h-120">
                                     Promote social integration, establish a healthy self-image, and cultivate independence and self-assertion.
                                 </p>
                             </div>

@@ -20,12 +20,12 @@ const SocialAndEmotion = () => {
     return (
         <div>
             {/* Header */}
-            <div className="bg-green-100 max-container padding-container">
-                <div className="max-w-5xl px-4 py-10">
+            <div className="bg-green-100">
+                <div className="max-w-5xl px-4 py-10 max-container padding-container">
                     <h1 className="text-4xl font-bold text-white leading-tight whitespace-normal">
                         Social and Emotion
                     </h1>
-                    <p className="text-base text-white mt-2">
+                    <p className="text-1xl text-white mt-2">
                         A quick guide to communication
                     </p>
                 </div>
@@ -33,13 +33,13 @@ const SocialAndEmotion = () => {
 
             {/* Topic 1 */}
             <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
-                <h1 className="text-3xl font-bold mb-4">Promoting Social Integration</h1>
+                <h1 className="text-2xl font-bold mb-4">Promoting Social Integration</h1>
             </div>
 
             {/* Cards 1-3 */}
-            <div className="container mx-auto px-4 pt-2 pb-4 mt-0 mb-4">
+            <div className="container mx-auto px-4 pt-2 pb-4 mt-0 mb-4 max-container padding-container">
                 <div className="flex flex-wrap -mx-2">
-                    <div className={styles.cardContainer}> 
+                    <div className={styles.cardContainer}>
                         {cardData.slice(0, 3).map((card) => (
                             <FlipCard
                                 key={card.id}
@@ -53,13 +53,13 @@ const SocialAndEmotion = () => {
 
             {/* Topic 2 */}
             <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
-                <h1 className="text-3xl font-bold mb-4">Building Self-Esteem and Self-Image</h1>
+                <h1 className="text-2xl font-bold mb-4">Building Self-Esteem and Self-Image</h1>
             </div>
 
             {/* Cards 4-5 */}
-            <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
+            <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
                 <div className="flex flex-wrap -mx-2">
-                    <div className={styles.cardContainer}> 
+                    <div className={styles.cardContainer}>
                         {cardData.slice(3, 5).map((card) => (
                             <FlipCard
                                 key={card.id}
@@ -73,13 +73,13 @@ const SocialAndEmotion = () => {
 
             {/* Topic 3 */}
             <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
-                <h1 className="text-3xl font-bold mb-4">Independence and Self-Advocacy</h1>
+                <h1 className="text-2xl font-bold mb-4">Independence and Self-Advocacy</h1>
             </div>
 
             {/* Cards 6-9 */}
-            <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4">
+            <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
                 <div className="flex flex-wrap -mx-2">
-                    <div className={styles.cardContainer}> 
+                    <div className={styles.cardContainer}>
                         {cardData.slice(5, 9).map((card) => (
                             <FlipCard
                                 key={card.id}
@@ -93,7 +93,7 @@ const SocialAndEmotion = () => {
 
             {/* Reference and Disclaimer */}
             <footer style={{ fontSize: '12px', color: '#aaa', textAlign: 'center', marginTop: '50px', padding: '10px' }}>
-                Reference: Information supplied by <a 
+                Reference: Information supplied by <a
                     href="https://www.aussiedeafkids.org.au/"
                     target="_blank"
                     rel="noopener noreferrer"
