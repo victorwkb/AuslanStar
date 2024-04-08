@@ -26,8 +26,8 @@ const TeachingStrategies = () => {
   return (
     <div>
       {/* Header */}
-      <div className="bg-gray-400">
-        <div className="max-w-5xl px-4 py-10 ml-16">
+      <div className="bg-green-100 max-container padding-container">
+        <div className="max-w-5xl px-4 py-10">
           <h1 className="text-4xl font-bold text-white leading-tight whitespace-normal">
             Teaching Strategies
           </h1>
@@ -38,10 +38,8 @@ const TeachingStrategies = () => {
       </div>
 
       {/* Topic 1 */}
-      <div className="max-w-5xl px-4 pt-6 pb-2 ml-16">
+      <div className="max-w-5xl px-4 pt-6 pb-2 max-container padding-container">
         <h1 className="text-3xl font-bold mb-4">Visual Aids & Routine</h1>
-      </div>
-      <div className="max-w-5xl px-4 pt- pb-2 ml-16">
       </div>
 
 
@@ -61,7 +59,7 @@ const TeachingStrategies = () => {
         </div>
 
       {/* Topic 2 */}
-      <div className="max-w-5xl px-4 pt-6 pb-2 ml-16">
+      <div className="max-w-5xl px-4 pt-6 pb-2 max-container padding-container">
         <h1 className="text-3xl font-bold mb-4">Personalized Learning Experience</h1>
       </div>
       <div className="max-w-5xl px-4 pt- pb-2 ml-16">
@@ -84,7 +82,7 @@ const TeachingStrategies = () => {
         </div>
 
       {/* Topic 3 */}
-      <div className="max-w-5xl px-4 pt-6 pb-2 ml-16">
+      <div className="max-w-5xl px-4 pt-6 pb-2 max-container padding-container">
         <h1 className="text-3xl font-bold mb-4">Interactive Learning & Technology</h1>
       </div>
       <div className="max-w-5xl px-4 pt- pb-2 ml-16">
@@ -106,7 +104,7 @@ const TeachingStrategies = () => {
         </div>
 
       {/* Topic 4 */}
-      <div className="max-w-5xl px-4 pt-6 pb-2 ml-16">
+      <div className="max-w-5xl px-4 pt-6 pb-2 max-container padding-container">
         <h1 className="text-3xl font-bold mb-4">Inclusive Educational Environment</h1>
       </div>
       <div className="max-w-5xl px-4 pt- pb-2 ml-16">

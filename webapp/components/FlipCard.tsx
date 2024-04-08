@@ -12,7 +12,7 @@ const FlipCard = ({ frontContent, backContent }: FlipCardProps) => {
     <div className={styles.flipCard}>
       <div className={styles.flipCardInner}>
         <div className={styles.flipCardFront}>
-          <p className={styles.centerText}>{frontContent}</p> {/* 添加了新的类 */}
+          <p className={styles.centerText}>{frontContent}</p> 
           <div className={styles.hoverText}>Hover Me</div>
         </div>
         <div className={styles.flipCardBack}>
