@@ -156,6 +156,7 @@ const SimulatorPage: React.FC  = () => {
   };
 
 
+
   const selectedLevelInfo = HEARING_LOSS_INFO[selectedLevel];
 
   const selectedScript = selectedSituation ? SITUATION_SCRIPTS[selectedSituation] : 'Please select a situation to view the script.';
