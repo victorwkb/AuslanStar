@@ -12,7 +12,7 @@ const ResourcesPage = () => {
                     <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
                         How to Support Hearing-Impaired Children
                     </h1>
-                    <p className="text-1xl text-white mt-2">
+                    <p className="text-2xl text-white mt-2">
                         Discover effective strategies and resources to support hearing-impaired children in their journey.
                     </p>
                 </div>
