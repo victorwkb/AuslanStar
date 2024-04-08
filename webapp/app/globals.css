@@ -16,8 +16,11 @@ body {
 }
 
 @layer utilities {
+  /*Home page*/
+
+
   .bg-green-100 {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 80%);
     background-attachment: fixed;
   }
   .btn_white {
@@ -64,7 +67,7 @@ body {
     @apply flex items-center justify-end;
   }
 
-
+  /*Simulator*/
   .dropdown-content {
     @apply hidden absolute left-0 mt-1 w-40 bg-white shadow-md z-10;
   }
@@ -97,11 +100,11 @@ body {
   }
 
   .text-secondary {
-    @apply text-green-700;
+    @apply text-green-600;
   }
 
   .text-tertiary {
-    @apply text-gray-700;
+    @apply text-gray-500;
   }
 
   /* Layout - Adjust the margin and padding to give more space */
@@ -127,7 +130,7 @@ body {
 
 
 
-  .situation-button {
+.situation-button {
   flex: 0 0 auto;
   width: 140px;
   height: 140px;
@@ -140,28 +143,30 @@ body {
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
-  }
+  background-color: transparent;
+  cursor: pointer;
 
+}
 
   .situation-button-selected {
-    background-color: #48bb78;
-    color: white;
+    @apply bg-green-600 text-white;
   }
 
 
   .level-button {
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    border-radius: 9999px;
-    transition: background-color 0.3s;
-    white-space: nowrap;
-  }
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  background-color: transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
 
   .level-button-selected {
-    background-color: #48bb78;
-    color: white;
-  }
+  @apply bg-green-600 text-white;
+}
 
 
   .play-button {
@@ -203,10 +208,11 @@ body {
     height: 40px; /* Circle diameter */
     border-radius: 9999px; /* Circle border radius */
     margin: 0 8px; /* Spacing between buttons */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   .volume-button-selected {
-    @apply bg-green-500 text-white border-green-500 hover:bg-green-600;
+    @apply bg-green-600 text-white border-green-500 hover:bg-green-600;
   }
 
   /* Button is slightly larger when hovered */
@@ -219,10 +225,7 @@ body {
     @apply mt-4 mb-6 flex justify-center items-center gap-2;
   }
 
-  /* Enhance the visual feedback of the selected volume level */
-  .volume-level-indicator {
-    @apply text-lg font-semibold mt-4;
-  }
+
 
 
   .performance-info,
@@ -237,10 +240,14 @@ body {
 
 
 
-
-
-
-
+  .disclaimer {
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 0.875rem; /* 14px */
+  }
 
 
 

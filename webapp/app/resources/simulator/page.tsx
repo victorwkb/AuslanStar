@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -26,15 +25,24 @@ const SimulatorPage: React.FC  = () => {
   const [selfTestVolume, setSelfTestVolume] = useState<number | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-
-
+  useEffect(() => {
+    if (isPlaying) {
+      togglePlayPause();
+      setTimeout(() => {
+        togglePlayPause();
+      }, 100);
+    }
+  }, [selectedSituation, selectedLevel]);
 
   useEffect(() => {
-    if (selfTestVolume !== null && audioRef.current) {
-      audioRef.current.volume = selfTestVolume / 100;
-      audioRef.current.play();
-    }
-  }, [selfTestVolume]);
+  if (selfTestVolume !== null && audioRef.current) {
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+    audioRef.current.volume = selfTestVolume / 100;
+    audioRef.current.play();
+  }
+}, [selfTestVolume]);
+
 
   const getHearingLossLevel = (volume: number): string => {
     if (volume > 25 && volume < 40) return 'Mild';
@@ -121,19 +129,23 @@ const SimulatorPage: React.FC  = () => {
     return { audioContext, source };
 };
 
-  const togglePlayPause = async () => {
+  const playAudio = async () => {
     if (!selectedSituation) return;
 
     const audioUrl = `/audio/${selectedSituation}.mp3`;
+    const { audioContext, source } = await processAudio(audioUrl, selectedLevel);
+    source.start(0);
+    setIsPlaying(true);
+    source.onended = () => {
+      setIsPlaying(false);
+      audioContext.close();
+      audioContextRef.current = null;
+    };
+  };
+
+  const togglePlayPause = async () => {
     if (!isPlaying) {
-      const { audioContext, source } = await processAudio(audioUrl, selectedLevel);
-      source.start(0);
-      setIsPlaying(true);
-      source.onended = () => {
-        setIsPlaying(false);
-        audioContext.close();
-        audioContextRef.current = null;
-      };
+      await playAudio();
     } else {
       if (audioContextRef.current && audioSourceRef.current) {
         audioSourceRef.current.stop();
@@ -143,114 +155,134 @@ const SimulatorPage: React.FC  = () => {
       }
     }
   };
+
+
   const selectedLevelInfo = HEARING_LOSS_INFO[selectedLevel];
 
   const selectedScript = selectedSituation ? SITUATION_SCRIPTS[selectedSituation] : 'Please select a situation to view the script.';
 
   return (
-      <div className="max-container padding-container layout-main bg-white">
-
-        <audio ref={audioRef} src="/audio/1000hz.mp3" ></audio>
-
-        <div className="text-primary mb-8">
-          <h2 className="text-2xl mb-4 font-bold">Self-Test Your Hearing</h2>
-          <p>Please click to select the lowest volume you can hear:</p>
-          <div className="volume-container">
-            {Array.from({length: 15}, (_, i) => (i + 3) * 5).map((volume) => (
-                <button
-                    key={volume}
-                    className={`volume-button ${selfTestVolume === volume ? 'volume-button-selected' : ''}`}
-                    onClick={() => setSelfTestVolume(volume)}
-                >
-                  {volume}
-                </button>
-            ))}
-          </div>
-          {selfTestVolume && (
-              <div className="volume-level-indicator">
-                <p>Your volume level: {selfTestVolume}dB</p>
-              </div>
-          )}
-          {selfTestResult && (
-              <div>
-                <h3>Your hearing loss level is: {selfTestResult}</h3>
-              </div>
-          )}
-        </div>
+      <div>
+        {/* Header */}
+            <div className="bg-green-100">
+                <div className="max-w-5xl px-4 py-10 max-container padding-container">
+                    <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
+                        Hearing Loss Simulator
+                    </h1>
+                    <p className=" text-2xl text-white  mt-2 max-container padding-container">
+                        Simulates varying levels of hearing impairment to provide an immersive understanding of auditory challenges
+                    </p >
+                </div>
+            </div>
 
 
-        <div className=" mb-8">
-          <h1 className="text-primary text-2xl mb-4 font-bold">Choose the situation you want to simulate</h1>
-          <div className="flex justify-around flex-wrap">
-            {situations.map((situation, index) => (
-                <button
-                    key={index}
-                    className={`situation-button ${selectedSituation === situation.label ? 'situation-button-selected' : ''}`}
-                    onClick={() => setSelectedSituation(situation.label)}
-                >
-                  <img src={situation.icon} alt={situation.label} className="w-12 h-12"/>
-                  <span>{situation.label}</span>
-                </button>
-            ))}
-          </div>
-        </div>
+        <div className="max-container padding-container layout-main bg-white">
 
-        <div className="text-primary mb-8">
-          <h2 className="text-primary text-2xl mb-4 font-bold">Select the hearing loss level you want to hear
-          </h2>
-          <div className="flex justify-between items-center mb-4">
+          <audio ref={audioRef} src="/audio/1000hz.MP3"></audio>
 
-            {/* Flex container for levels */}
-            <div className="flex">
-              {hearingLossLevels.map((level, index) => (
+          <div className="text-primary mb-8">
+            <h2 className="text-2xl mb-4 font-bold">Please adjust the volume to find the softest tone you can
+              hear</h2>
+            <div className="volume-container">
+              {Array.from({length: 15}, (_, i) => (i + 3) * 5).map((volume) => (
                   <button
-                      key={index}
-                      className={`level-button ${selectedLevel === level ? 'level-button-selected' : ''}`}
-                      onClick={() => setSelectedLevel(level)}
+                      key={volume}
+                      className={`volume-button ${selfTestVolume === volume ? 'volume-button-selected' : ''}`}
+                      onClick={() => setSelfTestVolume(volume)}
                   >
-                    {level}
+                    {volume}
                   </button>
               ))}
             </div>
 
-            {/* Play button */}
-            <button className="play-button" onClick={togglePlayPause}>
-              {isPlaying ? (
-                  <svg className="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                       fill="currentColor">
-                    <rect x="6" y="4" width="4" height="16"></rect>
-                    <rect x="14" y="4" width="4" height="16"></rect>
-                  </svg>
-              ) : (
-                  <svg className="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                       fill="currentColor">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
-              )}
-            </button>
+
+            {selfTestVolume && (
+                <div className="i flex items-center">
+                  <p className={`text-tertiary text-l `}>Your volume level:<span>&nbsp;</span>
+                  </p>
+                  <h3 className="text-text-primary text-l font-semibold ">{selfTestVolume}dB</h3>
+                </div>
+            )}
+            {selfTestResult && (
+                <div className="i flex items-center">
+                  <p className={`text-tertiary text-l `}>Your hearing loss level is:<span>&nbsp;</span>
+                  </p>
+                  <h3 className="text-primary text-l font-semibold ">{selfTestResult}</h3>
+                </div>
+            )}
           </div>
 
-          <div className="flex justify-center items-center">
-            <h3 className="text-primary text-l font-semibold performance-info">Performance:<span>&nbsp;</span></h3>
-            <p className={`text-primary text-l performance-info ${selfTestResult ? 'highlight-change' : ''}`}>{selectedLevelInfo.performance}</p>
-          </div>
-          <div className="flex justify-center items-center">
-            <h3 className="text-tertiary text-l font-semibold recommendation-info">Recommendation:<span>&nbsp;</span>
-            </h3>
-            <p className={`text-tertiary text-l recommendation-info ${selfTestResult ? 'highlight-change' : ''}`}>{selectedLevelInfo.recommendation}</p>
+
+          <div className=" mb-8">
+            <h1 className="text-primary text-2xl mb-4 font-bold">Choose a situation you want to simulate</h1>
+            <div className="flex justify-around flex-wrap">
+              {situations.map((situation, index) => (
+                  <button
+                      key={index}
+                      className={`situation-button ${selectedSituation === situation.label ? 'situation-button-selected' : ''}`}
+                      onClick={() => setSelectedSituation(situation.label)}
+                  >
+                    <img src={situation.icon} alt={situation.label} className="w-12 h-12"/>
+                    <span>{situation.label}</span>
+                  </button>
+              ))}
+            </div>
           </div>
 
           <div className="text-primary mb-8">
-            <h2 className="text-primary  text-2xl mb-4 font-bold">Click to Play</h2>
+            <h2 className="text-primary text-2xl mb-4 font-bold">Select a hearing loss level to simulate</h2>
+            <div className="flex items-center mb-4">
+              {/* Hearing loss level buttons */}
+              <div className="flex flex-wrap">
+                {hearingLossLevels.map((level, index) => (
+                    <button
+                        key={index}
+                        className={`level-button ${selectedLevel === level ? 'level-button-selected' : ''}`}
+                        onClick={() => setSelectedLevel(level)}
+                    >
+                      {level}
+                    </button>
+                ))}
+              </div>
+
+              {/* Play button aligned with the level buttons */}
+              <div className="ml-4">
+                <button className="play-button" onClick={togglePlayPause}>
+                  {isPlaying ? (
+                      <svg className="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                           fill="currentColor">
+                        <rect x="6" y="4" width="4" height="16"></rect>
+                        <rect x="14" y="4" width="4" height="16"></rect>
+                      </svg>
+                  ) : (
+                      <svg className="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                           fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="i flex items-center">
+              <h3 className="text-tertiary text-l font-semibold performance-info">Performance:<span>&nbsp;</span></h3>
+              <p className={`text-tertiary text-l performance-info ${selfTestResult ? 'highlight-change' : ''}`}>{selectedLevelInfo.performance}</p>
+            </div>
+
+            <div className="i flex items-center">
+              <h3 className="text-tertiary  text-l font-semibold recommendation-info">Recommendation:<span>&nbsp;</span>
+              </h3>
+              <p className={`text-tertiary text-l recommendation-info ${selfTestResult ? 'highlight-change' : ''}`}>{selectedLevelInfo.recommendation}</p>
+            </div>
+
+
           </div>
 
-
-        </div>
-
-        <div className="text-primary mb-8">
-          <h2 className="text-2xl mb-4 font-bold">Here is the script:</h2>
-          <div className="text-tertiary bg-gray-100 p-4 rounded-lg shadow-inner">
-            <pre>{selectedScript}</pre>
+          <div className="text-primary mb-8">
+            <h2 className="text-2xl mb-4 font-bold">Here is the script:</h2>
+            <div className="text-tertiary bg-gray-100 p-4 rounded-lg shadow-inner">
+              <pre>{selectedScript}</pre>
+            </div>
           </div>
         </div>
       </div>
