@@ -22,6 +22,7 @@ body {
   .bg-green-100 {
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 80%);
     background-attachment: fixed;
+
   }
   .btn_white {
     @apply border-white bg-white px-8 py-3 text-green-50
@@ -148,8 +149,12 @@ body {
 
 }
 
+  .situation-button:hover {
+    transform: translateY(-2px);
+}
+
   .situation-button-selected {
-    @apply bg-green-600 text-white;
+    @apply bg-purple-300 text-white;
   }
 
 
@@ -163,21 +168,24 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+  .level-button:hover {
+    transform: translateY(-2px);
+  }
 
   .level-button-selected {
-  @apply bg-green-600 text-white;
+  @apply bg-purple-300 text-white;
 }
 
 
   .play-button {
-    @apply bg-green-500 text-white font-bold rounded-full p-4 inline-flex items-center justify-center shadow-md transition duration-300 ease-in-out;
+    @apply bg-purple-200 text-white font-bold rounded-full p-4 inline-flex items-center justify-center shadow-md transition duration-300 ease-in-out;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     width: 70px;
     height: 70px;
   }
 
   .play-button:hover {
-    @apply bg-green-600;
+    @apply bg-purple-300;
     transform: translateY(-2px);
   }
 
@@ -212,12 +220,13 @@ body {
   }
 
   .volume-button-selected {
-    @apply bg-green-600 text-white border-green-500 hover:bg-green-600;
+    @apply bg-purple-300 text-white border-purple-300 hover:bg-purple-400;
   }
 
   /* Button is slightly larger when hovered */
   .volume-button:hover {
-    @apply transform scale-110;
+    @apply bg-purple-300;
+    transform: translateY(-2px);
   }
 
   /* Container for the self-test volume buttons */

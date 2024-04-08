@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { SITUATION_SCRIPTS,  HEARING_LOSS_INFO } from "@/constants";
-
+// Define situations and their corresponding icons.
 const situations = [
   { label: 'Tutorial', icon: '/class.png' },
   { label: 'Playground', icon: '/playground.png' },
@@ -11,20 +11,22 @@ const situations = [
   { label: 'Traffic', icon: '/traffic.png' },
   { label: 'Music', icon: '/musical.png' }
 ];
-
+// Define different levels of hearing loss for selection
 const hearingLossLevels = ['Normal', 'Mild', 'Moderate', 'Severe', 'Profound Impairment'];
 
-
+// The main simulator page functional component.
 const SimulatorPage: React.FC  = () => {
+  // State hooks for situation selection, level of hearing loss, and audio play state.
   const [selectedSituation, setSelectedSituation] = useState<string | 'Tutorial'>('Tutorial');
   const [selectedLevel, setSelectedLevel] = useState<string>('Normal');
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  // Refs for the Web Audio API and the HTMLAudioElement
   const audioContextRef = useRef<AudioContext | null>(null);
   const audioSourceRef = useRef<AudioBufferSourceNode | null>(null);
 
   const [selfTestVolume, setSelfTestVolume] = useState<number | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-
+   // Effect hook to handle situation changes and apply audio play toggle.
   useEffect(() => {
     if (isPlaying) {
       togglePlayPause();
@@ -33,7 +35,7 @@ const SimulatorPage: React.FC  = () => {
       }, 100);
     }
   }, [selectedSituation, selectedLevel]);
-
+  // Effect hook to handle self-test volume changes and play audio.
   useEffect(() => {
   if (selfTestVolume !== null && audioRef.current) {
     audioRef.current.pause();
@@ -43,7 +45,7 @@ const SimulatorPage: React.FC  = () => {
   }
 }, [selfTestVolume]);
 
-
+   // Function to map volume to hearing loss level.
   const getHearingLossLevel = (volume: number): string => {
     if (volume > 25 && volume < 40) return 'Mild';
     if (volume >= 41 && volume < 60) return 'Moderate';
@@ -51,12 +53,9 @@ const SimulatorPage: React.FC  = () => {
     if (volume >= 81) return 'Profound';
     return 'Normal';
   };
-
+  // Determine the self-test result based on volume.
   const selfTestResult = selfTestVolume ? getHearingLossLevel(selfTestVolume) : null;
-
-
-
-
+  // Async function to process and simulate audio based on the situation and hearing loss level.
   const processAudio = async (audioFile: string, level: string) => {
     if (!audioContextRef.current) {
       audioContextRef.current = new AudioContext();
@@ -179,7 +178,7 @@ const SimulatorPage: React.FC  = () => {
         <div className="max-container padding-container layout-main bg-white">
 
           <audio ref={audioRef} src="/audio/1000hz.MP3"></audio>
-
+          {/* Self-test volume adjustment section */}
           <div className="text-primary mb-8">
             <h2 className="text-2xl mb-4 font-bold">Please adjust the volume to find the softest tone you can
               hear</h2>
@@ -212,7 +211,7 @@ const SimulatorPage: React.FC  = () => {
             )}
           </div>
 
-
+          {/* Situation selection section */}
           <div className=" mb-8">
             <h1 className="text-primary text-2xl mb-4 font-bold">Choose a situation you want to simulate</h1>
             <div className="flex justify-around flex-wrap">
@@ -228,7 +227,7 @@ const SimulatorPage: React.FC  = () => {
               ))}
             </div>
           </div>
-
+          {/* Hearing loss level selection section */}
           <div className="text-primary mb-8">
             <h2 className="text-primary text-2xl mb-4 font-bold">Select a hearing loss level to simulate</h2>
             <div className="flex items-center mb-4">
@@ -274,10 +273,8 @@ const SimulatorPage: React.FC  = () => {
               </h3>
               <p className={`text-tertiary text-l recommendation-info ${selfTestResult ? 'highlight-change' : ''}`}>{selectedLevelInfo.recommendation}</p>
             </div>
-
-
           </div>
-
+          {/* Script display section */}
           <div className="text-primary mb-8">
             <h2 className="text-2xl mb-4 font-bold">Here is the script:</h2>
             <div className="text-tertiary bg-gray-100 p-4 rounded-lg shadow-inner">
