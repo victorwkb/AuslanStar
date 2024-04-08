@@ -33,18 +33,19 @@ const ResourcesPage = () => {
                                     alt="Description"
                                 />
                             </div>
-                            <div className="px-6 py-4 h-70">
+                            <div className="px-6 py-4">
                                 <div className="font-bold text-2xl mb-2">Communication Strategies</div>
                                 <p className="text-gray-700 text-1xl">
                                     As children grow, it's important to communicate well with them, and with the deaf adults you meet.
                                 </p>
-
-                                <div className="px-6 pt-4 pb-2">
-                                    <Link href="/resources/support/communicationstrategies" className="text-indigo-600 hover:text-indigo-900">
-                                        Learn More
-                                    </Link>
-                                </div>
                             </div>
+
+                            <div className="px-6 pt-4 pb-2">
+                                <Link href="/resources/support/communicationstrategies" className="text-indigo-600 hover:text-indigo-900">
+                                    Learn More
+                                </Link>
+                            </div>
+                            
                         </div>
                 </div>
 
@@ -60,8 +61,8 @@ const ResourcesPage = () => {
                                     alt="Description"
                                 />
                             </div>
-                            <div className="px-6 py-4 h-70">
-                                <div className="font-bold text-2xl mb-2 h-70">Teaching Strategies</div>
+                            <div className="px-6 py-4">
+                                <div className="font-bold text-2xl mb-2">Teaching Strategies</div>
                                 <p className="text-gray-700 text-1xl h-70">
                                     Individualized teaching support to ensure that they have equal access to learning and activities.
                                 </p>
