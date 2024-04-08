@@ -16,13 +16,22 @@ body {
 }
 
 @layer utilities {
-  /*Home page*/
-
 
   .bg-green-100 {
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 80%);
     background-attachment: fixed;
 
+  }
+
+  /*.text-custom-purple-light {*/
+  /*  color: #794BE2;*/
+  /*}*/
+  .text-custom-purple-light {
+    color: #7561D5;
+  }
+
+  .text-custom-purple-dark {
+    color: #5A5186;
   }
   .btn_white {
     @apply border-white bg-white px-8 py-3 text-green-50
