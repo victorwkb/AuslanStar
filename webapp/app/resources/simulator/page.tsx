@@ -61,11 +61,11 @@ const SimulatorPage: React.FC  = () => {
 
     const lowPassFilter = audioContext.createBiquadFilter();
     lowPassFilter.type = 'lowpass';
-    lowPassFilter.frequency.value = 4000; // 初始化为正常听力的高频截止阈值
+    lowPassFilter.frequency.value = 4000;
 
     const highPassFilter = audioContext.createBiquadFilter();
     highPassFilter.type = 'highpass';
-    highPassFilter.frequency.value = 20; // 初始化为正常听力的低频截止阈值
+    highPassFilter.frequency.value = 20;
 
     const gainNode = audioContext.createGain();
     const midFrequencyGain = audioContext.createGain();
@@ -154,7 +154,7 @@ const SimulatorPage: React.FC  = () => {
 
         <div className="text-primary mb-8">
           <h2 className="text-2xl mb-4 font-bold">Self-Test Your Hearing</h2>
-          <p>Please select the lowest volume you can hear:</p>
+          <p>Please click to select the lowest volume you can hear:</p>
           <div className="volume-container">
             {Array.from({length: 15}, (_, i) => (i + 3) * 5).map((volume) => (
                 <button
@@ -195,37 +195,26 @@ const SimulatorPage: React.FC  = () => {
           </div>
         </div>
 
-        <div className="text-tertiary mb-8">
+        <div className="text-primary mb-8">
           <h2 className="text-primary text-2xl mb-4 font-bold">Select the hearing loss level you want to hear
           </h2>
-          <div className="text-primary flex justify-center font-semibold items-center mb-4 text-xl ">
-            {hearingLossLevels.map((level, index) => (
-                <button
-                    key={index}
-                    className={`level-button ${selectedLevel === level ? 'level-button-selected' : ''}`}
-                    onClick={() => setSelectedLevel(level)}
-                >
-                  {level}
-                </button>
-            ))}
-          </div>
+          <div className="flex justify-between items-center mb-4">
 
-          <div className="flex justify-center items-center mb-4">
-            <h3 className="text-primary text-l mb-4 font-semibold">Performance:<span>&nbsp;</span></h3>
-            <p className="text-primary text-l mb-4 ">{selectedLevelInfo.performance}</p>
+            {/* Flex container for levels */}
+            <div className="flex">
+              {hearingLossLevels.map((level, index) => (
+                  <button
+                      key={index}
+                      className={`level-button ${selectedLevel === level ? 'level-button-selected' : ''}`}
+                      onClick={() => setSelectedLevel(level)}
+                  >
+                    {level}
+                  </button>
+              ))}
+            </div>
 
-          </div>
-          <div className="flex justify-center items-center mb-4">
-            <h3 className="text-tertiary  text-l mb-4 font-semibold">Recommendation:<span>&nbsp;</span></h3>
-            <p className="text-tertiary text-l mb-4 ">{selectedLevelInfo.recommendation}</p>
-          </div>
-
-          <div className="text-primary mb-8">
-            <h2 className="text-primary  text-2xl mb-4 font-bold">Click to Play</h2>
-          </div>
-
-          <div className="text-primary flex justify-center items-center">
-            <button className="play-button text-primary" onClick={togglePlayPause}>
+            {/* Play button */}
+            <button className="play-button" onClick={togglePlayPause}>
               {isPlaying ? (
                   <svg className="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                        fill="currentColor">
@@ -233,12 +222,29 @@ const SimulatorPage: React.FC  = () => {
                     <rect x="14" y="4" width="4" height="16"></rect>
                   </svg>
               ) : (
-                  <svg className="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                       fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
               )}
             </button>
           </div>
+
+          <div className="flex justify-center items-center">
+            <h3 className="text-primary text-l font-semibold performance-info">Performance:<span>&nbsp;</span></h3>
+            <p className={`text-primary text-l performance-info ${selfTestResult ? 'highlight-change' : ''}`}>{selectedLevelInfo.performance}</p>
+          </div>
+          <div className="flex justify-center items-center">
+            <h3 className="text-tertiary text-l font-semibold recommendation-info">Recommendation:<span>&nbsp;</span>
+            </h3>
+            <p className={`text-tertiary text-l recommendation-info ${selfTestResult ? 'highlight-change' : ''}`}>{selectedLevelInfo.recommendation}</p>
+          </div>
+
+          <div className="text-primary mb-8">
+            <h2 className="text-primary  text-2xl mb-4 font-bold">Click to Play</h2>
+          </div>
+
+
         </div>
 
         <div className="text-primary mb-8">

@@ -1,12 +1,12 @@
 
 // NAVIGATION
 export const NAV_LINKS = [
-    { href: '/home', key: 'home', label: 'Home' },
+    { href: '/', key: 'home', label: 'Home' },
     { href: '/dictionary', key: 'dictionary', label: 'Dictionary' },
     { href: '/resources', key: 'resources', label: 'Resources' },
     // ... more items
 ];
-// Resource SUB-NAVIGATION
+// Resource SUB-NAVIGATIN
 export const RESOURCE_LINKS = [
   { href: '/resources/benefits', key: 'benefits', label: 'Benefits of Learning Auslan' },
   { href: '/resources/support', key: 'support', label: 'Supporting Your Child' },
