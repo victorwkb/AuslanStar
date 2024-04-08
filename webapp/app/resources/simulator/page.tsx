@@ -231,7 +231,7 @@ const SimulatorPage: React.FC  = () => {
           </div>
           {/* Hearing loss level selection section */}
           <div className="text-primary mb-8">
-            <h2 className="text-primary text-2xl mb-4 font-bold">Select a hearing loss level to simulate</h2>
+            <h2 className="text-primary text-2xl mb-4 font-bold">Select a hearing loss level and Click play button to simulate</h2>
             <div className="flex items-center mb-4">
               {/* Hearing loss level buttons */}
               <div className="flex flex-wrap">
