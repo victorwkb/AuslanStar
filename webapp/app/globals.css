@@ -16,7 +16,41 @@ body {
 }
 
 @layer utilities {
+    /*nav bar*/
+  .group {
+    position: relative;
+  }
 
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    min-width: 160px;
+    z-index: 1000;
+  }
+
+  .group:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-item {
+    padding: 12px 16px;
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f6f6f6;
+  }
+
+
+
+  /*background*/
   .bg-green-100 {
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 80%);
     background-attachment: fixed;
@@ -74,7 +108,7 @@ body {
     @apply flex items-center justify-end;
   }
 
-  /*Simulator*/
+
   .dropdown-content {
     @apply hidden absolute left-0 mt-1 w-40 bg-white shadow-md z-10;
   }
@@ -240,9 +274,6 @@ body {
     @apply mt-4 mb-6 flex justify-center items-center gap-2;
   }
 
-
-
-
   .performance-info,
   .recommendation-info {
     margin: 0;
@@ -250,10 +281,6 @@ body {
     line-height: 1.2; /* Adjust as needed */
     @apply mt-0 mb-1; /* Tailwind classes for margin top and bottom */
   }
-
-
-
-
 
   .disclaimer {
     background: #f8f8f8;
@@ -268,12 +295,9 @@ body {
   .quote {
     border-left: 4px solid rgb(206, 162, 199); 
     padding-left: 1rem; 
-    font-size: 1xl; 
+    font-size: 0.875rem;
     font-style: italic; 
   }
-
-
-
 
 
 

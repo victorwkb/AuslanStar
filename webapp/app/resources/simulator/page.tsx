@@ -180,6 +180,7 @@ const SimulatorPage: React.FC  = () => {
           <audio ref={audioRef} src="/audio/1000hz.MP3"></audio>
           {/* Self-test volume adjustment section */}
           <div className="text-primary mb-8">
+
             <h2 className="text-2xl mb-4 font-bold">Please adjust the volume to find the softest tone you can
               hear</h2>
             <div className="volume-container">
@@ -281,6 +282,33 @@ const SimulatorPage: React.FC  = () => {
               <pre>{selectedScript}</pre>
             </div>
           </div>
+
+          <footer className="text-xs text-slate-400 text-center mt-6 p-3">
+            Disclaimer: The content and simulations on this Website are for educational use only and do not replace professional advice.
+            For accurate assessments and recommendations, consult a healthcare professional.
+            <br/>
+            All audio materials are copyright-free and AI-generated.
+            <br/>
+            Reference sources:
+            <a
+                href="https://pixabay.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-500 underline"
+            >
+              Pixabay
+            </a>
+            ,
+            <a
+                href="https://elevenlabs.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-500 underline"
+            >
+              ElevenLabs
+            </a>
+          </footer>
+
         </div>
       </div>
 
