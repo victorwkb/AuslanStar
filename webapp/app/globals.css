@@ -259,7 +259,12 @@ body {
   }
 
 
-
+  .quote {
+    border-left: 4px solid rgb(206, 162, 199); 
+    padding-left: 1rem; 
+    font-size: 1xl; 
+    font-style: italic; 
+  }
 
 
 

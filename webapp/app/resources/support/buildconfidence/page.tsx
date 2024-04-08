@@ -20,10 +20,10 @@ const BuildConfidence = () => {
       {/* Header */}
       <div className="bg-green-100">
         <div className="max-w-5xl px-4 py-10 max-container padding-container">
-          <h1 className="text-4xl font-bold text-white leading-tight whitespace-normal">
+          <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
             Build Confidence
           </h1>
-          <p className="text-1xl text-white mt-2">
+          <p className="text-2xl text-white mt-2">
             8 tips for parents to build confidence in kids with hearing loss
           </p>
         </div>

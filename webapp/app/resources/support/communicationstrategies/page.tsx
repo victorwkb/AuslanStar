@@ -25,10 +25,10 @@ const CommunicationStrategies = () => {
             {/* Header */}
             <div className="bg-green-100">
                 <div className="max-w-5xl px-4 py-10 max-container padding-container">
-                    <h1 className="text-4xl font-bold text-white leading-tight whitespace-normal">
+                    <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
                         Communication Strategies
                     </h1>
-                    <p className="text-1xl text-white mt-2">
+                    <p className="text-2xl text-white mt-2">
                         A quick guide to communication
                     </p>
                 </div>
