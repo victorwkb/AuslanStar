@@ -3,12 +3,13 @@ import Link from "next/link"
 
 export default function Resources() {
     return (
-    <><div className="bg-gray-400">
+        <><div className="bg-green-100">
             <div className="max-w-5xl px-4 py-10 ml-16">
-                <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
+                <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal max-container padding-container">
                     The bebefits of Learning Auslan
                 </h1>
             </div>
+
         </div><div className="container mx-auto px-4 py-6">
                 <h1 className="text-3xl font-bold mb-4">What Are the Benefits of Learning Auslan?</h1>
                 <section className="mb-10">
@@ -42,5 +43,7 @@ export default function Resources() {
                     </p>
                 </section>
             </div></>
+
+        
     );
 }

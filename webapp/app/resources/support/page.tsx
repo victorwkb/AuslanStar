@@ -7,12 +7,12 @@ const ResourcesPage = () => {
     return (
         <div> 
             {/* Header */}
-            <div className="bg-green-100 max-container padding-container">
+            <div className="bg-green-100">
                 <div className="max-w-5xl px-4 py-10">
-                    <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal ">
+                    <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal max-container padding-container">
                         How to Support Hearing-Impaired Children
                     </h1>
-                    <p className="text-base text-white mt-2">
+                    <p className="text-base text-white mt-2 max-container padding-container">
                         Discover effective strategies and resources to support hearing-impaired children in their journey.
                     </p>
                 </div>
