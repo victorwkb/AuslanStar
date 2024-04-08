@@ -28,10 +28,10 @@ const TeachingStrategies = () => {
       {/* Header */}
       <div className="bg-green-100">
         <div className="max-w-5xl px-4 py-10 max-container padding-container">
-          <h1 className="text-4xl font-bold text-white leading-tight whitespace-normal">
+          <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
             Teaching Strategies
           </h1>
-          <p className="text-1xl text-white mt-2">
+          <p className="text-2xl text-white mt-2">
             Provide personalized teaching support for deaf children, ensuring equal participation in learning and activities.
           </p>
         </div>
@@ -137,7 +137,5 @@ const TeachingStrategies = () => {
 }
 
 export default TeachingStrategies;
-
-
 
 
