@@ -182,7 +182,7 @@ const SimulatorPage: React.FC  = () => {
           {/* Self-test volume adjustment section */}
           <div className="text-primary mb-8">
 
-            <h2 className="text-2xl mb-4 font-bold">Step 1: adjust the volume to find the softest tone you can
+            <h2 className="text-2xl mb-4 font-bold">Step 1: Please adjust the volume to find the softest tone you can
               hear</h2>
             <div className="volume-container">
               {Array.from({length: 15}, (_, i) => (i + 3) * 5).map((volume) => (
