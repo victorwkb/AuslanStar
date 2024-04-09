@@ -1,0 +1,33 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Word {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  entry_in_english  String
+  sub_entries       String[]
+  categories        Int[]
+  entry_type        String?
+}
+
+// model SubEntry {
+//   id        String  @id @default(auto()) @map("_id") @db.ObjectId
+//   video_links      String[]
+//   keywords         String[]
+//   definitions      String[]
+//   regions          String[]
+// }
+
+// model Definition {
+//   id        String  @id @default(auto()) @map("_id") @db.ObjectId
+//   Noun             String[] @map("As a Noun")
+//   VerbOrAdjective  String[] @map("As a Verb or Adjective")
+//   Modifier         String[] @map("As Modifier")
+//   AugmentedMeaning String[] @map("Augmented Meaning")
+//   Interactive      String[]
+// }
