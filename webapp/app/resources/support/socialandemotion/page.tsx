@@ -3,30 +3,27 @@ import FlipCard from '@/components/FlipCard';
 import styles from '@/styles/FlipCard.module.css';
 
 const cardData = [
-    { id: 1, frontContent: 'Well-Lit', backContent: 'Use good lighting and avoid standing with your back to the window to reduce shadows on facial expressions and lip-reading.' },
-    { id: 2, frontContent: 'Proper Distance', backContent: 'Keep a distance of one to two meters to facilitate signing or lip-reading while maintaining good eye contact.' },
-    { id: 3, frontContent: 'Minimize Background Noise', backContent: 'Try to minimize background noise. Carpets or curtains can help absorb sound in the room, which is especially important for children using hearing aids or cochlear implants.' },
+    { id: 1, frontContent: 'Inclusive Communication', backContent: 'Creating an environment that encourages effective communication between deaf children and their peers, fostering mutual understanding.' },
+    { id: 2, frontContent: 'Role Comprehension', backContent: 'Assisting deaf children in understanding and simulating various roles in social interactions through targeted teaching.' },
+    { id: 3, frontContent: 'Independent Socialization', backContent: 'Enhancing the ability of deaf children to form friendships on their own through group activities and games.' },
 
-    { id: 4, frontContent: 'Clear Pronunciation', backContent: 'Speak clearly, naturally, and at a normal pace. Avoid shouting, as it may appear angry to your child and distorts lip patterns.' },
-    { id: 5, frontContent: 'Use Gestures', backContent: 'Even if your child does not use sign language, using hand gestures and facial expressions to support your words can be helpful.' },
-    { id: 6, frontContent: 'Avoid Covering Your Face', backContent: 'Don\'t eat, smoke, or block your face while talking. Keep beards trimmed, and ensure glasses don\'t hinder eye contact.' },
+    { id: 4, frontContent: 'Confidence Building', backContent: 'Actively praising the social contributions of deaf children to help them build confidence within the group.' },
+    { id: 5, frontContent: 'Positive Self-Awareness', backContent: 'Educating deaf children to understand their deafness and how it impacts their personal development.' },
 
-    { id: 7, frontContent: 'Take Turns Speaking', backContent: 'Ensure only one person speaks at a time in group settings. The speaker can raise their hand so the child knows who is speaking.' },
-    { id: 8, frontContent: 'Signal Topic Changes', backContent: 'Make sure to signal when the topic of conversation changes to avoid confusing the child.' },
-
-    { id: 9, frontContent: 'Simplify Language', backContent: 'f a word or sign is not easily understood, try using a more common word or sign with the same meaning.' },
-    { id: 10, frontContent: 'Check for Understanding', backContent: 'Pause between sentences to check if your child has understood you, and make sure you have understood them. Encourage them to stop you if they do not understand what is being discussed.' },
+    { id: 6, frontContent: 'Autonomous Behavior', backContent: 'Offering opportunities within activities for deaf children to make their own choices, fostering independence.' },
+    { id: 7, frontContent: 'Behavioral Understanding', backContent: 'Ensuring that deaf children understand behavioral rules and recognize the impact of their actions on others.' },
+    { id: 9, frontContent: 'Self-Advocacy Skills', backContent: 'Teaching deaf children how to speak up for their needs and advocate for themselves.' },
     // more card info
 ];
 
-const CommunicationStrategies = () => {
+const SocialAndEmotion = () => {
     return (
         <div>
             {/* Header */}
             <div className="bg-green-100">
                 <div className="max-w-5xl px-4 py-10 max-container padding-container">
                     <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
-                        Communication Strategies
+                        Social and Emotion
                     </h1>
                     <p className="text-2xl text-white mt-2">
                         A quick guide to communication
@@ -36,11 +33,11 @@ const CommunicationStrategies = () => {
 
             {/* Topic 1 */}
             <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
-                <h1 className="text-2xl font-bold mb-4">What to Consider in the Communication Environment?</h1>
+                <h1 className="text-2xl font-bold mb-4">Promoting Social Integration</h1>
             </div>
 
             {/* Cards 1-3 */}
-            <div className="container mx-auto pt-2 pb-6 mt-0 mb-4 max-container padding-container">
+            <div className="container mx-auto px-4 pt-2 pb-4 mt-0 mb-4 max-container padding-container">
                 <div className="flex flex-wrap -mx-2">
                     <div className={styles.cardContainer}>
                         {cardData.slice(0, 3).map((card) => (
@@ -56,14 +53,14 @@ const CommunicationStrategies = () => {
 
             {/* Topic 2 */}
             <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
-                <h1 className="text-2xl font-bold mb-4">How to Ensure Effective Communication?</h1>
+                <h1 className="text-2xl font-bold mb-4">Building Self-Esteem and Self-Image</h1>
             </div>
 
-            {/* Cards 4-6 */}
-            <div className="container mx-auto pt-2 pb-6 mt-0 mb-4 max-container padding-container">
+            {/* Cards 4-5 */}
+            <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
                 <div className="flex flex-wrap -mx-2">
                     <div className={styles.cardContainer}>
-                        {cardData.slice(3, 6).map((card) => (
+                        {cardData.slice(3, 5).map((card) => (
                             <FlipCard
                                 key={card.id}
                                 frontContent={card.frontContent}
@@ -76,34 +73,14 @@ const CommunicationStrategies = () => {
 
             {/* Topic 3 */}
             <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
-                <h1 className="text-2xl font-bold mb-4">Communication Strategies in Groups</h1>
+                <h1 className="text-2xl font-bold mb-4">Independence and Self-Advocacy</h1>
             </div>
 
-            {/* Cards 7-8 */}
+            {/* Cards 6-9 */}
             <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
                 <div className="flex flex-wrap -mx-2">
                     <div className={styles.cardContainer}>
-                        {cardData.slice(6, 8).map((card) => (
-                            <FlipCard
-                                key={card.id}
-                                frontContent={card.frontContent}
-                                backContent={card.backContent}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* Topic 4 */}
-            <div className="max-w-5xl px-4 pt-8 pb-2 max-container padding-container">
-                <h1 className="text-2xl font-bold mb-4">Enhancing Understanding and Feedback</h1>
-            </div>
-
-            {/* Cards 9-10 */}
-            <div className="container mx-auto px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
-                <div className="flex flex-wrap -mx-2">
-                    <div className={styles.cardContainer}>
-                        {cardData.slice(8, 10).map((card) => (
+                        {cardData.slice(5, 9).map((card) => (
                             <FlipCard
                                 key={card.id}
                                 frontContent={card.frontContent}
@@ -115,9 +92,7 @@ const CommunicationStrategies = () => {
             </div>
 
             {/* Reference and Disclaimer */}
-            <footer 
-                className="text-xs text-slate-400 text-center mt-6 p-3"
-                >
+            <footer style={{ fontSize: '12px', color: '#aaa', textAlign: 'center', marginTop: '50px', padding: '10px' }}>
                 Reference: Information supplied by <a
                     href="https://www.aussiedeafkids.org.au/"
                     target="_blank"
@@ -135,7 +110,7 @@ const CommunicationStrategies = () => {
 
 }
 
-export default CommunicationStrategies;
+export default SocialAndEmotion;
 
 
 
