@@ -47,9 +47,9 @@ const SimulatorPage: React.FC  = () => {
 
    // Function to map volume to hearing loss level.
   const getHearingLossLevel = (volume: number): string => {
-    if (volume > 25 && volume < 40) return 'Mild';
-    if (volume >= 41 && volume < 60) return 'Moderate';
-    if (volume >= 61 && volume < 80) return 'Severe';
+    if (volume > 25 && volume <=40) return 'Mild';
+    if (volume >= 41 && volume <= 60) return 'Moderate';
+    if (volume >= 61 && volume <= 80) return 'Severe';
     if (volume >= 81) return 'Profound';
     return 'Normal';
   };
