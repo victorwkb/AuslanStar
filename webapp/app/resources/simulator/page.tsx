@@ -182,7 +182,7 @@ const SimulatorPage: React.FC  = () => {
           {/* Self-test volume adjustment section */}
           <div className="text-primary mb-8">
 
-            <h2 className="text-2xl mb-4 font-bold">Please adjust the volume to find the softest tone you can
+            <h2 className="text-2xl mb-4 font-bold">Step 1: adjust the volume to find the softest tone you can
               hear</h2>
             <div className="volume-container">
               {Array.from({length: 15}, (_, i) => (i + 3) * 5).map((volume) => (
@@ -215,7 +215,7 @@ const SimulatorPage: React.FC  = () => {
 
           {/* Situation selection section */}
           <div className=" mb-8">
-            <h1 className="text-primary text-2xl mb-4 font-bold">Choose a situation you want to simulate</h1>
+            <h1 className="text-primary text-2xl mb-4 font-bold">Step 2: Choose a situation you want to simulate</h1>
             <div className="flex justify-around flex-wrap">
               {situations.map((situation, index) => (
                   <button
@@ -231,7 +231,7 @@ const SimulatorPage: React.FC  = () => {
           </div>
           {/* Hearing loss level selection section */}
           <div className="text-primary mb-8">
-            <h2 className="text-primary text-2xl mb-4 font-bold">Select a hearing loss level and Click play button to simulate</h2>
+            <h2 className="text-primary text-2xl mb-4 font-bold">Step 3: Select a hearing loss level and Click play button to simulate</h2>
             <div className="flex items-center mb-4">
               {/* Hearing loss level buttons */}
               <div className="flex flex-wrap">
