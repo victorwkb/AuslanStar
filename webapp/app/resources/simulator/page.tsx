@@ -169,7 +169,7 @@ const SimulatorPage: React.FC  = () => {
                     <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
                         Hearing Loss Simulator
                     </h1>
-                    <p className=" text-2xl text-white  mt-2 max-container padding-container">
+                    <p className=" text-2xl text-white  mt-2">
                         Simulates varying levels of hearing impairment to provide an immersive understanding of auditory challenges
                     </p >
                 </div>
