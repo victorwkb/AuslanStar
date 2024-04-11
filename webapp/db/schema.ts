@@ -32,5 +32,12 @@ export const subEntryRelations = relations(
   })
 )
 
+export const worddefinitions = pgTable('word_definitions', {
+  id: integer('id').primaryKey(),
+  word: text('word'),
+  definition: text('definition')
+});
+
+
 export type Entry = typeof entry.$inferSelect;
 export type SubEntry = typeof subentry.$inferSelect;
