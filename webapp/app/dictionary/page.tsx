@@ -1,6 +1,6 @@
 'use client'; // Make sure this is the very first line in your file
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import SearchBar from "@/components/SearchBar";
 
 export default function Dictionary() {
@@ -14,7 +14,9 @@ export default function Dictionary() {
           video.</p>
       </header>
 
-      <SearchBar />
+      <Suspense>
+        <SearchBar />
+      </Suspense>
     </div>
   );
 }
