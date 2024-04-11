@@ -1,9 +1,9 @@
 import { db } from '@/db'
-import { entry, subentry, Entry, SubEntry } from '@/db/schema'
+import { entry, subentry } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { X } from 'lucide-react'
 
-const Results = async ({ query }) => {
+const Results = async ({ query }: any) => {
   let entryData = await db.select().from(entry).limit(1).where(eq(entry.entryInEnglish, query));
 
   if (entryData.length === 0) {
