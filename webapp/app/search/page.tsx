@@ -1,6 +1,5 @@
 import React from 'react'
 import Results from '@/components/Results'
-import { db } from '@/db'
 import SearchBar from '@/components/SearchBar'
 import { redirect } from 'next/navigation'
 
@@ -8,7 +7,7 @@ import { redirect } from 'next/navigation'
 export const dynamic = 'force-dynamic'
 
 interface PageProps {
-  searchParams?: {
+  searchParams: {
     [key: string]: string | string[] | undefined
   }
 }
