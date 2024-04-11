@@ -1,6 +1,7 @@
 import React from 'react'
 import Results from '@/components/Results'
 import SearchBar from '@/components/SearchBar'
+import { Suspense } from 'react'
 import { redirect } from 'next/navigation'
 
 
@@ -30,9 +31,10 @@ const Search = async ({ searchParams }: PageProps) => {
       </header>
 
 
-      <SearchBar />
-
-      <Results query={query} />
+      <Suspense>
+        <SearchBar />
+        <Results query={query} />
+      </Suspense>
     </div>
   )
 }
