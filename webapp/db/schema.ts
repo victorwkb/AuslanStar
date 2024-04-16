@@ -22,6 +22,12 @@ export const subentry = pgTable('subentry', {
   regions: text('regions').array()
 });
 
+export const sentence = pgTable('sentences', {
+  id: integer('id').primaryKey(),
+  sentence: text('sentence'),
+  videoLinks: text('video_links')
+});
+
 export const subEntryRelations = relations(
   subentry,
   ({ one }) => ({

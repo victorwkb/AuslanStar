@@ -1,5 +1,5 @@
 import { db } from '@/db'
-import { entry, subentry, worddefinitions } from '@/db/schema'
+import { entry, subentry, worddefinitions, sentence } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { X } from 'lucide-react'
 import { BedrockEmbeddings } from '@langchain/community/embeddings/bedrock'
@@ -42,6 +42,27 @@ const config = {
 const pgVectorStore = new PGVectorStore(embeddings, config);
 
 const Results = async ({ query }: any) => {
+  let sentenceData = await db.select().from(sentence).limit(1).where(eq(sentence.sentence, query))
+  if (sentenceData.length !== 0){
+    return(
+      <Suspense>
+        <div className="mb-5">
+          {sentenceData.map((sentence) => (
+            <div key={sentence.id}>
+              <h2 className="mb-5 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{sentence.sentence}</h2>
+              <video controls className="max-w-full w-50 h-50">
+                    <source src={sentence.videoLinks!} type="video/mp4" />
+                    Your browser does not support the video tag.
+              </video>
+            </div>
+          ))}
+        </div>
+      </Suspense>
+
+    )
+  }
+
+
   let entryData = await db.select().from(entry).limit(1).where(eq(entry.entryInEnglish, query));
 
   if (entryData.length === 0) {
