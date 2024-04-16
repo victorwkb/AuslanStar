@@ -46,16 +46,18 @@ const Results = async ({ query }: any) => {
   if (sentenceData.length !== 0){
     return(
       <Suspense>
-        <div className="mb-5">
-          {sentenceData.map((sentence) => (
-            <div key={sentence.id}>
-              <h2 className="mb-5 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{sentence.sentence}</h2>
-              <video key={sentence.id} controls className="max-w-full w-50 h-50">
-                    <source src={sentence.videoLinks!} type="video/mp4" />
-                    Your browser does not support the video tag.
-              </video>
-            </div>
-          ))}
+        <div className="bg-gray-100 p-6 shadow-xl rounded-lg max-w-[800px] mx-auto mt-8">
+          <div className="mb-5">
+            {sentenceData.map((sentence) => (
+              <div key={sentence.id}>
+                <h2 className="mb-5 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{sentence.sentence}</h2>
+                <video key={sentence.id} controls className="max-w-full w-50 h-50">
+                      <source src={sentence.videoLinks!} type="video/mp4" />
+                      Your browser does not support the video tag.
+                </video>
+              </div>
+            ))}
+          </div>
         </div>
       </Suspense>
     )
