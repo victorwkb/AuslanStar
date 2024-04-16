@@ -42,23 +42,25 @@ const config = {
 const pgVectorStore = new PGVectorStore(embeddings, config);
 
 const Results = async ({ query }: any) => {
-  let sentenceData = await db.select().from(sentence).limit(1).where(eq(sentence.sentence, query))
+  let sentenceData = await db.select().from(sentence).limit(1).where(eq(sentence.sentence, query));
   if (sentenceData.length !== 0){
     return(
-      <Suspense>
+      <div className="flex flex-row justify-center gap-x-8 mt-6">
+        {sentenceData[0].sentence}
+      </div>
+      /*<Suspense>
         <div className="mb-5">
           {sentenceData.map((sentence) => (
             <div key={sentence.id}>
               <h2 className="mb-5 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{sentence.sentence}</h2>
-              <video controls className="max-w-full w-50 h-50">
+              <video key={sentence.id} controls className="max-w-full w-50 h-50">
                     <source src={sentence.videoLinks!} type="video/mp4" />
                     Your browser does not support the video tag.
               </video>
             </div>
           ))}
         </div>
-      </Suspense>
-
+      </Suspense>*/
     )
   }
 
