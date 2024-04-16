@@ -45,10 +45,7 @@ const Results = async ({ query }: any) => {
   let sentenceData = await db.select().from(sentence).limit(1).where(eq(sentence.sentence, query));
   if (sentenceData.length !== 0){
     return(
-      <div className="flex flex-row justify-center gap-x-8 mt-6">
-        {sentenceData[0].sentence}
-      </div>
-      /*<Suspense>
+      <Suspense>
         <div className="mb-5">
           {sentenceData.map((sentence) => (
             <div key={sentence.id}>
@@ -60,7 +57,7 @@ const Results = async ({ query }: any) => {
             </div>
           ))}
         </div>
-      </Suspense>*/
+      </Suspense>
     )
   }
 
