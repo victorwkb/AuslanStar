@@ -64,7 +64,7 @@ const Navbar = () => {
                   <Image src="/logo.svg" alt="logo" width={90} height={50}/>
               </Link>
               <Link href={NAV_LINKS.find((item) => item.key === "home")?.href ?? "/"}>
-                  <p className="font-mono ml-3 text-4xl font-bold italic text-purple1 ">Auslan Star</p>
+                  <p className="font-mono ml-3 text-4xl font-bold italic text-purple-300 ">Auslan Star</p>
               </Link>
 
           </div>
@@ -73,7 +73,7 @@ const Navbar = () => {
                       <li key={link.key} className="relative group">
                           <Link href={link.href}>
               <span
-                  className={`cursor-pointer ... ${pathname === link.href || pathname.startsWith(`${link.href}/`) || (link.key === "resources" && isResourcesActive) ? "font-semibold text-purple1" : "text-gray-600"}`}
+                  className={`cursor-pointer ... ${pathname === link.href || pathname.startsWith(`${link.href}/`) || (link.key === "resources" && isResourcesActive) ? "font-semibold text-purple-300" : "text-gray-600"}`}
               >
                 {link.label}{" "}
                   {link.key === "resources" ? (
@@ -86,7 +86,7 @@ const Navbar = () => {
                                   {RESOURCE_LINKS.map((resourceLink) => (
                                       <li
                                           key={resourceLink.key}
-                                          className={`px-4 py-2 hover:bg-purple-100 ${pathname.startsWith(`${resourceLink.href}`) ? "font-semibold text-purple1" : "text-gray-600"}`}
+                                          className={`px-4 py-2 hover:bg-purple-100 ${pathname.startsWith(`${resourceLink.href}`) ? "font-semibold text-purple-300" : "text-gray-600"}`}
                                       >
                                           <Link href={resourceLink.href}>{resourceLink.label}</Link>
                                       </li>

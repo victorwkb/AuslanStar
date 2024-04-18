@@ -32,7 +32,40 @@ const SimulatorPage: React.FC = () => {
   const audioContextRef = useRef<AudioContext | null>(null);
   const audioSourceRef = useRef<AudioBufferSourceNode | null>(null);
 
+  const [isSelfTestPlaying, setIsSelfTestPlaying] = useState<boolean>(false);
+
   const [selfTestVolume, setSelfTestVolume] = useState<number | null>(null);
+  useEffect(() => {
+    if (selfTestVolume !== null && audioRef.current) {
+      audioRef.current.volume = selfTestVolume / 100;
+      audioRef.current.play();
+      setIsSelfTestPlaying(true); // Automatically start playing and update the button state
+    }
+  }, [selfTestVolume]);
+
+
+  const toggleSelfTestPlayPause = () => {
+    if (audioRef.current) {
+      if (isSelfTestPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsSelfTestPlaying(!isSelfTestPlaying);
+    }
+  };
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        setIsSelfTestPlaying(false); // Reset the play state
+      }
+    };
+  }, []);
+
+
+
+
   const audioRef = useRef<HTMLAudioElement>(null);
   // Effect hook to handle situation changes and apply audio play toggle.
   useEffect(() => {
@@ -196,37 +229,64 @@ const SimulatorPage: React.FC = () => {
             Step 1: Please adjust the volume to find the softest tone you can
             hear
           </h2>
+
           <div className="volume-container">
-            {Array.from({ length: 15 }, (_, i) => (i + 3) * 5).map((volume) => (
-              <button
-                key={volume}
-                className={`volume-button ${selfTestVolume === volume ? "volume-button-selected" : ""}`}
-                onClick={() => setSelfTestVolume(volume)}
-              >
-                {volume}
-              </button>
+            {Array.from({length: 15}, (_, i) => (i + 3) * 5).map((volume) => (
+                <button
+                    key={volume}
+                    className={`volume-button ${selfTestVolume === volume ? "volume-button-selected" : ""}`}
+                    onClick={() => setSelfTestVolume(volume)}
+                >
+                  {volume}
+                </button>
             ))}
+            {/* Self-test play/pause button */}
+            <button className="volume-button" onClick={toggleSelfTestPlayPause}>
+              {isSelfTestPlaying ? (
+                  <svg
+                      className="pause-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      style={{width: '1em', height: '1em'}} // Adjust size to match other buttons
+                  >
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+              ) : (
+                  <svg
+                      className="play-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      style={{width: '1em', height: '1em'}} // Adjust size to match other buttons
+                  >
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+              )}
+            </button>
           </div>
 
+
           {selfTestVolume && (
-            <div className="i flex items-center">
-              <p className={`text-tertiary text-l `}>
-                Your volume level:<span>&nbsp;</span>
-              </p>
-              <h3 className="text-text-primary text-l font-semibold ">
-                {selfTestVolume}dB
-              </h3>
-            </div>
+              <div className="i flex items-center">
+                <p className={`text-tertiary text-l `}>
+                  Your volume level:<span>&nbsp;</span>
+                </p>
+                <h3 className="text-text-primary text-l font-semibold ">
+                  {selfTestVolume}dB
+                </h3>
+              </div>
           )}
           {selfTestResult && (
-            <div className="i flex items-center">
-              <p className={`text-tertiary text-l `}>
-                Your hearing loss level is:<span>&nbsp;</span>
-              </p>
-              <h3 className="text-primary text-l font-semibold ">
-                {selfTestResult}
-              </h3>
-            </div>
+              <div className="i flex items-center">
+                <p className={`text-tertiary text-l `}>
+                  Your hearing loss level is:<span>&nbsp;</span>
+                </p>
+                <h3 className="text-primary text-l font-semibold ">
+                  {selectedLevel} // Use selectedLevel directly
+                </h3>
+              </div>
           )}
         </div>
 
@@ -237,18 +297,18 @@ const SimulatorPage: React.FC = () => {
           </h1>
           <div className="flex justify-around flex-wrap">
             {situations.map((situation, index) => (
-              <button
-                key={index}
-                className={`situation-button ${selectedSituation === situation.label ? "situation-button-selected" : ""}`}
-                onClick={() => setSelectedSituation(situation.label)}
-              >
-                <img
-                  src={situation.icon}
-                  alt={situation.label}
-                  className="w-12 h-12"
-                />
-                <span>{situation.label}</span>
-              </button>
+                <button
+                    key={index}
+                    className={`situation-button ${selectedSituation === situation.label ? "situation-button-selected" : ""}`}
+                    onClick={() => setSelectedSituation(situation.label)}
+                >
+                  <img
+                      src={situation.icon}
+                      alt={situation.label}
+                      className="w-12 h-12"
+                  />
+                  <span>{situation.label}</span>
+                </button>
             ))}
           </div>
         </div>

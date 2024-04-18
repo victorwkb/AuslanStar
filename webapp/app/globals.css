@@ -77,6 +77,17 @@ body {
     color: #785B4B;
   }
 
+  .volume-button:hover {
+    @apply bg-purple-300;
+    transform: translateY(-2px);
+  }
+  .volume-button {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .btn_white {
     @apply border-white bg-white px-8 py-3 text-green-50;
   }
