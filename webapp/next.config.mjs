@@ -6,7 +6,7 @@ const nextConfig = {
     BEDROCK_AWS_SECRET_ACCESS_KEY: process.env.BEDROCK_AWS_SECRET_ACCESS_KEY,
     SUPABASE_PASSWORD: process.env.SUPABASE_PASSWORD,
     DB_URL: process.env.DB_URL,
-  }
+  },
 };
 
 export default nextConfig;

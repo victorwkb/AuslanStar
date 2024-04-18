@@ -1,16 +1,16 @@
 /* styles/FlipCard.module.css */
 .cardContainer {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 20px; 
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .flipCard {
   flex: 0 1 auto; /* flex-grow, flex-shrink, flex-basis */
-  margin: 40px; 
+  margin: 40px;
   background-color: transparent;
-  width: 280px; 
+  width: 280px;
   height: 180px;
   perspective: 1000px;
   font-family: sans-serif;
@@ -37,7 +37,7 @@
 }
 
 .flipCardFront {
-  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -48,13 +48,19 @@
   backface-visibility: hidden;
   border: 1px solid #d7aefb; /* 略深的粉紫色边框 */
   border-radius: 1rem;
-  background: linear-gradient(120deg, #f8e6fa 60%, #f0d7f7 88%, #e8c7f3 40%, #e0b7ef 48%);
+  background: linear-gradient(
+    120deg,
+    #f8e6fa 60%,
+    #f0d7f7 88%,
+    #e8c7f3 40%,
+    #e0b7ef 48%
+  );
   color: #d7aefb; /* 略深的粉紫色文本 */
   padding: 20px;
 }
 
 .flipCardBack {
-  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -65,7 +71,13 @@
   backface-visibility: hidden;
   border: 1px solid #d7aefb; /* 略深的粉紫色边框 */
   border-radius: 1rem;
-  background: linear-gradient(120deg, #e8c7f3 30%, #d7aefb 88%, #f8e6fa 40%, #e0b7ef 78%);
+  background: linear-gradient(
+    120deg,
+    #e8c7f3 30%,
+    #d7aefb 88%,
+    #f8e6fa 40%,
+    #e0b7ef 78%
+  );
   color: #ffffff; /* 白色文本 */
   transform: rotateY(180deg);
   padding: 20px;
@@ -86,7 +98,6 @@
   color: #d7aefb; /* 略深的粉紫色文本 */
   transition: font-size 0.3s ease;
 }
-
 
 .leaveText {
   position: absolute;

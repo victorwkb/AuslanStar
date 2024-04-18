@@ -1,6 +1,6 @@
 // components/FlipCard.tsx
-import React from 'react';
-import styles from '@/styles/FlipCard.module.css';
+import React from "react";
+import styles from "@/styles/FlipCard.module.css";
 
 interface FlipCardProps {
   frontContent: string;
@@ -12,7 +12,7 @@ const FlipCard = ({ frontContent, backContent }: FlipCardProps) => {
     <div className={styles.flipCard}>
       <div className={styles.flipCardInner}>
         <div className={styles.flipCardFront}>
-          <p className={styles.centerText}>{frontContent}</p> 
+          <p className={styles.centerText}>{frontContent}</p>
           <div className={styles.hoverText}>Hover Me</div>
         </div>
         <div className={styles.flipCardBack}>
@@ -25,7 +25,3 @@ const FlipCard = ({ frontContent, backContent }: FlipCardProps) => {
 };
 
 export default FlipCard;
-
-
-
-

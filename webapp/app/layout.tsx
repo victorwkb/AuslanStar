@@ -6,7 +6,8 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "AuslanStar",
-  description: "AuslanStar is a platform for learning Australian Sign Language (Auslan) online.",
+  description:
+    "AuslanStar is a platform for learning Australian Sign Language (Auslan) online.",
 };
 
 export default function RootLayout({
@@ -18,9 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <main className="relative overflow-hidden">
-            {children}
-        </main>
+        <main className="relative overflow-hidden">{children}</main>
         <Footer />
       </body>
     </html>
