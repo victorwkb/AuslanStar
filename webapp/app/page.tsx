@@ -3,12 +3,11 @@ import Head from "next/head";
 import { NAV_LINKS, RESOURCE_LINKS } from "@/constants";
 export default function Home() {
   const dictionaryLink = NAV_LINKS.find((link) => link.key === "dictionary")!;
+  const simulatorLink = RESOURCE_LINKS.find((link) => link.key === "simulator")!;
   return (
     <>
-      <Head>
-        <title>Practice Australian Sign Language</title>
-      </Head>
-      <div className="min-h-screen bg-gradient-to-r bg-green-100 ">
+
+      <div className=" bg-gradient-to-r bg-green-100 min-h-[600px] ">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
@@ -27,14 +26,13 @@ export default function Home() {
                     {dictionaryLink.label}
                   </p>
                 </Link>
-                {/* Resource Links */}
-                {RESOURCE_LINKS.map((link) => (
-                  <Link key={link.key} href={link.href}>
-                    <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
-                      {link.label}
-                    </p>
-                  </Link>
-                ))}
+
+                <Link href={simulatorLink.href}>
+                  <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                    {simulatorLink.label}
+                  </p>
+                </Link>
+
               </div>
             </div>
             <img

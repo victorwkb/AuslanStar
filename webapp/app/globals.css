@@ -47,19 +47,36 @@ body {
     background-color: #f6f6f6;
   }
 
-  /*background*/
+
   .bg-green-100 {
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 80%);
     background-attachment: fixed;
   }
 
   .text-custom-purple-light {
+    /*color: #FFEE6F;*/
+    /*color: #A4ABD6*/
     color: #7561d5;
   }
 
   .text-custom-purple-dark {
     color: #5a5186;
   }
+  .text-purple1 {
+    color: #A4ABD6;
+  }
+    /* 在全局样式或者单独的样式文件中 */
+  .bg-text-purple1 {
+    background-color: #A4ABD6; /* 提高优先级 */
+  }
+
+   .text-yellow1 {
+    color: #FFEE6F;
+  }
+    .text-logo {
+    color: #785B4B;
+  }
+
   .btn_white {
     @apply border-white bg-white px-8 py-3 text-green-50;
   }

@@ -57,41 +57,46 @@ const Navbar = () => {
   const isResourcesActive = pathname.startsWith("/resources");
 
   return (
-    <nav className="border-5 border-red-300 flexBetween max-container padding-container relative z-30 py-5">
-      <Link href={NAV_LINKS.find((item) => item.key === "home")?.href ?? "/"}>
-        <Image src="/Auslanlogo.jpg" alt="logo" width={60} height={25} />
-      </Link>
+      <nav className="border-5 border-red-300 flexBetween max-container padding-container relative z-30 py-5">
 
-      <ul className="hidden h-full gap-12 lg:flex">
-        {NAV_LINKS.map((link) => (
-          <li key={link.key} className="relative group">
-            <Link href={link.href}>
+          <div className='flex items-center'>
+              <Link href={NAV_LINKS.find((item) => item.key === "home")?.href ?? "/"}>
+                  <Image src="/logo.svg" alt="logo" width={90} height={50}/>
+              </Link>
+              <Link href={NAV_LINKS.find((item) => item.key === "home")?.href ?? "/"}>
+                  <p className="font-mono ml-3 text-4xl font-bold italic text-purple1 ">Auslan Star</p>
+              </Link>
+
+          </div>
+          <ul className="font-mono hidden h-full text-xl gap-12 lg:flex">
+                  {NAV_LINKS.map((link) => (
+                      <li key={link.key} className="relative group">
+                          <Link href={link.href}>
               <span
-                className={`cursor-pointer ... ${pathname === link.href || pathname.startsWith(`${link.href}/`) || (link.key === "resources" && isResourcesActive) ? "font-semibold text-purple-400" : "text-gray-600"}`}
+                  className={`cursor-pointer ... ${pathname === link.href || pathname.startsWith(`${link.href}/`) || (link.key === "resources" && isResourcesActive) ? "font-semibold text-purple1" : "text-gray-600"}`}
               >
                 {link.label}{" "}
-                {link.key === "resources" ? (
-                  <span aria-hidden="true">&#9662;</span>
-                ) : null}
+                  {link.key === "resources" ? (
+                      <span aria-hidden="true">&#9662;</span>
+                  ) : null}
               </span>
-            </Link>
-            {link.key === "resources" && (
-              <ul className="absolute hidden group-hover:block w-48 left-1/2 transform -translate-x-1/2 border border-gray-200">
-                {RESOURCE_LINKS.map((resourceLink) => (
-                  <li
-                    key={resourceLink.key}
-                    className={`px-4 py-2 hover:bg-blue-50 ${pathname.startsWith(`${resourceLink.href}`) ? "font-semibold text-purple-400" : "text-gray-600"}`}
-                  >
-                    <Link href={resourceLink.href}>{resourceLink.label}</Link>
-                  </li>
-                ))}
+                          </Link>
+                          {link.key === "resources" && (
+                              <ul className="absolute hidden group-hover:block w-48 left-1/2 transform -translate-x-1/2 border border-gray-200 bg-white">
+                                  {RESOURCE_LINKS.map((resourceLink) => (
+                                      <li
+                                          key={resourceLink.key}
+                                          className={`px-4 py-2 hover:bg-purple-100 ${pathname.startsWith(`${resourceLink.href}`) ? "font-semibold text-purple1" : "text-gray-600"}`}
+                                      >
+                                          <Link href={resourceLink.href}>{resourceLink.label}</Link>
+                                      </li>
+                                  ))}
+                              </ul>
+                          )}
+                      </li>
+                  ))}
               </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
+      </nav>
+);
 };
 export default Navbar;
-

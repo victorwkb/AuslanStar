@@ -183,7 +183,8 @@ const SimulatorPage: React.FC = () => {
             Hearing Loss Simulator
           </h1>
           <p className=" text-2xl text-white  mt-2">
-            Experience the World Through Your Child's Ears
+            Simulates varying levels of hearing impairment to provide an
+            immersive understanding of auditory challenges
           </p>
         </div>
       </div>

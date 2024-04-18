@@ -2,11 +2,17 @@
 export const NAV_LINKS = [
   { href: "/", key: "home", label: "Home" },
   { href: "/dictionary", key: "dictionary", label: "Dictionary" },
+  // { href: "/spelling", key: "spelling", label: "Spelling" },
   { href: "/resources/benefits", key: "resources", label: "Resources" },
   // ... more items
 ];
 // Resource SUB-NAVIGATIN
 export const RESOURCE_LINKS = [
+    {
+    href: "/resources/simulator",
+    key: "simulator",
+    label: "Hearing Loss Simulator",
+  },
   {
     href: "/resources/benefits",
     key: "benefits",
@@ -17,11 +23,7 @@ export const RESOURCE_LINKS = [
     key: "support",
     label: "Supporting Your Child",
   },
-  {
-    href: "/resources/simulator",
-    key: "simulator",
-    label: "Hearing Loss Simulator",
-  },
+
   // ... more items
 ];
 

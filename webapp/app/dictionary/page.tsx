@@ -5,7 +5,7 @@ import SearchBar from "@/components/SearchBar";
 
 export default function Dictionary() {
   return (
-    <div className="flex flex-col items-center justify-center bg-green-100 min-h-[700px] p-10">
+    <div className="flex flex-col items-center justify-center bg-green-100 min-h-[800px] p-10">
       <header className="layout-header text-center">
         <h1 className="text-5xl text-primary font-bold">
           Free Auslan Dictionary
