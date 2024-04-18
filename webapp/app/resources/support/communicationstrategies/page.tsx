@@ -176,7 +176,7 @@ const CommunicationStrategies = () => {
       <footer className="text-xs text-slate-400 text-center mt-6 p-3">
         Reference: Information supplied by{" "}
         <a
-          href="https://www.aussiedeafkids.org.au/"
+          href="https://www.aussiedeafkids.org.au/resources/language-and-communication/"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: "#aaa", textDecoration: "underline" }}

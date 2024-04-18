@@ -182,7 +182,7 @@ const TeachingStrategies = () => {
       >
         Reference: Information supplied by{" "}
         <a
-          href="https://www.natsip.org.uk/"
+          href="https://www.cumbria.gov.uk/elibrary/Content/Internet/537/3953/6769/6772/41739151054.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: "#aaa", textDecoration: "underline" }}
