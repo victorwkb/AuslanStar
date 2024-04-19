@@ -3,7 +3,7 @@ export const NAV_LINKS = [
   { href: "/", key: "home", label: "Home" },
   { href: "/dictionary", key: "dictionary", label: "Dictionary" },
   // { href: "/spelling", key: "spelling", label: "Spelling" },
-  { href: "/resources/benefits", key: "resources", label: "Resources" },
+  { href: "/resources/simulator", key: "resources", label: "Resources" },
   // ... more items
 ];
 // Resource SUB-NAVIGATIN
