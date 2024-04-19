@@ -54,6 +54,7 @@ const SimulatorPage: React.FC = () => {
       setIsSelfTestPlaying(!isSelfTestPlaying);
     }
   };
+
   useEffect(() => {
     return () => {
       if (audioRef.current) {
@@ -62,7 +63,6 @@ const SimulatorPage: React.FC = () => {
       }
     };
   }, []);
-
 
 
 
@@ -284,7 +284,7 @@ const SimulatorPage: React.FC = () => {
                   Your hearing loss level is:<span>&nbsp;</span>
                 </p>
                 <h3 className="text-primary text-l font-semibold ">
-                  {selectedLevel} // Use selectedLevel directly
+                  {selfTestResult}
                 </h3>
               </div>
           )}
