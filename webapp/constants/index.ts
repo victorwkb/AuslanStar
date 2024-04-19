@@ -49,7 +49,7 @@ export const FOOTER_LINKS = [
 
 export const FOOTER_CONTACT_INFO = {
   title: "Contact Us",
-  links: [{ label: "Email Officer", value: "auslanstarservice@gmail.com" }],
+  links: [{ label: "E:", value: "auslanstarservice@gmail.com" }],
 };
 
 // Situation Scripts
