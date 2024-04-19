@@ -50,7 +50,7 @@ export default function Resources() {
         </h1>
         <div className="relative w-full quote mb-2">
           <h1 className="mb-2">
-            Learn Australian Sign Language (Auslan) with lifelong benefits.
+            Learn Australian Sign Language (Auslan) with economic, educational, health benefits.
           </h1>
           <Image
             src="/benefits/lifetime benefits.png"

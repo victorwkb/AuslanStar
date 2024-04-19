@@ -23,8 +23,8 @@ const SearchBar = () => {
 
   return (
     <Suspense>
-      <div className="relative w-3/4 h-14 flex flex-col bg-white">
-        <div className="relative h-14 z-10 rounded-md">
+      <div className="relative w-1/2 h-14 flex flex-col bg-transparent">
+        <div className="relative h-14 z-10 rounded-md bg-white">
           <Input
             disabled={isSearching}
             value={query}

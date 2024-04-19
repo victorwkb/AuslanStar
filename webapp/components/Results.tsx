@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { entry, subentry, sentence } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { eq, ilike } from "drizzle-orm";
 import { X } from "lucide-react";
 import { BedrockEmbeddings } from "@langchain/community/embeddings/bedrock";
 import {
@@ -45,11 +45,11 @@ const Results = async ({ query }: any) => {
     .select()
     .from(sentence)
     .limit(1)
-    .where(eq(sentence.sentence, query));
+    .where(ilike(sentence.sentence, query));
   if (sentenceData.length !== 0) {
     return (
       <Suspense>
-        <div className="bg-gray-100 p-6 shadow-xl rounded-lg max-w-[800px] mx-auto mt-8">
+        <div className="bg-gray-100 p-6 shadow-xl rounded-lg max-w-[1200px] mx-auto mt-8">
           <div className="mb-5">
             {sentenceData.map((sentence) => (
               <div key={sentence.id}>
@@ -59,7 +59,7 @@ const Results = async ({ query }: any) => {
                 <video
                   key={sentence.id}
                   controls
-                  className="max-w-full w-50 h-50"
+                  className="max-w-[1200px] w-50 h-50"
                 >
                   <source src={sentence.videoLinks!} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -175,20 +175,20 @@ const Results = async ({ query }: any) => {
             </div>
           ))}
         </div>
-        <div>
+        <div className="flex flex-col gap-y-6">
           {/* Populate through the subentries */}
           {subEntries.map((subentry) => (
-            <div key={subentry.id}>
+            <div key={subentry.id} className="border border-slate-300 bg-slate-50 rounded-lg border-black shadow-xl p-3">
               <p className="text-gray-700 mb-3 font-normal">
                 Definition in Auslan:
               </p>
-              <div className="flex space-x-2 overflow-x-auto">
+              <div className="flex justify-center space-x-2 overflow-x-auto">
                 {subentry.videoLinks &&
                   subentry.videoLinks.map((videoLink) => (
                     <video
                       key={videoLink}
                       controls
-                      className="max-w-full w-50 h-50"
+                      className="w-full w-50 h-50"
                     >
                       <source src={videoLink} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -197,12 +197,12 @@ const Results = async ({ query }: any) => {
               </div>
 
               {subentry.keywords && (
-                <div className="text-sm text-gray-700 mb-3">
+                <div className="text-sm text-gray-700 my-3">
                   Keywords: {subentry.keywords.join(", ")}
                 </div>
               )}
 
-              <div className="flex flex-col gap-y-3 mb-8">
+              <div className="flex flex-col gap-y-3 mb-3">
                 {Object.entries(
                   subentry.definitions as { [key: string]: string },
                 ).map(([definitionType, definition]) => (
