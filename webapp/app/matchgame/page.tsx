@@ -1,14 +1,22 @@
+//
+//
+//
 // "use client";
 //
 // import { useState, useEffect } from "react";
 //
 // // Define a type for the board
 //
+// interface Card {
+//   letter: string;
+//   sign: string;
+// }
 //
-// // const board: BoardType = ["🤖", "👽", "👻", "🤡", "🐧", "🦚", "😄", "🚀"];
-// type BoardType = { letter: string; sign: string }[];
+// // Define a type for the board state, which will be an array of strings (image paths)
+// type BoardState = string[];
 //
-// const board: BoardType = [
+// // Define your board with pairs of images
+// const boardPairs: Card[] = [
 //   { letter: "A.png", sign: "signA.png" },
 //   { letter: "B.png", sign: "signB.png" },
 //   { letter: "C.png", sign: "signC.png" },
@@ -21,36 +29,44 @@
 //
 // export default function Match() {
 //   // Explicitly type the useState hooks
-//   const [boardData, setBoardData] = useState<BoardType>([]);
+//   const [boardData, setBoardData] = useState<BoardState>([]);
 //   const [flippedCards, setFlippedCards] = useState<number[]>([]);
 //   const [matchedCards, setMatchedCards] = useState<number[]>([]);
 //   const [moves, setMoves] = useState<number>(0);
 //   const [gameOver, setGameOver] = useState<boolean>(false);
+//   const [showModal, setShowModal] = useState<boolean>(false);
+//
+//   useEffect(() => {
+//     if (matchedCards.length === boardPairs.length * 2) {
+//       setGameOver(true);
+//       setShowModal(true); // When the game is over, show the modal
+//     }
+//   }, [matchedCards]);
 //
 //   useEffect(() => {
 //     initialize();
 //   }, []);
 //
 //   useEffect(() => {
-//     if (matchedCards.length === 16) {
+//     if (matchedCards.length === boardPairs.length * 2) {
 //       setGameOver(true);
 //     }
-//   }, [matchedCards, moves]);
+//   }, [matchedCards]);
 //
-// const initialize = () => {
-//   // 拓展和混合字母图片与手势图片
-//   const extendedBoard = board.flatMap((item) => [item.letter, item.sign]);
-//   shuffle(extendedBoard);
-//   setGameOver(false);
-//   setFlippedCards([]);
-//   setMatchedCards([]);
-//   setMoves(0);
-// };
+//   const initialize = () => {
+//     // Mix the image paths together for shuffling
+//     const imagePaths: BoardState = boardPairs.flatMap(card => [card.letter, card.sign]);
+//     const shuffledImages = shuffle(imagePaths);
+//     setBoardData(shuffledImages);
+//     setFlippedCards([]);
+//     setMatchedCards([]);
+//     setMoves(0);
+//     setGameOver(false);
+//   };
 //
-// const shuffle = (items: string[]) => {
-//   const shuffledItems: string[] = items.sort(() => Math.random() - 0.5);
-//   setBoardData(shuffledItems);
-// };
+//   const shuffle = (imagePaths: BoardState): BoardState => {
+//     return [...imagePaths].sort(() => Math.random() - 0.5);
+//   };
 //
 //
 //
@@ -59,8 +75,8 @@
 //     const firstCard = boardData[flippedCards[0]];
 //     const secondCard = boardData[i];
 //
-//     // 检查是否为匹配的一对
-//     const isMatch = board.some(pair =>
+//
+//     const isMatch = boardPairs.some(pair =>
 //       (pair.letter === firstCard && pair.sign === secondCard) ||
 //       (pair.sign === firstCard && pair.letter === secondCard)
 //     );
@@ -108,10 +124,29 @@
 //             );
 //           })}
 //         </div>
+//       {/*  {showModal && (*/}
+//       {/*  <div className="modal-overlay">*/}
+//       {/*    <div className="modal">*/}
+//       {/*      <p>Congratulations! You've completed this round.</p>*/}
+//       {/*      <p>Would you like to go to the next stage or play again?</p>*/}
+//       {/*      <button onClick={() => {*/}
+//       {/*        // Logic for going to the next stage*/}
+//       {/*      }}>*/}
+//       {/*        Next Stage*/}
+//       {/*      </button>*/}
+//       {/*      <button onClick={() => {*/}
+//       {/*        initialize();*/}
+//       {/*        setShowModal(false);*/}
+//       {/*      }}>*/}
+//       {/*        Play Again*/}
+//       {/*      </button>*/}
+//       {/*    </div>*/}
+//       {/*  </div>*/}
+//       {/*)}*/}
 //
 //
 //         <div className="menu">
-//           <p>{`GameOver - ${gameOver}`}</p>
+//           {/*<p>{`GameOver - ${gameOver}`}</p>*/}
 //           <button onClick={() => initialize()} className="reset-btn">
 //             Reset
 //           </button>
@@ -121,11 +156,21 @@
 // }
 
 
+//Testing Mode
+
+
 "use client";
 
 import { useState, useEffect } from "react";
 
 // Define a type for the board
+function seededRandom(seed) {
+  function random() {
+    var x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
+  }
+  return random;
+}
 
 interface Card {
   letter: string;
@@ -154,6 +199,14 @@ export default function Match() {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [moves, setMoves] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (matchedCards.length === boardPairs.length * 2) {
+      setGameOver(true);
+      setShowModal(true); // When the game is over, show the modal
+    }
+  }, [matchedCards]);
 
   useEffect(() => {
     initialize();
@@ -165,19 +218,19 @@ export default function Match() {
     }
   }, [matchedCards]);
 
-  const initialize = () => {
-    // Mix the image paths together for shuffling
-    const imagePaths: BoardState = boardPairs.flatMap(card => [card.letter, card.sign]);
-    const shuffledImages = shuffle(imagePaths);
-    setBoardData(shuffledImages);
+  const initialize = (seed = 1) => { // 默认种子为1
+  const imagePaths: BoardState = boardPairs.flatMap(card => [card.letter, card.sign]);
+  const shuffledImages = shuffle(imagePaths, seed); // 使用种子来洗牌
+  setBoardData(shuffledImages);
     setFlippedCards([]);
     setMatchedCards([]);
     setMoves(0);
     setGameOver(false);
   };
 
-  const shuffle = (imagePaths: BoardState): BoardState => {
-    return [...imagePaths].sort(() => Math.random() - 0.5);
+  const shuffle = (imagePaths: BoardState, seed: number): BoardState => {
+    const random = seededRandom(seed);
+    return [...imagePaths].sort(() => random() - 0.5);
   };
 
 
@@ -187,7 +240,7 @@ export default function Match() {
     const firstCard = boardData[flippedCards[0]];
     const secondCard = boardData[i];
 
-    // 检查是否为匹配的一对
+
     const isMatch = boardPairs.some(pair =>
       (pair.letter === firstCard && pair.sign === secondCard) ||
       (pair.sign === firstCard && pair.letter === secondCard)
@@ -236,10 +289,31 @@ export default function Match() {
             );
           })}
         </div>
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3>Congratulations!</h3>
+            </div>
+            <div className="modal-body">
+              <p>You've completed this round with <strong>{moves}</strong> moves!</p>
+              <div className="modal-actions">
+                <button onClick={() => { /* logic for next stage */ }} className="modal-button next">
+                  Next Stage
+                </button>
+                <button onClick={() => { initialize(); setShowModal(false); }} className="modal-button replay">
+                  Play Again
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
 
 
         <div className="menu">
-          <p>{`GameOver - ${gameOver}`}</p>
+          {/*<p>{`GameOver - ${gameOver}`}</p>*/}
           <button onClick={() => initialize()} className="reset-btn">
             Reset
           </button>
