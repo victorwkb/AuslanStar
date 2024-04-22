@@ -1,15 +1,15 @@
 // NAVIGATION
 export const NAV_LINKS = [
-  { href: "/", key: "home", label: "Home" },
-  { href: "/dictionary", key: "dictionary", label: "Dictionary" },
-  // { href: "/spelling", key: "spelling", label: "Spelling" },
-  { href: "/matchgame", key: "matchgame", label: "Game" },
-  { href: "/resources/simulator", key: "resources", label: "Resources" },
-  // ... more items
+  { href: "/", key: "home", label: "Home", icon: "/navbar/homeicon.png" },
+  { href: "/dictionary", key: "dictionary", label: "Dictionary", icon: "/navbar/dictionaryicon.png" },
+  { href: "/spelling", key: "spelling", label: "Spelling" , icon: "/navbar/spellingicon .png"},
+  { href: "/matchgame", key: "matchgame", label: "Game", icon: "/navbar/home.png" },
+  { href: "/resources/simulator", key: "resources", label: "Resources", icon: "/navbar/resourcesicon.png" },
+
 ];
 // Resource SUB-NAVIGATIN
 export const RESOURCE_LINKS = [
-    {
+  {
     href: "/resources/simulator",
     key: "simulator",
     label: "Hearing Loss Simulator",
@@ -27,6 +27,31 @@ export const RESOURCE_LINKS = [
 
   // ... more items
 ];
+
+export const SPELLING_LINKS = [
+  {
+    href: "/spelling/matchgame",
+    key: "matchgame",
+    label: "Game",
+  },
+  {
+    href: "/resources/benefits",
+    key: "benefits",
+    label: "Benefits of Learning Auslan",
+  },
+  {
+    href: "/resources/support",
+    key: "support",
+    label: "Supporting Your Child",
+  },
+
+  // ... more items
+];
+
+
+
+
+
 
 // FOOTER SECTION
 export const FOOTER_LINKS = [
