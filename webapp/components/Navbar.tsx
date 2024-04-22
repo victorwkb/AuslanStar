@@ -58,7 +58,6 @@ const Navbar = () => {
 
   return (
       <nav className="border-5 border-red-300 flexBetween max-container padding-container relative z-30 py-5">
-
           <div className='flex items-center'>
               <Link href={NAV_LINKS.find((item) => item.key === "home")?.href ?? "/"}>
                   <Image src="/logo.svg" alt="logo" width={90} height={50}/>

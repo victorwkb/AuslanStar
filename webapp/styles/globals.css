@@ -340,7 +340,7 @@ body {
 
 
 }
-
+/* memory game */
 html,
 
 
@@ -367,8 +367,8 @@ a {
   border-radius: 10px;
   perspective: 1000px;
   text-align: center;
-  height: 130px;
-  width: 130px;
+  height: 120px;
+  width: 120px;
   transform-style: preserve-3d;
   transition: all 0.2s;
   user-select: none;
@@ -491,6 +491,32 @@ a {
   transform: scale(0.95); /* 当按钮被点击时，稍微缩小 */
   background-color: var(--warning-color);
 }
+@media (max-width: 480px) {
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-button {
+    width: 100%;
+    margin: 10px 0;
+  }
+  }
+  .game-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .game-title {
+    color: #5a5a5a;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .game-instructions {
+    color: #787878;
+    font-size: 16px;
+    margin-top: 5px;
+  }
 
 /* You can add additional classes based on the functionality you have in your game */
 :root {
@@ -510,81 +536,71 @@ a {
 }
 
 /*game-popup window*/
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
 
-.modal-content {
-  background: #fff;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 90%;
-  max-width: 500px;
-}
+  .modal-content {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+  }
 
-.modal-header {
-  margin-bottom: 20px;
-}
+  .modal-header {
+    margin-bottom: 20px;
+  }
 
-.modal-header h3 {
-  font-size: 24px;
-  color: #333;
-  margin: 0;
-}
+  .modal-header h3 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+  }
 
-.modal-body {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #666;
-}
+  .modal-body {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+  }
 
-.modal-actions {
-  margin-top: 30px;
-}
-
-.modal-button {
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  margin: 0 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.2s;
-}
-
-.modal-button.next {
-  background-color: #4CAF50; /* Green */
-  color: white;
-}
-
-.modal-button.replay {
-  background-color: #f44336; /* Red */
-  color: white;
-}
-
-.modal-button:hover {
-  opacity: 0.8;
-}
-
-/* Ensure buttons fit on small screens */
-@media (max-width: 480px) {
   .modal-actions {
-    flex-direction: column;
+    margin-top: 30px;
   }
 
   .modal-button {
-    width: 100%;
-    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    margin: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
   }
-}
+
+  .modal-button.next {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+  .modal-button.replay {
+    background-color: #f44336; /* Red */
+    color: white;
+  }
+
+  .modal-button:hover {
+    opacity: 0.8;
+  }
+
+
