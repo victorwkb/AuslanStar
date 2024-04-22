@@ -30,20 +30,20 @@ export const RESOURCE_LINKS = [
 
 export const SPELLING_LINKS = [
   {
+    href: "/resources/practice",
+    key: "support",
+    label: "Practice",
+  },
+    {
+    href: "/resources/quiz",
+    key: "quiz",
+    label: "Quiz",
+  },
+  {
     href: "/spelling/matchgame",
     key: "matchgame",
     label: "Game",
-  },
-  {
-    href: "/resources/benefits",
-    key: "benefits",
-    label: "Benefits of Learning Auslan",
-  },
-  {
-    href: "/resources/support",
-    key: "support",
-    label: "Supporting Your Child",
-  },
+  }
 
   // ... more items
 ];
