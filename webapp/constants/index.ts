@@ -30,12 +30,12 @@ export const RESOURCE_LINKS = [
 
 export const SPELLING_LINKS = [
   {
-    href: "/resources/practice",
+    href: "/spelling/practice",
     key: "support",
     label: "Practice",
   },
     {
-    href: "/resources/quiz",
+    href: "/spelling/quiz",
     key: "quiz",
     label: "Quiz",
   },

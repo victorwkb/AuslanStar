@@ -334,12 +334,9 @@ body {
   }
 
 
-
-
-
-
-
 }
+
+
 /* memory game */
 html,
 
@@ -604,3 +601,117 @@ a {
   }
 
 
+/*game instruction*/
+/* Assuming the .board is where the game is played and its container is positioned relative */
+.game-container {
+  position: relative;
+}
+
+.instruction-prompt {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%; /* Takes half the space */
+  height: 100%; /* Take full height available */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Aligns the guide-image to the bottom */
+  cursor: pointer;
+}
+.girl-container {
+  position: absolute;
+  right: -40%; /* Move the girl image further right. Adjust percentage as needed */
+  bottom: 20px; /* Position from the bottom */
+  display: flex;
+  align-items: flex-end; /* Aligns the guide-image to the bottom */
+  width: 60%; /* Increase if needed to push further right */
+  pointer-events: none; /* Ensures the container doesn't block clicks */
+}
+
+.girl-image {
+  max-width: 100%;
+  max-height: 100%;
+  pointer-events: auto; /* Enable clicking on the image */
+}
+
+.speech-bubble {
+  position: absolute;
+  left: 5%; /* Adjust as necessary */
+  bottom: 500px; /* Position above the girl */
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 15px;
+  border: 2px solid #666;
+  width: auto;
+  pointer-events: auto; /* This enables clicking on the bubble */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Soft shadow for depth */
+  /* Creates the arrow effect */
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -20px; /* Adjust this to move the arrow up or down */
+    left: 50px; /* Center the arrow relative to the bubble */
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    filter: drop-shadow(0 -3px 3px rgba(0,0,0,0.1)); /* Optional: shadow for the arrow */
+  }
+}
+
+/* Style for clickable text within the speech bubble */
+.speech-bubble-text {
+  color: #666;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Hover effect for the text */
+.speech-bubble-text:hover {
+  text-decoration: underline;
+}
+
+
+.guide-container {
+  position: absolute;
+  right: 5%;
+  bottom: 25%;
+  transform: translateX(50%);
+  cursor: pointer;
+}
+.guide-image {
+  max-width: 100%;
+  max-height: 100%; /* Make the image as large as possible within the instruction-prompt */
+}
+
+/* Style for the modal overlay that covers the screen */
+.guide-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it is on top of other content */
+}
+
+.guide-modal-content {
+  width: auto; /* Adjust width to fit the content */
+  max-width: 500px; /* Adjust the maximum width as needed */
+  max-height: 500px; /* Adjust the maximum height as needed */
+  overflow: auto; /* Allows scrolling if the gif is large */
+  background: white;
+  padding: 20px;
+  border-radius: 10px; /* Optional for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.guide-animation {
+  max-width: 100%;
+  max-height: 100%; /* Ensure the GIF fits within the modal */
+}

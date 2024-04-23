@@ -24,11 +24,10 @@ const Navbar = () => {
                   {NAV_LINKS.map((link) => (
                       <li key={link.key} className="relative group">
                           <Link href={link.href}>
-                              <p className={`flex items-center cursor-pointer ... ${(pathname === link.href || pathname.startsWith(`${link.href}/`)) ? 'text-red-500' : ''}`}>
-                                  {/* Render the icon image next to the label */}
+                              <p className={`flex items-center cursor-pointer ${pathname === link.href || pathname.startsWith(`${link.href}/`) || (link.key === "resources" && pathname.startsWith("/resources")) ? "font-semibold text-purple-300" : "text-gray-600"}`}>
                                   <Image src={link.icon} alt={`${link.label} icon`} width={24} height={24}/>
                                   <span className="ml-2">{link.label}</span>
-                                  {link.key === 'resources' && <span aria-hidden="true">&#9662;</span>}
+                                  {link.key === "resources" && <span aria-hidden="true">&#9662;</span>}
                               </p>
                           </Link>
                           {link.key === "resources" && (

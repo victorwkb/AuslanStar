@@ -269,7 +269,11 @@ export default function Match() {
   const [moves, setMoves] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showGuide, setShowGuide] = useState<boolean>(false);
 
+  const handleShowGuide = () => {
+    setShowGuide(true);
+  };
 
    useEffect(() => {
       if (matchedCards.length === stagePairs[currentStage].length * 2 && !gameOver) {
@@ -337,68 +341,95 @@ export default function Match() {
 
   return (
       <div className="max-container padding-container layout-main bg-white">
+        <div className="game-container">
 
-<header className="game-header">
-  <h1 className="game-title">Memory Match Challenge</h1>
-  <p className="game-instructions">Match all pairs to win!</p>
-</header>
-        <div className="menu">
-          <p>{`Moves : ${moves}`}</p>
-        </div>
+          <header className="game-header">
+            <h1 className="game-title">Memory Match Challenge</h1>
+            <p className="game-instructions">Match all pairs to win!</p>
+          </header>
+          <div className="menu">
+            <p>{`Moves : ${moves}`}</p>
+          </div>
+          {/* Instruction area */}
+          <div className="girl-container" onClick={handleShowGuide}>
+            <img src="/game/girl.png" alt="Guide" className="girl-image"/>
+          </div>
+          <div className="girl-container">
+                <img src="/game/girl.png" alt="Guide" className="girl-image"/>
+                <div className="speech-bubble" onClick={handleShowGuide}>
+                  <span className="speech-bubble-text">
+                    Do you know how to play? Click here.
+                  </span>
+                </div>
+          </div>
+          {/*<div className="guide-container" onClick={handleShowGuide}>*/}
+          {/*  <img src="/game/howtoplay.png" alt="How to play" className="guide-image"/>*/}
+          {/*</div>*/}
 
-        <div className="board">
-          {boardData.map((imageName, i) => {
-            const flipped = flippedCards.includes(i);
-            const matched = matchedCards.includes(i);
-            const imagePath = `/game/${imageName}`; // 动态构建图片路径
-            return (
-                <div
-                    onClick={() => updateActiveCards(i)}
-                    key={i}
-                    className={`card ${flipped || matched ? "active" : ""} ${
-                        matched ? "matched" : ""
-                    } ${gameOver ? "gameover" : ""}`}
-                >
-                  {flipped || matched ? (
-                      <img src={imagePath} alt={`Card ${imageName}`} className="card-image"/>
-                  ) : (
-                      <div className="card-back"></div>
-                  )}
+          <div className="board">
+            {boardData.map((imageName, i) => {
+              const flipped = flippedCards.includes(i);
+              const matched = matchedCards.includes(i);
+              const imagePath = `/game/${imageName}`; // 动态构建图片路径
+              return (
+                  <div
+                      onClick={() => updateActiveCards(i)}
+                      key={i}
+                      className={`card ${flipped || matched ? "active" : ""} ${
+                          matched ? "matched" : ""
+                      } ${gameOver ? "gameover" : ""}`}
+                  >
+                    {flipped || matched ? (
+                        <img src={imagePath} alt={`Card ${imageName}`} className="card-image"/>
+                    ) : (
+                        <div className="card-back"></div>
+                    )}
+                  </div>
+              );
+            })}
+          </div>
+
+
+          {showGuide && (
+              <div className="guide-modal-overlay" onClick={() => setShowGuide(false)}>
+                <div className="guide-modal-content">
+                  <img src="/game/guide.gif" alt="How to Play" className="guide-animation"/>
                 </div>
-            );
-          })}
-        </div>
-      {showModal && (
-            <div className="modal-overlay">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h3>Congratulations!</h3>
-                </div>
-                <div className="modal-body">
-                  <p>You've completed this round with <strong>{moves}</strong> moves!</p>
-                  <div className="modal-actions">
-                    <button onClick={() => { /* logic for next stage */
-                    }} className="modal-button next">
-                      Next Stage
-                    </button>
-                    <button onClick={() => {
-                      initialize();
-                      setShowModal(false);
-                    }} className="modal-button replay">
-                      Play Again
-                    </button>
+              </div>
+          )}
+
+          {showModal && (
+              <div className="modal-overlay">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h3>Congratulations!</h3>
+                  </div>
+                  <div className="modal-body">
+                    <p>You've completed this round with <strong>{moves}</strong> moves!</p>
+                    <div className="modal-actions">
+                      <button onClick={() => { /* logic for next stage */
+                      }} className="modal-button next">
+                        Next Stage
+                      </button>
+                      <button onClick={() => {
+                        initialize();
+                        setShowModal(false);
+                      }} className="modal-button replay">
+                        Play Again
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-        )}
+          )}
 
 
-        <div className="menu">
-          {/*<p>{`GameOver - ${gameOver}`}</p>*/}
-          <button onClick={() => initialize()} className="reset-btn">
-            Reset
-          </button>
+          <div className="menu">
+            {/*<p>{`GameOver - ${gameOver}`}</p>*/}
+            <button onClick={() => initialize()} className="reset-btn">
+              Reset
+            </button>
+          </div>
         </div>
       </div>
   );
