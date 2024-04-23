@@ -409,7 +409,7 @@ export default function Match() {
                     <div className="modal-actions">
                       <button onClick={() => { /* logic for next stage */
                       }} className="modal-button next">
-                        Next Stage
+                        Back to Spelling Menu
                       </button>
                       <button onClick={() => {
                         initialize();

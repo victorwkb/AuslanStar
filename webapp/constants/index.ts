@@ -2,7 +2,7 @@
 export const NAV_LINKS = [
   { href: "/", key: "home", label: "Home", icon: "/navbar/homeicon.png" },
   { href: "/dictionary", key: "dictionary", label: "Dictionary", icon: "/navbar/dictionaryicon.png" },
-  { href: "/spelling", key: "spelling", label: "Spelling" , icon: "/navbar/spellingicon .png"},
+  { href: "/spelling", key: "spelling", label: "Spelling" , icon: "/navbar/spellingicon.png"},
   { href: "/matchgame", key: "matchgame", label: "Game", icon: "/navbar/home.png" },
   { href: "/resources/simulator", key: "resources", label: "Resources", icon: "/navbar/resourcesicon.png" },
 
@@ -13,16 +13,19 @@ export const RESOURCE_LINKS = [
     href: "/resources/simulator",
     key: "simulator",
     label: "Hearing Loss Simulator",
+    icon: "/navbar/aid.png"
   },
   {
     href: "/resources/benefits",
     key: "benefits",
     label: "Benefits of Learning Auslan",
+    icon: "/navbar/value.png"
   },
   {
     href: "/resources/support",
     key: "support",
     label: "Supporting Your Child",
+    icon: "/navbar/care.png"
   },
 
   // ... more items

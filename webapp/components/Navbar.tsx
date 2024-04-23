@@ -35,9 +35,12 @@ const Navbar = () => {
                                   {RESOURCE_LINKS.map((resourceLink) => (
                                       <li
                                           key={resourceLink.key}
-                                          className={`px-4 py-2 hover:bg-purple-100 ${pathname.startsWith(`${resourceLink.href}`) ? "font-semibold text-purple-300" : "text-gray-600"}`}
-                                      >
-                                          <Link href={resourceLink.href}>{resourceLink.label}</Link>
+                                          className={`px-4 py-2 hover:bg-purple-100 ${pathname.startsWith(`${resourceLink.href}`) ? "font-semibold text-purple-300" : "text-gray-600"}`}>
+                                          <Link href={resourceLink.href}>
+                                              <Image src={resourceLink.icon} alt={`${resourceLink.label} icon`} width={24} height={24}/>
+                                              {/*<span className="ml-2">{resourceLink.label}</span>*/}
+                                              {resourceLink.label}
+                                          </Link>
                                       </li>
                                   ))}
                               </ul>
