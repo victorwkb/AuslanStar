@@ -340,7 +340,7 @@ export default function Match() {
 
 
   return (
-      <div className="max-container padding-container layout-main bg-white">
+      <div className="max-container padding-container layout-main">
         <div className="game-container">
 
           <header className="game-header">

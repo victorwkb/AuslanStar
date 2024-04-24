@@ -16,8 +16,8 @@ const words: { letter: string, sign: string }[] = [
 
 
 export default function Learn() {
-  const webcamRef = useState<Webcam>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const webcamRef = useState<Webcam>
+  const canvasRef = useRef<HTMLCanvasElement>;
 
   const [video, setVideo] = useState<boolean>(false);
   const [mirrored, setMirrored] = useState<boolean>(true);
@@ -41,56 +41,56 @@ export default function Learn() {
             }
           </div>
 
-        <div className='flex flex-row gap-x-3 h-12 mb-6'>
-          <Button>
-            <ArrowLeftIcon className="w-[50px] h-[50px]" />
-          </Button>
-          {sign && (words.map((word) => (
-            <Button
-              key={word.letter}
-              onClick={() => setSign(word.letter)}
-            >
-              {word.letter}
-            </Button>))
-          )}
-          <Button>
-            <ArrowRightIcon className="w-[50px] h-[50px]" />
-          </Button>
+          <div className='flex flex-row gap-x-3 h-12 mb-6'>
+            <Button>
+              <ArrowLeftIcon className="w-[50px] h-[50px]" />
+            </Button>
+            {sign && (words.map((word) => (
+              <Button
+                key={word.letter}
+                onClick={() => setSign(word.letter)}
+              >
+                {word.letter}
+              </Button>))
+            )}
+            <Button>
+              <ArrowRightIcon className="w-[50px] h-[50px]" />
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col items-center justify-center border border-gray-200 shadow-lg rounded-lg w-[600px] h-[600px] bg-gray-100">
-        <div className="w-full h-full items-center justify-center">
-          {video ? (
-            <Webcam
-              open={video}
-              mirrored={mirrored}
-              className="h-full w-full object-contain p-2"
-            />
-          ) : (
-            <canvas ref={canvasRef} className="h-full w-full object-contain p-2" />
-          )
-          }
-        </div>
-        <div className="flex flex-row items-center justify-center h-12 mb-6">
-          <Button>
-            <CameraIcon className="w-[50px] h-[50px]" />
-          </Button>
-
-          <Button
-            onClick={() => {
-              setVideo((video) => !video)
-            }}>
+        <div className="flex flex-col items-center justify-center border border-gray-200 shadow-lg rounded-lg w-[600px] h-[600px] bg-gray-100">
+          <div className="w-full h-full items-center justify-center">
             {video ? (
-              <VideoIcon className="w-[50px] h-[50px]" />)
-              : (
-                <VideoOffIcon className="w-[50px] h-[50px]" />)
+              <Webcam
+                open={video}
+                mirrored={mirrored}
+                className="h-full w-full object-contain p-2"
+              />
+            ) : (
+              <canvas ref={canvasRef} className="h-full w-full object-contain p-2" />
+            )
             }
-          </Button>
+          </div>
+          <div className="flex flex-row items-center justify-center h-12 mb-6">
+            <Button>
+              <CameraIcon className="w-[50px] h-[50px]" />
+            </Button>
 
+            <Button
+              onClick={() => {
+                setVideo((video) => !video)
+              }}>
+              {video ? (
+                <VideoIcon className="w-[50px] h-[50px]" />)
+                : (
+                  <VideoOffIcon className="w-[50px] h-[50px]" />)
+              }
+            </Button>
+
+          </div>
         </div>
       </div>
-    </div>
     </div >
   )
 }

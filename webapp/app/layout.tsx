@@ -17,10 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        <main className="relative overflow-hidden">{children}</main>
-        <Footer />
+      <body className="antialiased width-full bg-yellow-50 font-comic text-primary">
+        <main>
+          <Navbar />
+          <div>
+            {children}
+          </div>
+          <Footer />
+        </main>
       </body>
     </html>
   );
