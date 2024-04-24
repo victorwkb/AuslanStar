@@ -2,8 +2,8 @@
 export const NAV_LINKS = [
   { href: "/", key: "home", label: "Home", icon: "/navbar/homeicon.png" },
   { href: "/dictionary", key: "dictionary", label: "Dictionary", icon: "/navbar/dictionaryicon.png" },
-  { href: "/spelling", key: "spelling", label: "Spelling" , icon: "/navbar/spellingicon.png"},
-  { href: "/matchgame", key: "matchgame", label: "Game", icon: "/navbar/home.png" },
+  { href: "/spelling", key: "spelling", label: "Spelling", icon: "/navbar/spellingicon.png" },
+  { href: "/matchgame", key: "matchgame", label: "Game", icon: "/navbar/value.png" },
   { href: "/resources/simulator", key: "resources", label: "Resources", icon: "/navbar/resourcesicon.png" },
 
 ];
@@ -37,7 +37,7 @@ export const SPELLING_LINKS = [
     key: "support",
     label: "Practice",
   },
-    {
+  {
     href: "/spelling/quiz",
     key: "quiz",
     label: "Quiz",

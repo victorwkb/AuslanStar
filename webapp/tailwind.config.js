@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        comic: ["Comic Sans MS", "sans-serif"],
+      },
       colors: {
         green: {
           50: "#30AF5B",

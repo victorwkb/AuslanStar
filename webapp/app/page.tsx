@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Head from "next/head";
 import { NAV_LINKS, RESOURCE_LINKS } from "@/constants";
 export default function Home() {
   const dictionaryLink = NAV_LINKS.find((link) => link.key === "dictionary")!;
@@ -36,7 +35,7 @@ export default function Home() {
               </div>
             </div>
             <img
-              className="rounded-xl shadow-lg transform transition duration-300"
+              className="rounded-xl shadow-lg"
               src="/homepage.png"
               alt="Communicate with Auslan"
             />
