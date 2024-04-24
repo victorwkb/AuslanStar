@@ -370,7 +370,7 @@ export default function Match() {
             {boardData.map((imageName, i) => {
               const flipped = flippedCards.includes(i);
               const matched = matchedCards.includes(i);
-              const imagePath = `/game/${imageName}`; // 动态构建图片路径
+              const imagePath = `/spellingletter/${imageName}`;
               return (
                   <div
                       onClick={() => updateActiveCards(i)}
