@@ -23,8 +23,8 @@ const SearchBar = () => {
 
   return (
     <Suspense>
-      <div className="relative w-1/2 h-14 flex flex-col bg-transparent">
-        <div className="relative h-14 z-10 rounded-md bg-white">
+      <div className="relative h-12 flex flex-col">
+        <div className="h-12 rounded-md bg-white">
           <Input
             disabled={isSearching}
             value={query}
@@ -38,8 +38,9 @@ const SearchBar = () => {
                 inputRef?.current?.blur();
               }
             }}
+            onClick={() => inputRef.current?.select()}
             ref={inputRef}
-            placeholder="Enter a word or sentence to see the corresponding Auslan sign"
+            placeholder="Enter a word or sentence that you want to convey"
             className="absolute inset-0 h-full"
           />
 

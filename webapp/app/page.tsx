@@ -5,9 +5,13 @@ export default function Home() {
   const simulatorLink = RESOURCE_LINKS.find((link) => link.key === "simulator")!;
   return (
     <>
-
-      <div className=" bg-gradient-to-r bg-green-100 min-h-[600px] ">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div
+        className="animate-in bg-red-50 min-h-[600px]"
+      >
+        <div
+          className="animate-in container mx-auto px-4 sm:px-6 lg:px-8 py-12"
+          style={{ "--index": 1 } as React.CSSProperties}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h1 className="text-6xl font-extrabold text-custom-purple-light">

@@ -47,7 +47,6 @@ body {
     background-color: #f6f6f6;
   }
 
-
   .bg-green-100 {
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 80%);
     background-attachment: fixed;
@@ -163,17 +162,8 @@ body {
     @apply text-black;
   }
 
-  .text-secondary {
-    @apply text-green-600;
-  }
-
   .text-tertiary {
     @apply text-gray-500;
-  }
-
-  /* Layout - Adjust the margin and padding to give more space */
-  .layout-header {
-    @apply mt-12 mb-8; /* Adjust top and bottom margin as needed */
   }
 
   .layout-main {
@@ -187,9 +177,6 @@ body {
 
   .button-search {
     @apply text-lg bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-tr rounded-br w-full;
-  }
-  .layout-header {
-    @apply mt-2 mb-8; /* Decrease the top margin to move the header up */
   }
 
   .situation-button {
@@ -714,4 +701,8 @@ a {
 .guide-animation {
   max-width: 100%;
   max-height: 100%; /* Ensure the GIF fits within the modal */
+}
+
+.animate-in {
+  animation-delay: calc(var(--index) * 130ms);
 }

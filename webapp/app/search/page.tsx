@@ -19,23 +19,26 @@ const Search = async ({ searchParams }: PageProps) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center bg-green-100 min-h-[700px] p-10">
-      <header className="layout-header text-center">
-        <h1 className="text-5xl text-primary font-bold">
-          Free Auslan Dictionary
-        </h1>
-        <p className="text-secondary mt-1 text-lg">
-          Find signs and meanings easily
-        </p>
-        <p className="text-tertiary mt-1 text-md">
-          Enter a word or sentence to see the corresponding Auslan sign video.
-        </p>
-      </header>
-
-      <Suspense>
-        <SearchBar />
+    <div className="flex flex-col items-center justify-center bg-lime-100 min-h-[500px] p-10">
+      <div className="animate-in flex flex-row text-center items-center gap-x-6">
+        <h2
+          className="animate-in container mx-auto min-w-[150px] text-xl text-primary font-bold"
+          style={{ "--index": 1 } as React.CSSProperties}
+        >
+          Auslan Dictionary
+        </h2>
+        <div className="animate-in container mx-auto min-w-[300px] w-full"
+          style={{ "--index": 1 } as React.CSSProperties}
+        >
+          <SearchBar />
+        </div>
+      </div>
+      <div
+        className="animate-in w-2/3 flex flex-col justify-center"
+        style={{ "--index": 2 } as React.CSSProperties}
+      >
         <Results query={query} />
-      </Suspense>
+      </div>
     </div>
   );
 };

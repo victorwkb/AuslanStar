@@ -47,21 +47,28 @@ const SpellingPage = () => {
   ];
 
   return (
-    <><div>
-      {/* Header */}
-      <div className="bg-green-100">
-        <div className="max-w-5xl px-4 py-10 max-container padding-container">
-          <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
-            Spelling in Auslan
-          </h1>
-          <p className="text-2xl text-white mt-2">
-            Learn and practice spelling by chooseing different levels
-          </p>
+    <>
+      <div>
+        {/* Header */}
+        <div className="bg-emerald-100">
+          <div
+            className="animate-in max-w-5xl px-4 py-10 max-container padding-container"
+            style={{ "--index": 1 } as React.CSSProperties}
+          >
+            <h1 className="text-5xl font-bold leading-tight whitespace-normal">
+              Spelling in Auslan
+            </h1>
+            <p className="text-2xl mt-2">
+              Learn and practice spelling by chooseing different levels
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-      <div className="lg:flex lg:flex-row grid grid-cols-1 md:grid-cols-2 justify-center mt-12 px-12">
+      <div
+        className="animate-in lg:flex lg:flex-row grid grid-cols-1 md:grid-cols-2 justify-center mt-12 px-12"
+        style={{ "--index": 2 } as React.CSSProperties}
+      >
         {cardData.map((data, index) => (
           <LevelCard key={index} {...data} />
         ))}

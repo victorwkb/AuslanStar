@@ -5,22 +5,26 @@ import SearchBar from "@/components/SearchBar";
 
 export default function Dictionary() {
   return (
-    <div className="flex flex-col items-center justify-center bg-green-100 min-h-[500px] p-10">
-      <header className="layout-header text-center">
+    <div className="flex flex-col items-center justify-center bg-lime-100 min-h-[500px] p-10 gap-y-2">
+      <header className="animate-in text-center mb-4">
         <h1 className="text-5xl text-primary font-bold">
-          Free Auslan Dictionary
+          Auslan Dictionary
         </h1>
-        <p className="text-secondary mt-1 text-lg">
-          Find signs and meanings easily
-        </p>
-        <p className="text-tertiary mt-1 text-md">
-          Enter a word or sentence to see the corresponding Auslan sign video.
-        </p>
       </header>
 
-      <Suspense>
+      <p
+        className="animate-in text-gray-30 text-lg text-center"
+        style={{ "--index": 1 } as React.CSSProperties}
+      >
+        Looking for an Auslan sign? Search here!
+      </p>
+      <div
+        className="animate-in w-2/3 flex flex-col justify-center"
+        style={{ "--index": 2 } as React.CSSProperties}
+      >
         <SearchBar />
-      </Suspense>
+      </div>
+
     </div>
   );
 }

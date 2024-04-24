@@ -124,16 +124,6 @@ const Results = async ({ query }: any) => {
             Sorry, we couldn't find any matches for{" "}
             <span className="text-green-600 font-medium">{query}</span>.
           </p>
-          {/*
-        {results && (
-          results.map((res) => (
-            <div className='mt-4'>
-              <p className='mt-1 text-sm text-gray-500'>{res.pageContent}</p>
-              <p className='mt-1 text-sm text-gray-500'>{JSON.stringify(res.metadata)}</p>
-            </div>
-          )))
-        }
-        */}
           <p className="mt-12 text-green-600 text-md">
             Discover more with our suggested words! We're here to help you
             convey your message effortlessly.
@@ -160,7 +150,7 @@ const Results = async ({ query }: any) => {
 
   return (
     <Suspense>
-      <div className="bg-gray-100 p-6 shadow-xl rounded-lg max-w-[800px] mx-auto mt-8">
+      <div className="bg-yellow-50 p-6 shadow-xl rounded-lg max-w-[800px] mx-auto mt-8">
         <div className="mb-4">
           {/* Render entry data */}
           {entryData.map((entry) => (
@@ -178,7 +168,7 @@ const Results = async ({ query }: any) => {
         <div className="flex flex-col gap-y-6">
           {/* Populate through the subentries */}
           {subEntries.map((subentry) => (
-            <div key={subentry.id} className="border border-slate-300 bg-slate-50 rounded-lg border-black shadow-xl p-3">
+            <div key={subentry.id} className="border border-slate-300 bg-red-50 rounded-lg border-black shadow-xl p-3">
               <p className="text-gray-700 mb-3 font-normal">
                 Definition in Auslan:
               </p>
@@ -188,7 +178,7 @@ const Results = async ({ query }: any) => {
                     <video
                       key={videoLink}
                       controls
-                      className="w-full w-50 h-50"
+                      className="max-w-full w-50 h-50"
                     >
                       <source src={videoLink} type="video/mp4" />
                       Your browser does not support the video tag.

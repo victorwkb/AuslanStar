@@ -12,10 +12,6 @@ module.exports = {
         comic: ["Comic Sans MS", "sans-serif"],
       },
       colors: {
-        green: {
-          50: "#30AF5B",
-          90: "#292C27",
-        },
         gray: {
           10: "#EEEEEE",
           20: "#A2A2A2",
@@ -23,14 +19,8 @@ module.exports = {
           50: "#585858",
           90: "#141414",
         },
-        orange: {
-          50: "#FF814C",
-        },
         blue: {
           70: "#021639",
-        },
-        yellow: {
-          50: "#FEC601",
         },
       },
       backgroundImage: {
@@ -48,6 +38,20 @@ module.exports = {
       },
       borderRadius: {
         "5xl": "40px",
+      },
+      keyframes: {
+        in: {
+          "0%": { transform: "translateY(18px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "in-reverse": {
+          "0%": { transform: "translateY(-18px)", opacity: "0" },
+          "100%": { transform: "translateY(0px)", opacity: "1" },
+        },
+      },
+      animation: {
+        in: "in .6s both",
+        "in-reverse": "in-reverse .6s both",
       },
     },
   },
