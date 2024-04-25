@@ -11,7 +11,7 @@ const SpellingPage = () => {
         { label: 'Let\'s Practice!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-purple-500 hover:bg-purple-800 hover:scale-125 hover:font-bold' },
         { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-purple-400 hover:bg-purple-80 hover:scale-125 hover:font-bold0' }
       ],
-      bgColor: 'bg-purple-100 hover:scale-125 hover:font-bold',
+      bgColor: 'bg-purple-100 hover:scale-125 hover:font-bold ',
     },
     {
       title: "Level 2",
