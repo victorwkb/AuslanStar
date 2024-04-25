@@ -6,6 +6,7 @@ import SearchBar from "@/components/SearchBar";
 export default function Dictionary() {
   return (
     <div>
+
       <div className="flex flex-col items-center justify-center bg-lime-100 min-h-[500px] p-10 gap-y-2">
         <header className="animate-in text-center mb-4">
           <h1 className="text-5xl text-primary font-bold">

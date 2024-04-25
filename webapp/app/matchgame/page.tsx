@@ -179,7 +179,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // Define a type for the board
 
@@ -340,97 +340,106 @@ export default function Match() {
 
 
   return (
-      <div className="max-container padding-container layout-main">
-        <div className="game-container">
+      <div>
 
-          <header className="game-header">
-            <h1 className="game-title">Memory Match Challenge</h1>
-            <p className="game-instructions">Match all pairs to win!</p>
-          </header>
-          <div className="menu">
-            <p>{`Moves : ${moves}`}</p>
-          </div>
-          {/* Instruction area */}
-          <div className="girl-container" onClick={handleShowGuide}>
-            <img src="/game/girl.png" alt="Guide" className="girl-image"/>
-          </div>
-          <div className="girl-container">
-                <img src="/game/girl.png" alt="Guide" className="girl-image"/>
-                <div className="speech-bubble" onClick={handleShowGuide}>
+        <div className="max-container padding-container layout-main">
+          <div className="game-container">
+
+            <header className="game-header">
+              <h1 className="game-title">Memory Match Challenge</h1>
+              <p className="game-instructions">Match all pairs to win!</p>
+            </header>
+            <div className="menu">
+              <p>{`Moves : ${moves}`}</p>
+            </div>
+            {/* Instruction area */}
+            <div className="girl-container" onClick={handleShowGuide}>
+              <img src="/game/girl.png" alt="Guide" className="girl-image"/>
+            </div>
+            <div className="girl-container">
+              <img src="/game/girl.png" alt="Guide" className="girl-image"/>
+              <div className="speech-bubble" onClick={handleShowGuide}>
                   <span className="speech-bubble-text">
                     Do you know how to play? Click here.
                   </span>
-                </div>
-          </div>
-          {/*<div className="guide-container" onClick={handleShowGuide}>*/}
-          {/*  <img src="/game/howtoplay.png" alt="How to play" className="guide-image"/>*/}
-          {/*</div>*/}
-
-          <div className="board">
-            {boardData.map((imageName, i) => {
-              const flipped = flippedCards.includes(i);
-              const matched = matchedCards.includes(i);
-              const imagePath = `/spellingletter/${imageName}`;
-              return (
-                  <div
-                      onClick={() => updateActiveCards(i)}
-                      key={i}
-                      className={`card ${flipped || matched ? "active" : ""} ${
-                          matched ? "matched" : ""
-                      } ${gameOver ? "gameover" : ""}`}
-                  >
-                    {flipped || matched ? (
-                        <img src={imagePath} alt={`Card ${imageName}`} className="card-image"/>
-                    ) : (
-                        <div className="card-back"></div>
-                    )}
-                  </div>
-              );
-            })}
-          </div>
-
-
-          {showGuide && (
-              <div className="guide-modal-overlay" onClick={() => setShowGuide(false)}>
-                <div className="guide-modal-content">
-                  <img src="/game/guide.gif" alt="How to Play" className="guide-animation"/>
-                </div>
               </div>
-          )}
+            </div>
+            {/*<div className="guide-container" onClick={handleShowGuide}>*/}
+            {/*  <img src="/game/howtoplay.png" alt="How to play" className="guide-image"/>*/}
+            {/*</div>*/}
 
-          {showModal && (
-              <div className="modal-overlay">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h3>Congratulations!</h3>
+            <div className="board">
+              {boardData.map((imageName, i) => {
+                const flipped = flippedCards.includes(i);
+                const matched = matchedCards.includes(i);
+                const imagePath = `/spellingletter/${imageName}`;
+                return (
+                    <div
+                        onClick={() => updateActiveCards(i)}
+                        key={i}
+                        className={`card ${flipped || matched ? "active" : ""} ${
+                            matched ? "matched" : ""
+                        } ${gameOver ? "gameover" : ""}`}
+                    >
+                      {flipped || matched ? (
+                          <img src={imagePath} alt={`Card ${imageName}`} className="card-image"/>
+                      ) : (
+                          <div className="card-back"></div>
+                      )}
+                    </div>
+                );
+              })}
+            </div>
+
+
+            {showGuide && (
+                <div className="guide-modal-overlay" onClick={() => setShowGuide(false)}>
+                  <div className="guide-modal-content">
+                    <img src="/game/guide.gif" alt="How to Play" className="guide-animation"/>
                   </div>
-                  <div className="modal-body">
-                    <p>You've completed this round with <strong>{moves}</strong> moves!</p>
-                    <div className="modal-actions">
-                      <button onClick={() => { /* logic for next stage */
-                      }} className="modal-button next">
-                        Back to Spelling Menu
-                      </button>
-                      <button onClick={() => {
-                        initialize();
-                        setShowModal(false);
-                      }} className="modal-button replay">
-                        Play Again
-                      </button>
+                </div>
+            )}
+
+            {showModal && (
+                <div className="modal-overlay">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h3>Congratulations!</h3>
+                    </div>
+                    <div className="modal-body">
+                      <p>You've completed this round with <strong>{moves}</strong> moves!</p>
+                      <div className="modal-actions">
+                        <button onClick={() => { /* logic for next stage */
+                        }} className="modal-button next">
+                          Back to Spelling Menu
+                        </button>
+                        <button onClick={() => {
+                          initialize();
+                          setShowModal(false);
+                        }} className="modal-button replay">
+                          Play Again
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-          )}
+            )}
 
 
-          <div className="menu">
-            {/*<p>{`GameOver - ${gameOver}`}</p>*/}
-            <button onClick={() => initialize()} className="reset-btn">
-              Reset
-            </button>
+            <div className="menu">
+              {/*<p>{`GameOver - ${gameOver}`}</p>*/}
+              <button onClick={() => initialize()} className="reset-btn">
+                Reset
+              </button>
+            </div>
           </div>
         </div>
+        <svg width="100%" height="20%" id="svg" className="fill-current bg-yellow-50 text-indigo-900 pt-8"
+             viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+              d="M 0,400 L 0,150 C 84.29999999999998,140.8948717948718 168.59999999999997,131.78974358974358 248,125 C 327.40000000000003,118.2102564102564 401.9,113.73589743589744 475,123 C 548.1,132.26410256410256 619.8,155.26666666666668 714,146 C 808.2,136.73333333333332 924.9000000000001,95.19743589743588 1001,87 C 1077.1,78.80256410256412 1112.6,103.94358974358974 1179,120 C 1245.4,136.05641025641026 1342.7,143.02820512820512 1440,150 L 1440,400 L 0,400 Z"></path>
+        </svg>
       </div>
   );
 }

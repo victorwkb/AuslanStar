@@ -193,7 +193,7 @@ body {
     border-radius: 0.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
-    background-color: transparent;
+    background-color: white;
     cursor: pointer;
   }
 
@@ -211,7 +211,7 @@ body {
     border-radius: 9999px;
     transition: background-color 0.3s;
     white-space: nowrap;
-    background-color: transparent;
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
@@ -704,6 +704,10 @@ a {
   max-height: 100%; /* Ensure the GIF fits within the modal */
 }
 
-/*.animate-in {*/
-/*  animation-delay: calc(var(--index) * 130ms);*/
-/*}*/
+
+
+
+.game-background{
+  background-color: #fffdf5;
+
+}

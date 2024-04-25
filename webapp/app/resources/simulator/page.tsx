@@ -208,216 +208,222 @@ const SimulatorPage: React.FC = () => {
     : "Please select a situation to view the script.";
 
   return (
-    <div>
-      {/* Header */}
-      <div className="bg-green-100">
-        <div className="max-w-5xl px-4 py-10 max-container padding-container">
-          <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
-            Hearing Loss Simulator
-          </h1>
-          <p className=" text-2xl text-white  mt-2">
-            Experience the World Through Your Child's Ears
-          </p>
-        </div>
-      </div>
-
-      <div className="max-container padding-container layout-main bg-white">
-        <audio ref={audioRef} src="/audio/1000hz.MP3"></audio>
-        {/* Self-test volume adjustment section */}
-        <div className="text-primary mb-8">
-          <h2 className="text-2xl mb-4 font-bold">
-            Step 1: Please adjust the volume to find the softest tone you can
-            hear
-          </h2>
-
-          <div className="volume-container">
-            {Array.from({length: 15}, (_, i) => (i + 3) * 5).map((volume) => (
-                <button
-                    key={volume}
-                    className={`volume-button ${selfTestVolume === volume ? "volume-button-selected" : ""}`}
-                    onClick={() => setSelfTestVolume(volume)}
-                >
-                  {volume}
-                </button>
-            ))}
-            {/* Self-test play/pause button */}
-            <button className="volume-button" onClick={toggleSelfTestPlayPause}>
-              {isSelfTestPlaying ? (
-                  <svg
-                      className="pause-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      style={{width: '1em', height: '1em'}} // Adjust size to match other buttons
-                  >
-                    <rect x="6" y="4" width="4" height="16"></rect>
-                    <rect x="14" y="4" width="4" height="16"></rect>
-                  </svg>
-              ) : (
-                  <svg
-                      className="play-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      style={{width: '1em', height: '1em'}} // Adjust size to match other buttons
-                  >
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
-              )}
-            </button>
-          </div>
-
-
-          {selfTestVolume && (
-              <div className="i flex items-center">
-                <p className={`text-tertiary text-l `}>
-                  Your volume level:<span>&nbsp;</span>
-                </p>
-                <h3 className="text-text-primary text-l font-semibold ">
-                  {selfTestVolume}dB
-                </h3>
-              </div>
-          )}
-          {selfTestResult && (
-              <div className="i flex items-center">
-                <p className={`text-tertiary text-l `}>
-                  Your hearing loss level is:<span>&nbsp;</span>
-                </p>
-                <h3 className="text-primary text-l font-semibold ">
-                  {selfTestResult}
-                </h3>
-              </div>
-          )}
-        </div>
-
-        {/* Situation selection section */}
-        <div className=" mb-8">
-          <h1 className="text-primary text-2xl mb-4 font-bold">
-            Step 2: Choose a situation you want to simulate
-          </h1>
-          <div className="flex justify-around flex-wrap">
-            {situations.map((situation, index) => (
-                <button
-                    key={index}
-                    className={`situation-button ${selectedSituation === situation.label ? "situation-button-selected" : ""}`}
-                    onClick={() => setSelectedSituation(situation.label)}
-                >
-                  <img
-                      src={situation.icon}
-                      alt={situation.label}
-                      className="w-12 h-12"
-                  />
-                  <span>{situation.label}</span>
-                </button>
-            ))}
+      <div>
+        {/* Header */}
+        <div className="bg-green-100">
+          <div className="max-w-5xl px-4 py-10 max-container padding-container">
+            <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
+              Hearing Loss Simulator
+            </h1>
+            <p className=" text-2xl text-white  mt-2">
+              Experience the World Through Your Child's Ears
+            </p>
           </div>
         </div>
-        {/* Hearing loss level selection section */}
-        <div className="text-primary mb-8">
-          <h2 className="text-primary text-2xl mb-4 font-bold">
-            Step 3: Select a hearing loss level and Click play button to
-            simulate
-          </h2>
-          <div className="flex items-center mb-4">
-            {/* Hearing loss level buttons */}
-            <div className="flex flex-wrap">
-              {hearingLossLevels.map((level, index) => (
-                <button
-                  key={index}
-                  className={`level-button ${selectedLevel === level ? "level-button-selected" : ""}`}
-                  onClick={() => setSelectedLevel(level)}
-                >
-                  {level}
-                </button>
+
+        <div className="max-container padding-container layout-main bg-yellow-50">
+          <audio ref={audioRef} src="/audio/1000hz.MP3"></audio>
+          {/* Self-test volume adjustment section */}
+          <div className="text-primary mb-8">
+            <h2 className="text-2xl mb-4 font-bold">
+              Step 1: Please adjust the volume to find the softest tone you can
+              hear
+            </h2>
+
+            <div className="volume-container">
+              {Array.from({length: 15}, (_, i) => (i + 3) * 5).map((volume) => (
+                  <button
+                      key={volume}
+                      className={`volume-button ${selfTestVolume === volume ? "volume-button-selected" : ""}`}
+                      onClick={() => setSelfTestVolume(volume)}
+                  >
+                    {volume}
+                  </button>
               ))}
-            </div>
-
-            {/* Play button aligned with the level buttons */}
-            <div className="ml-4">
-              <button className="play-button" onClick={togglePlayPause}>
-                {isPlaying ? (
-                  <svg
-                    className="pause-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <rect x="6" y="4" width="4" height="16"></rect>
-                    <rect x="14" y="4" width="4" height="16"></rect>
-                  </svg>
+              {/* Self-test play/pause button */}
+              <button className="volume-button" onClick={toggleSelfTestPlayPause}>
+                {isSelfTestPlaying ? (
+                    <svg
+                        className="pause-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        style={{width: '1em', height: '1em'}} // Adjust size to match other buttons
+                    >
+                      <rect x="6" y="4" width="4" height="16"></rect>
+                      <rect x="14" y="4" width="4" height="16"></rect>
+                    </svg>
                 ) : (
-                  <svg
-                    className="play-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
+                    <svg
+                        className="play-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        style={{width: '1em', height: '1em'}} // Adjust size to match other buttons
+                    >
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
                 )}
               </button>
             </div>
+
+
+            {selfTestVolume && (
+                <div className="i flex items-center">
+                  <p className={`text-tertiary text-l `}>
+                    Your volume level:<span>&nbsp;</span>
+                  </p>
+                  <h3 className="text-text-primary text-l font-semibold ">
+                    {selfTestVolume}dB
+                  </h3>
+                </div>
+            )}
+            {selfTestResult && (
+                <div className="i flex items-center">
+                  <p className={`text-tertiary text-l `}>
+                    Your hearing loss level is:<span>&nbsp;</span>
+                  </p>
+                  <h3 className="text-primary text-l font-semibold ">
+                    {selfTestResult}
+                  </h3>
+                </div>
+            )}
           </div>
 
-          <div className="i flex items-center">
-            <h3 className="text-tertiary text-l font-semibold performance-info">
-              Performance:<span>&nbsp;</span>
-            </h3>
-            <p
-              className={`text-tertiary text-l performance-info ${selfTestResult ? "highlight-change" : ""}`}
+          {/* Situation selection section */}
+          <div className=" mb-8">
+            <h1 className="text-primary text-2xl mb-4 font-bold">
+              Step 2: Choose a situation you want to simulate
+            </h1>
+            <div className="flex justify-around flex-wrap">
+              {situations.map((situation, index) => (
+                  <button
+                      key={index}
+                      className={`situation-button ${selectedSituation === situation.label ? "situation-button-selected" : ""}`}
+                      onClick={() => setSelectedSituation(situation.label)}
+                  >
+                    <img
+                        src={situation.icon}
+                        alt={situation.label}
+                        className="w-12 h-12"
+                    />
+                    <span>{situation.label}</span>
+                  </button>
+              ))}
+            </div>
+          </div>
+          {/* Hearing loss level selection section */}
+          <div className="text-primary mb-8">
+            <h2 className="text-primary text-2xl mb-4 font-bold">
+              Step 3: Select a hearing loss level and Click play button to
+              simulate
+            </h2>
+            <div className="flex items-center mb-4">
+              {/* Hearing loss level buttons */}
+              <div className="flex flex-wrap">
+                {hearingLossLevels.map((level, index) => (
+                    <button
+                        key={index}
+                        className={`level-button ${selectedLevel === level ? "level-button-selected" : ""}`}
+                        onClick={() => setSelectedLevel(level)}
+                    >
+                      {level}
+                    </button>
+                ))}
+              </div>
+
+              {/* Play button aligned with the level buttons */}
+              <div className="ml-4">
+                <button className="play-button" onClick={togglePlayPause}>
+                  {isPlaying ? (
+                      <svg
+                          className="pause-icon"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                      >
+                        <rect x="6" y="4" width="4" height="16"></rect>
+                        <rect x="14" y="4" width="4" height="16"></rect>
+                      </svg>
+                  ) : (
+                      <svg
+                          className="play-icon"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="i flex items-center">
+              <h3 className="text-tertiary text-2xl font-semibold performance-info">
+                Performance:<span>&nbsp;</span>
+              </h3>
+              <p
+                  className={`text-tertiary text-l performance-info ${selfTestResult ? "highlight-change" : ""}`}
+              >
+                {selectedLevelInfo.performance}
+              </p>
+            </div>
+
+            <div className="i flex items-center">
+              <h3 className="text-tertiary  text-2xl font-semibold recommendation-info">
+                Recommendation:<span>&nbsp;</span>
+              </h3>
+              <p
+                  className={`text-tertiary text-l recommendation-info ${selfTestResult ? "highlight-change" : ""}`}
+              >
+                {selectedLevelInfo.recommendation}
+              </p>
+            </div>
+          </div>
+          {/* Script display section */}
+          <div className="text-primary mb-8">
+            <h2 className="text-2xl mb-4 font-bold">Here is the script:</h2>
+            <div className="text-tertiary bg-gray-100 p-4 rounded-lg shadow-inner">
+              <pre>{selectedScript}</pre>
+            </div>
+          </div>
+
+          <footer className="text-xs text-slate-400 text-center mt-6 p-3">
+            Disclaimer: The content and simulations on this Website are for
+            educational use only and do not replace professional advice. For
+            accurate assessments and recommendations, consult a healthcare
+            professional.
+            <br/>
+            All audio materials are copyright-free and AI-generated.
+            <br/>
+            Reference sources:
+            <a
+                href="https://pixabay.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-500 underline"
             >
-              {selectedLevelInfo.performance}
-            </p>
-          </div>
-
-          <div className="i flex items-center">
-            <h3 className="text-tertiary  text-l font-semibold recommendation-info">
-              Recommendation:<span>&nbsp;</span>
-            </h3>
-            <p
-              className={`text-tertiary text-l recommendation-info ${selfTestResult ? "highlight-change" : ""}`}
+              Pixabay
+            </a>
+            ,
+            <a
+                href="https://elevenlabs.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-500 underline"
             >
-              {selectedLevelInfo.recommendation}
-            </p>
-          </div>
+              ElevenLabs
+            </a>
+          </footer>
         </div>
-        {/* Script display section */}
-        <div className="text-primary mb-8">
-          <h2 className="text-2xl mb-4 font-bold">Here is the script:</h2>
-          <div className="text-tertiary bg-gray-100 p-4 rounded-lg shadow-inner">
-            <pre>{selectedScript}</pre>
-          </div>
-        </div>
-
-        <footer className="text-xs text-slate-400 text-center mt-6 p-3">
-          Disclaimer: The content and simulations on this Website are for
-          educational use only and do not replace professional advice. For
-          accurate assessments and recommendations, consult a healthcare
-          professional.
-          <br />
-          All audio materials are copyright-free and AI-generated.
-          <br />
-          Reference sources:
-          <a
-            href="https://pixabay.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 hover:text-slate-500 underline"
-          >
-            Pixabay
-          </a>
-          ,
-          <a
-            href="https://elevenlabs.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 hover:text-slate-500 underline"
-          >
-            ElevenLabs
-          </a>
-        </footer>
+        <svg width="100%" height="20%" id="svg" className="fill-current bg-yellow-50 text-indigo-900 pt-8"
+             viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+              d="M 0,400 L 0,150 C 84.29999999999998,140.8948717948718 168.59999999999997,131.78974358974358 248,125 C 327.40000000000003,118.2102564102564 401.9,113.73589743589744 475,123 C 548.1,132.26410256410256 619.8,155.26666666666668 714,146 C 808.2,136.73333333333332 924.9000000000001,95.19743589743588 1001,87 C 1077.1,78.80256410256412 1112.6,103.94358974358974 1179,120 C 1245.4,136.05641025641026 1342.7,143.02820512820512 1440,150 L 1440,400 L 0,400 Z"></path>
+        </svg>
       </div>
-    </div>
   );
 };
 
