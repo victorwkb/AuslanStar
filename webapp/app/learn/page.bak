@@ -26,6 +26,7 @@ export default function Learn() {
   const path = `/game/${sign}`;
 
   return (
+    {/*
     <div className="max-container py-12 bg-white">
       <div className="flex flex-row gap-x-12 items-center justify-center min-h-[600px]">
         <div className="flex flex-col items-center justify-center border border-gray-200 shadow-lg rounded-lg w-[600px] h-[600px] bg-gray-100">
