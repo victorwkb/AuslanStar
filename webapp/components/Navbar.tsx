@@ -10,8 +10,12 @@ const Navbar = () => {
   const isResourcesActive = pathname.startsWith("/resources");
 
   return (
+
     <nav className="container mx-auto flex flexBetween py-2 sm:px-8 lg:px-16">
-      <div className='container mx-auto flex flex-row items-center'>
+        {/*<div className="bg-blue-100">*/}
+
+
+        <div className='container mx-auto flex flex-row items-center'>
         <Link href={NAV_LINKS.find((item) => item.key === "home")?.href ?? "/"}>
           <Image src="/logo.svg" alt="logo" width={90} height={50} style={{objectFit: 'contain'}}/>
         </Link>
@@ -52,6 +56,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+      {/*</div>*/}
     </nav>
   );
 };

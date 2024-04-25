@@ -342,6 +342,7 @@ export default function Match() {
   return (
       <div>
 
+
         <div className="max-container padding-container layout-main">
           <div className="game-container">
 

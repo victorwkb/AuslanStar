@@ -72,34 +72,40 @@ const TeachingStrategies = () => {
   return (
     <div>
       {/* Header */}
-      <div className="bg-green-100">
-        <div className="max-w-5xl px-4 py-10 max-container padding-container">
-          <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
-            Teaching Strategies
-          </h1>
-          <p className="text-2xl text-white mt-2">
-            Provide personalized teaching support for deaf children, ensuring
-            equal participation in learning and activities.
-          </p>
+        <div className="bg-amber-200">
+            <div className="max-w-5xl px-4 py-10 max-container padding-container">
+                <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
+                    Teaching Strategies
+                </h1>
+                <p className="text-2xl text-white mt-2">
+                    Provide personalized teaching support for deaf children, ensuring
+                    equal participation in learning and activities.
+                </p>
+            </div>
+            <svg width="100%" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"
+                 preserveAspectRatio="none" style={{display: 'block'}}>
+                {/* Modify the fill color to match your bg-green-100; use the correct color code */}
+                <path fill="#FEFCE8"
+                      d="M0,0 L48,14.7 C96,29,192,59,288,74.7 C384,91,480,101,576,85.3 C672,69,768,27,864,16 C960,5,1056,35,1152,48 C1248,61,1344,59,1392,57.3 L1440,56 L1440,150 L1392,150 C1344,150,1248,150,1152,150 C1056,150,960,150,864,150 C768,150,672,150,576,150 C480,150,384,150,288,150 C192,150,96,150,48,150 L0,150 Z"></path>
+            </svg>
         </div>
-      </div>
 
-      {/* Topic 1 */}
-      <div className="max-w-5xl px-4 pt-6 pb-2 max-container padding-container">
-        <h1 className="text-2xl font-bold mb-4">Visual Aids & Routine</h1>
-      </div>
+        {/* Topic 1 */}
+        <div className="max-w-5xl px-4 pt-6 pb-2 max-container padding-container">
+            <h1 className="text-2xl font-bold mb-4">Visual Aids & Routine</h1>
+        </div>
 
-      {/* Cards 1-3 */}
-      <div className="container px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
-        <div className="flex flex-wrap -mx-2">
-          <div className={styles.cardContainer}>
-            {cardData.slice(0, 3).map((card) => (
-              <FlipCard
-                key={card.id}
-                frontContent={card.frontContent}
-                backContent={card.backContent}
-              />
-            ))}
+        {/* Cards 1-3 */}
+        <div className="container px-4 pt-2 pb-6 mt-0 mb-4 max-container padding-container">
+            <div className="flex flex-wrap -mx-2">
+                <div className={styles.cardContainer}>
+                    {cardData.slice(0, 3).map((card) => (
+                        <FlipCard
+                            key={card.id}
+                            frontContent={card.frontContent}
+                            backContent={card.backContent}
+                        />
+                    ))}
           </div>
         </div>
       </div>

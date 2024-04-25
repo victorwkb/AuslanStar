@@ -58,20 +58,28 @@ export const SPELLING_LINKS = [
 
 // FOOTER SECTION
 export const FOOTER_LINKS = [
-  {
-    title: "About",
-    links: [
-      { label: "About Auslan Star", href: "/resources/benefits" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms", href: "/terms" },
-    ],
-  },
+  // {
+  //   title: "About",
+  //   links: [
+  //     { label: "About Auslan Star", href: "/resources/benefits" },
+  //     { label: "Privacy Policy", href: "/privacy-policy" },
+  //     { label: "Terms", href: "/terms" },
+  //   ],
+  // },
   {
     title: "Service",
     links: [
       { label: "Dictionary", href: "/dictionary" },
       { label: "Simulator", href: "/resources/simulator" },
       { label: "Handbook", href: "/resources/support" },
+    ],
+  },
+    {
+    title: "Spelling",
+    links: [
+      { label: "Practice", href: "/resources/benefits" },
+      { label: "Testing", href: "/privacy-policy" },
+      { label: "Game", href: "/terms" },
     ],
   },
 ];
