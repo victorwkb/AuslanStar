@@ -73,7 +73,7 @@ const TeachingStrategies = () => {
     <div>
       {/* Header */}
         <div className="bg-amber-200">
-            <div className="max-w-5xl px-4 py-10 max-container padding-container">
+            <div className="animate-in max-w-5xl px-4 py-10 max-container padding-container">
                 <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
                     Teaching Strategies
                 </h1>

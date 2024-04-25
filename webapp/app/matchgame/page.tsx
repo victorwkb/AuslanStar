@@ -341,15 +341,28 @@ export default function Match() {
 
   return (
       <div>
+        <div className="bg-blue-200 text-white">
+          <div
+              className="animate-in max-w-5xl px-4 py-10 max-container padding-container"
+              style={{"--index": 1} as React.CSSProperties}
+          >
+            <h1 className="text-5xl font-bold leading-tight whitespace-normal">
+              Memory Match Challenge
+            </h1>
+            <p className="text-2xl mt-2">
+              Match all pairs to win!
+            </p>
+          </div>
+          <svg width="100%" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"
+               preserveAspectRatio="none" style={{display: 'block'}}>
+            <path fill="#FEFCE8"
+                  d="M0,0 L48,14.7 C96,29,192,59,288,74.7 C384,91,480,101,576,85.3 C672,69,768,27,864,16 C960,5,1056,35,1152,48 C1248,61,1344,59,1392,57.3 L1440,56 L1440,150 L1392,150 C1344,150,1248,150,1152,150 C1056,150,960,150,864,150 C768,150,672,150,576,150 C480,150,384,150,288,150 C192,150,96,150,48,150 L0,150 Z"></path>
+          </svg>
+        </div>
 
 
         <div className="max-container padding-container layout-main">
           <div className="game-container">
-
-            <header className="game-header">
-              <h1 className="game-title">Memory Match Challenge</h1>
-              <p className="game-instructions">Match all pairs to win!</p>
-            </header>
             <div className="menu">
               <p>{`Moves : ${moves}`}</p>
             </div>
