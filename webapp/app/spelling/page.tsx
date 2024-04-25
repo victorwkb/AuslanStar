@@ -7,72 +7,60 @@ const SpellingPage = () => {
       title: "Level 1",
       letters: "A B C D E F G H",
       detailLinks: [
-        { label: 'Learn and Practice', path: '/resources/support/teachingstrategies' },
-        { label: 'Take Quiz', path: '/resources/support/teachingstrategies' },
-        { label: 'Start Game', path: '/resources/support/teachingstrategies' }
+        { label: 'Star Learning!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-purple-600 hover:bg-purple-800 hover:scale-125 hover:font-bold' },
+        { label: 'Let\'s Practice!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-purple-500 hover:bg-purple-800 hover:scale-125 hover:font-bold' },
+        { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-purple-400 hover:bg-purple-80 hover:scale-125 hover:font-bold0' }
       ],
-      bgColor: 'bg-green-300',
+      bgColor: 'bg-purple-100 hover:scale-125 hover:font-bold',
     },
     {
       title: "Level 2",
       letters: "I J K L M N O P",
       detailLinks: [
-        { label: 'Learn and Practice', path: '/resources/support/teachingstrategies' },
-        { label: 'Take Quiz', path: '/resources/support/teachingstrategies' },
-        { label: 'Start Game', path: '/resources/support/teachingstrategies' }
+        { label: 'Star Learning!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-red-600 hover:bg-red-800 hover:scale-125 hover:font-bold' },
+        { label: 'Let\'s Practice!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-red-500 hover:bg-red-800 hover:scale-125 hover:font-bold' },
+        { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-red-400 hover:bg-red-800 hover:scale-125 hover:font-bold' }
       ],
-      bgColor: 'bg-red-300',
+      bgColor: 'bg-red-100 hover:scale-125 hover:font-bold',
     },
     {
       title: "Level 3",
       letters: "Q R S T U V W X Y Z",
       detailLinks: [
-        { label: 'Learn and Practice', path: '/resources/support/teachingstrategies' },
-        { label: 'Take Quiz', path: '/resources/support/teachingstrategies' },
-        { label: 'Start Game', path: '/resources/support/teachingstrategies' }
+        { label: 'Star Learning!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-orange-600 hover:bg-orange-800 hover:scale-125 hover:font-bold' },
+        { label: 'Let\'s Practice!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-orange-500 hover:bg-orange-800 hover:scale-125 hover:font-bold' },
+        { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-orange-400 hover:bg-orange-800 hover:scale-125 hover:font-bold' }
       ],
-      bgColor: 'bg-orange-300',
+      bgColor: 'bg-orange-100 hover:scale-125 hover:font-bold',
     },
     {
       title: "Final Level",
       letters: "All Letters",
       detailLinks: [
-        { label: 'Learn and Practice', path: '/resources/support/teachingstrategies' },
-        { label: 'Take Quiz', path: '/resources/support/teachingstrategies' },
-        { label: 'Start Game', path: '/resources/support/teachingstrategies' }
+        { label: 'Star Learning!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-blue-600 hover:bg-blue-800 hover:scale-125 hover:font-bold' },
+        { label: 'Let\'s Practice!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-blue-500 hover:bg-blue-800 hover:scale-125 hover:font-bold' },
+        { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-blue-400 hover:bg-blue-800 hover:scale-125 hover:font-bold' }
       ],
-      bgColor: 'bg-blue-300',
+      bgColor: 'bg-blue-100 hover:scale-125 hover:font-bold',
     },
 
   ];
 
   return (
     <>
-      <div>
-        {/* Header */}
-        <div className="bg-emerald-100">
-          <div
-            className="animate-in max-w-5xl px-4 py-10 max-container padding-container"
-            style={{ "--index": 1 } as React.CSSProperties}
-          >
-            <h1 className="text-5xl font-bold leading-tight whitespace-normal">
-              Spelling in Auslan
-            </h1>
-            <p className="text-2xl mt-2">
-              Learn and practice spelling by chooseing different levels
-            </p>
-          </div>
+      <div className="bg-emerald-100 px-4 py-10">
+        <div className="max-w-5xl mx-auto animate-in max-container padding-container" style={{ "--index": 1 } as React.CSSProperties}>
+          <h1 className="text-5xl font-bold leading-tight">Spelling in Auslan</h1>
+          <p className="text-2xl mt-2">Learn and practice spelling by choosing different levels</p>
         </div>
       </div>
 
-      <div
-        className="animate-in lg:flex lg:flex-row grid grid-cols-1 md:grid-cols-2 justify-center mt-12 px-12"
-        style={{ "--index": 2 } as React.CSSProperties}
-      >
+      <div className="animate-in mt-12 px-4 md:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
         {cardData.map((data, index) => (
           <LevelCard key={index} {...data} />
         ))}
       </div>
+
       <svg width="100%" height="20%" id="svg" className="fill-current bg-yellow-50 text-indigo-900 pt-8"
         viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg"
       >
@@ -82,5 +70,8 @@ const SpellingPage = () => {
   );
 }
 
+
+
 export default SpellingPage;
+
 

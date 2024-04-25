@@ -3,7 +3,7 @@ import React from 'react';
 interface LevelCardProps {
   title: string;
   letters: string;
-  detailLinks: { label: string; path: string }[];
+  detailLinks: { label: string; path: string; buttonColor: string }[];
   bgColor: string;
 }
 
@@ -17,7 +17,7 @@ const LevelCard: React.FC<LevelCardProps> = ({ title, letters, detailLinks, bgCo
           <a
             key={index}
             href={detail.path}
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-xl mb-2"
+            className={`${detail.buttonColor} text-white font-bold py-2 px-4 rounded-xl mb-2 transition ease-in duration-200`}
           >
             {detail.label}
           </a>
