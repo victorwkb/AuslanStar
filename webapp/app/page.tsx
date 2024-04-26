@@ -2,6 +2,7 @@ import Link from "next/link";
 import { NAV_LINKS, RESOURCE_LINKS } from "@/constants";
 export default function Home() {
   const dictionaryLink = NAV_LINKS.find((link) => link.key === "dictionary")!;
+  const spellingLink = NAV_LINKS.find((link) => link.key === "spelling")!;
   const simulatorLink = RESOURCE_LINKS.find((link) => link.key === "simulator")!;
   return (
     <>
@@ -35,11 +36,19 @@ export default function Home() {
                     </p>
                   </Link>
 
+                  <Link href={spellingLink.href}>
+                    <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                      {spellingLink.label}
+                    </p>
+                  </Link>
+
                   <Link href={simulatorLink.href}>
                     <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
                       {simulatorLink.label}
                     </p>
                   </Link>
+
+
 
                 </div>
               </div>

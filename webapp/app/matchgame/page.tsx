@@ -180,7 +180,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-
 // Define a type for the board
 
 interface Card {
@@ -188,7 +187,6 @@ interface Card {
   sign: string;
 }
 
-// Define a type for the board state, which will be an array of strings (image paths)
 type BoardState = string[];
 
 type Stage = 'stage1' | 'stage2' | 'stage3' | 'stage4';
