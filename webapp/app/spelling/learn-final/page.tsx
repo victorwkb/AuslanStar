@@ -6,7 +6,7 @@ import { CameraIcon, CameraOffIcon, VideoIcon, VideoOffIcon } from 'lucide-react
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation, Thumbs, FreeMode } from 'swiper/modules'
+import { Pagination, Navigation, Thumbs } from 'swiper/modules'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -20,7 +20,7 @@ export default function Learn() {
   const [mirrored] = useState<boolean>(true);
   const [sign, setSign] = useState<string>("A");
   const [countdown, setCountdown] = useState<number>(0);
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const [thumbsSwiper] = useState<any>(null)
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isFailure, setIsFailure] = useState<boolean>(false);
 
@@ -268,7 +268,7 @@ export default function Learn() {
 }
 
 
-function newFunction(item: { letter: string; path: string; signPath: string }, sign: string): unknown {
+function newFunction(item: { letter: string; path: string; videoPath: string }, sign: string): unknown {
   return item.letter === sign
 }
 // <div className="w-full h-full items-center justify-center">
