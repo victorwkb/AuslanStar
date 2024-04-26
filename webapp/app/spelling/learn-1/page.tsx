@@ -231,6 +231,25 @@ export default function Learn() {
         </div>
       </div>
 
+      <footer className="text-xs text-slate-400 text-center mt-6 p-3">
+            Disclaimer: The content and simulations on this Website are for
+            educational use only and do not replace professional advice. For
+            accurate assessments and recommendations, consult a healthcare
+            professional.
+            <br/>
+            All video materials in this course are sourced from Asphyxia's blog. This course is free.
+            <br/>
+            Reference sources:
+            <a
+                href="https://helloasphyxia.wordpress.com/blog/learn-auslan-australian-sign-language-online-course/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-500 underline"
+            >
+              Blog created by Asphyxia
+            </a>
+          </footer>
+
       <svg width="100%" height="20%" id="svg" className="fill-current bg-yellow-50 text-indigo-900 pt-8"
         viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg"
       >
