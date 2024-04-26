@@ -21,8 +21,8 @@ export default function Learn() {
   const [sign, setSign] = useState<string>("A");
   const [countdown, setCountdown] = useState<number>(0);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
-  const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const [isFailure, setIsFailure] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showFailureModal, setShowFailureModal] = useState<boolean>(false);
 
   const levels = {
     title: "Level 3",
@@ -65,10 +65,10 @@ export default function Learn() {
       } else {
         const success = await sendImageToAPI(imageSrc);
         if (success) {
-          setIsSuccess(true);
+          setShowModal(true);
           return success
         } else {
-          setIsFailure(true);
+          setShowFailureModal(true);
         }
       }
     };
@@ -189,14 +189,43 @@ export default function Learn() {
                 <div className="relative text-center -translate-y-8">
                   {countdown > 0 && <p>Pose the Auslan sign quickly in: {countdown}</p>}
                 </div>
-                {isSuccess && (
-                  <div className="relative text-center -translate-y-8">
-                    <p>Your last attempt was successful!</p>
+                {showModal && (
+                  <div className="modal-overlay">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h3>Congratulations!</h3>
+                      </div>
+                      <div className="modal-body">
+                        <p>You've completed this round!</p>
+                        <p>Select the next sign when you are ready!</p>
+                        <div className="modal-actions">
+                          <button onClick={() => {
+                            setShowModal(false);
+                          }} className="modal-button next">
+                            Play Again
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
-                {isFailure && (
-                  <div className="relative text-center -translate-y-8">
-                    <p>Your last attempt was unsuccessful.</p>
+                {showFailureModal && (
+                  <div className="modal-overlay">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h3>Incorrect</h3>
+                      </div>
+                      <div className="modal-body">
+                        <p>Try again!</p>
+                        <div className="modal-actions">
+                          <button onClick={() => {
+                            setShowFailureModal(false);
+                          }} className="modal-button next">
+                            Try Again
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
@@ -233,23 +262,23 @@ export default function Learn() {
       </div>
 
       <footer className="text-xs text-slate-400 text-center mt-6 p-3">
-            Disclaimer: The content and simulations on this Website are for
-            educational use only and do not replace professional advice. For
-            accurate assessments and recommendations, consult a healthcare
-            professional.
-            <br/>
-            All video materials in this course are sourced from Asphyxia's blog. This course is free.
-            <br/>
-            Reference sources:
-            <a
-                href="https://helloasphyxia.wordpress.com/blog/learn-auslan-australian-sign-language-online-course/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-slate-500 underline"
-            >
-              Blog created by Asphyxia
-            </a>
-          </footer>
+        Disclaimer: The content and simulations on this Website are for
+        educational use only and do not replace professional advice. For
+        accurate assessments and recommendations, consult a healthcare
+        professional.
+        <br />
+        All video materials in this course are sourced from Asphyxia's blog. This course is free.
+        <br />
+        Reference sources:
+        <a
+          href="https://helloasphyxia.wordpress.com/blog/learn-auslan-australian-sign-language-online-course/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-slate-400 hover:text-slate-500 underline"
+        >
+          Blog created by Asphyxia
+        </a>
+      </footer>
 
       <svg width="100%" height="20%" id="svg" className="fill-current bg-yellow-50 text-indigo-900 pt-8"
         viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg"
