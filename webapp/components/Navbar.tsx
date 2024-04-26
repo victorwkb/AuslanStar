@@ -17,7 +17,7 @@ const Navbar = () => {
 
         <div className='container mx-auto flex flex-row items-center'>
         <Link href={NAV_LINKS.find((item) => item.key === "home")?.href ?? "/"}>
-          <Image src="/logo.svg" alt="logo" width={90} height={50} style={{objectFit: 'contain'}}/>
+          <Image src="/Logo.svg" alt="logo" width={90} height={50} style={{objectFit: 'contain'}}/>
         </Link>
         <Link href={NAV_LINKS.find((item) => item.key === "home")?.href ?? "/"}>
           <p className="font-comic italic text-4xl font-bold text-orange-300 ">Auslan Star</p>

@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="padding-container max-container flex w-full flex-col gap-y-8 mt-6">
           <div className="flex flex-row w-full items-center justify-between gap-[10%] lg:gap-[20%] sm:pl-8 md:pl-20 lg:pl-32">
             <Link href="/">
-              <Image src="/logo.svg" alt="logo" width={180} height={70} />
+              <Image src="/Logo.svg" alt="logo" width={180} height={70} />
             </Link>
 
             <div className="flex flex-row justify-start gap-[20%] flex-1">

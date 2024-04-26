@@ -6,7 +6,7 @@ import { CameraIcon, CameraOffIcon, VideoIcon, VideoOffIcon } from 'lucide-react
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation, Thumbs, FreeMode } from 'swiper/modules'
+import { Pagination, Navigation, Thumbs } from 'swiper/modules'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -20,7 +20,7 @@ export default function Learn() {
   const [mirrored] = useState<boolean>(true);
   const [sign, setSign] = useState<string>("A");
   const [countdown, setCountdown] = useState<number>(0);
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const [thumbsSwiper] = useState<any>(null)
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isFailure, setIsFailure] = useState<boolean>(false);
 
@@ -238,6 +238,25 @@ export default function Learn() {
         </div>
       </div>
 
+      <footer className="text-xs text-slate-400 text-center mt-6 p-3">
+            Disclaimer: The content and simulations on this Website are for
+            educational use only and do not replace professional advice. For
+            accurate assessments and recommendations, consult a healthcare
+            professional.
+            <br/>
+            All video materials in this course are sourced from Asphyxia's blog. This course is free.
+            <br/>
+            Reference sources:
+            <a
+                href="https://helloasphyxia.wordpress.com/blog/learn-auslan-australian-sign-language-online-course/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-500 underline"
+            >
+              Blog created by Asphyxia
+            </a>
+          </footer>
+
       <svg width="100%" height="20%" id="svg" className="fill-current bg-yellow-50 text-indigo-900 pt-8"
         viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg"
       >
@@ -249,7 +268,7 @@ export default function Learn() {
 }
 
 
-function newFunction(item: { letter: string; path: string; signPath: string }, sign: string): unknown {
+function newFunction(item: { letter: string; path: string; videoPath: string }, sign: string): unknown {
   return item.letter === sign
 }
 // <div className="w-full h-full items-center justify-center">
