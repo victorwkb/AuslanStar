@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Webcam from 'react-webcam'
 import { CameraIcon, CameraOffIcon, VideoIcon, VideoOffIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -16,6 +16,7 @@ import 'swiper/css/pagination';
 export default function Learn() {
   const webcamRef = useRef<Webcam>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [randomSign, setRandomSign] = useState("");
 
   const [video, setVideo] = useState<boolean>(false);
   const [mirrored] = useState<boolean>(true);
@@ -35,6 +36,15 @@ export default function Learn() {
       { letter: "G", path: "/spellingletter/G.png", signPath: "/spellingletter/signG.png" },
       { letter: "H", path: "/spellingletter/H.png", signPath: "/spellingletter/signH.png" },
     ],
+  };
+
+  useEffect(() => {
+    generateRandomSign();
+  }, []);
+  const generateRandomSign = () => {
+    const randomIndex = Math.floor(Math.random() * levels.letters.length);
+    const randomLetter = levels.letters[randomIndex].letter;
+    setRandomSign(randomLetter);
   };
 
 
@@ -138,6 +148,7 @@ export default function Learn() {
               </SwiperSlide>
             ))}
           </Swiper>
+
           <Swiper
             onSwiper={setThumbsSwiper}
             slidesPerView={levels.letters.length}
