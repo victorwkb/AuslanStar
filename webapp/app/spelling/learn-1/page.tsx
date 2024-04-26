@@ -22,18 +22,20 @@ export default function Learn() {
   const [sign, setSign] = useState<string>("A");
   const [countdown, setCountdown] = useState<number>(0);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [isFailure, setIsFailure] = useState<boolean>(false);
 
   const levels = {
     title: "Level 1",
     letters: [
-      { letter: "A", path: "/spellingletter/A.png", signPath: "/spellingletter/signA.png" },
-      { letter: "B", path: "/spellingletter/B.png", signPath: "/spellingletter/signB.png" },
-      { letter: "C", path: "/spellingletter/C.png", signPath: "/spellingletter/signC.png" },
-      { letter: "D", path: "/spellingletter/D.png", signPath: "/spellingletter/signD.png" },
-      { letter: "E", path: "/spellingletter/E.png", signPath: "/spellingletter/signE.png" },
-      { letter: "F", path: "/spellingletter/F.png", signPath: "/spellingletter/signF.png" },
-      { letter: "G", path: "/spellingletter/G.png", signPath: "/spellingletter/signG.png" },
-      { letter: "H", path: "/spellingletter/H.png", signPath: "/spellingletter/signH.png" },
+      { letter: "A", path: "/spellingletter/A.png", videoPath: "/video/signA.mp4" },
+      { letter: "B", path: "/spellingletter/B.png", videoPath: "/video/signB.mp4" },
+      { letter: "C", path: "/spellingletter/C.png", videoPath: "/video/signC.mp4" },
+      { letter: "D", path: "/spellingletter/D.png", videoPath: "/video/signD.mp4" },
+      { letter: "E", path: "/spellingletter/E.png", videoPath: "/video/signE.mp4" },
+      { letter: "F", path: "/spellingletter/F.png", videoPath: "/video/signF.mp4" },
+      { letter: "G", path: "/spellingletter/G.png", videoPath: "/video/signG.mp4" },
+      { letter: "H", path: "/spellingletter/H.png", videoPath: "/video/signH.mp4" },
     ],
   };
 
@@ -48,21 +50,6 @@ export default function Learn() {
       clearInterval(countdownInterval);
       captureImage();
     }, 3000);
-  };
-
-  const captureImage = async () => {
-    if (!webcamRef.current) {
-      console.log('Webcam not found');
-      return;
-    } else {
-      const imageSrc = webcamRef.current.getScreenshot();
-      if (!imageSrc) {
-        console.log('Image not found');
-        return;
-      } else {
-        await sendImageToAPI(imageSrc);
-      }
-    }
   };
 
   const sendImageToAPI = async (image: string) => {
@@ -90,6 +77,27 @@ export default function Learn() {
       return false;
     }
   };
+
+  const captureImage = async () => {
+    if (!webcamRef.current) {
+      console.log('Webcam not found');
+      return;
+    } else {
+      const imageSrc = webcamRef.current.getScreenshot();
+      if (!imageSrc) {
+        console.log('Image not found');
+        return;
+      } else {
+        const success = await sendImageToAPI(imageSrc);
+        if (success) {
+          setIsSuccess(true);
+          return success
+        } else {
+          setIsFailure(true);
+        }
+      }
+    };
+  }
 
   return (
     <div>
@@ -127,13 +135,14 @@ export default function Learn() {
             {levels.letters.map((letter, idx) => (
               <SwiperSlide key={idx}>
                 <div className="flex h-full w-full items-center justify-center">
-                  <Image
-                    src={letter.signPath}
-                    alt={letter.letter}
-                    sizes="500px"
-                    fill
-                    className="block h-full w-full object-cover"
-                  />
+                  <video
+                    key={letter.videoPath}
+                    controls
+                    className="block h-4/5 w-4/5 object-fit"
+                  >
+                    <source src={letter.videoPath} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </SwiperSlide>
             ))}
@@ -179,6 +188,16 @@ export default function Learn() {
                 <div className="relative text-center -translate-y-8">
                   {countdown > 0 && <p>Pose the Auslan sign quickly in: {countdown}</p>}
                 </div>
+                {isSuccess && (
+                  <div className="relative text-center -translate-y-8">
+                    <p>Your last attempt was successful!</p>
+                  </div>
+                )}
+                {isFailure && (
+                  <div className="relative text-center -translate-y-8">
+                    <p>Your last attempt was unsuccessful.</p>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="h-full w-full bg-gray-300 object-contain p-2 relative rounded-t-lg">

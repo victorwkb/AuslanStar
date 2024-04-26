@@ -21,36 +21,38 @@ export default function Learn() {
   const [sign, setSign] = useState<string>("A");
   const [countdown, setCountdown] = useState<number>(0);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [isFailure, setIsFailure] = useState<boolean>(false);
 
   const levels = {
     title: "Final Level",
     letters: [
-      { letter: "A", path: "/spellingletter/A.png", signPath: "/spellingletter/signA.png" },
-      { letter: "B", path: "/spellingletter/B.png", signPath: "/spellingletter/signB.png" },
-      { letter: "C", path: "/spellingletter/C.png", signPath: "/spellingletter/signC.png" },
-      { letter: "D", path: "/spellingletter/D.png", signPath: "/spellingletter/signD.png" },
-      { letter: "E", path: "/spellingletter/E.png", signPath: "/spellingletter/signE.png" },
-      { letter: "F", path: "/spellingletter/F.png", signPath: "/spellingletter/signF.png" },
-      { letter: "G", path: "/spellingletter/G.png", signPath: "/spellingletter/signG.png" },
-      { letter: "H", path: "/spellingletter/H.png", signPath: "/spellingletter/signH.png" },
-      { letter: "I", path: "/spellingletter/I.png", signPath: "/spellingletter/signI.png" },
-      { letter: "J", path: "/spellingletter/J.png", signPath: "/spellingletter/signJ.png" },
-      { letter: "K", path: "/spellingletter/K.png", signPath: "/spellingletter/signK.png" },
-      { letter: "L", path: "/spellingletter/L.png", signPath: "/spellingletter/signL.png" },
-      { letter: "M", path: "/spellingletter/M.png", signPath: "/spellingletter/signM.png" },
-      { letter: "N", path: "/spellingletter/N.png", signPath: "/spellingletter/signN.png" },
-      { letter: "O", path: "/spellingletter/O.png", signPath: "/spellingletter/signO.png" },
-      { letter: "P", path: "/spellingletter/P.png", signPath: "/spellingletter/signP.png" },
-      { letter: "Q", path: "/spellingletter/Q.png", signPath: "/spellingletter/signQ.png" },
-      { letter: "R", path: "/spellingletter/R.png", signPath: "/spellingletter/signR.png" },
-      { letter: "S", path: "/spellingletter/S.png", signPath: "/spellingletter/signS.png" },
-      { letter: "T", path: "/spellingletter/T.png", signPath: "/spellingletter/signT.png" },
-      { letter: "U", path: "/spellingletter/U.png", signPath: "/spellingletter/signU.png" },
-      { letter: "V", path: "/spellingletter/V.png", signPath: "/spellingletter/signV.png" },
-      { letter: "W", path: "/spellingletter/W.png", signPath: "/spellingletter/signW.png" },
-      { letter: "X", path: "/spellingletter/X.png", signPath: "/spellingletter/signX.png" },
-      { letter: "Y", path: "/spellingletter/Y.png", signPath: "/spellingletter/signY.png" },
-      { letter: "Z", path: "/spellingletter/Z.png", signPath: "/spellingletter/signZ.png" },
+      { letter: "A", path: "/spellingletter/A.png", videoPath: "/video/signA.mp4" },
+      { letter: "B", path: "/spellingletter/B.png", videoPath: "/video/signB.mp4" },
+      { letter: "C", path: "/spellingletter/C.png", videoPath: "/video/signC.mp4" },
+      { letter: "D", path: "/spellingletter/D.png", videoPath: "/video/signD.mp4" },
+      { letter: "E", path: "/spellingletter/E.png", videoPath: "/video/signE.mp4" },
+      { letter: "F", path: "/spellingletter/F.png", videoPath: "/video/signF.mp4" },
+      { letter: "G", path: "/spellingletter/G.png", videoPath: "/video/signG.mp4" },
+      { letter: "H", path: "/spellingletter/H.png", videoPath: "/video/signH.mp4" },
+      { letter: "I", path: "/spellingletter/I.png", videoPath: "/video/signI.mp4" },
+      { letter: "J", path: "/spellingletter/J.png", videoPath: "/video/signJ.mp4" },
+      { letter: "K", path: "/spellingletter/K.png", videoPath: "/video/signK.mp4" },
+      { letter: "L", path: "/spellingletter/L.png", videoPath: "/video/signL.mp4" },
+      { letter: "M", path: "/spellingletter/M.png", videoPath: "/video/signM.mp4" },
+      { letter: "N", path: "/spellingletter/N.png", videoPath: "/video/signN.mp4" },
+      { letter: "O", path: "/spellingletter/O.png", videoPath: "/video/signO.mp4" },
+      { letter: "P", path: "/spellingletter/P.png", videoPath: "/video/signP.mp4" },
+      { letter: "Q", path: "/spellingletter/Q.png", videoPath: "/video/signQ.mp4" },
+      { letter: "R", path: "/spellingletter/R.png", videoPath: "/video/signR.mp4" },
+      { letter: "S", path: "/spellingletter/S.png", videoPath: "/video/signS.mp4" },
+      { letter: "T", path: "/spellingletter/T.png", videoPath: "/video/signT.mp4" },
+      { letter: "U", path: "/spellingletter/U.png", videoPath: "/video/signU.mp4" },
+      { letter: "V", path: "/spellingletter/V.png", videoPath: "/video/signV.mp4" },
+      { letter: "W", path: "/spellingletter/W.png", videoPath: "/video/signW.mp4" },
+      { letter: "X", path: "/spellingletter/X.png", videoPath: "/video/signX.mp4" },
+      { letter: "Y", path: "/spellingletter/Y.png", videoPath: "/video/signY.mp4" },
+      { letter: "Z", path: "/spellingletter/Z.png", videoPath: "/video/signZ.mp4" },
     ],
   };
 
@@ -77,10 +79,16 @@ export default function Learn() {
         console.log('Image not found');
         return;
       } else {
-        await sendImageToAPI(imageSrc);
+        const success = await sendImageToAPI(imageSrc);
+        if (success) {
+          setIsSuccess(true);
+          return success
+        } else {
+          setIsFailure(true);
+        }
       }
-    }
-  };
+    };
+  }
 
   const sendImageToAPI = async (image: string) => {
     const response = await fetch('https://f5q7vzkp2l.execute-api.ap-southeast-2.amazonaws.com/invoke_sage_maker', {
@@ -144,13 +152,14 @@ export default function Learn() {
             {levels.letters.map((letter, idx) => (
               <SwiperSlide key={idx}>
                 <div className="flex h-full w-full items-center justify-center">
-                  <Image
-                    src={letter.signPath}
-                    alt={letter.letter}
-                    sizes="500px"
-                    fill
-                    className="block h-full w-full object-cover"
-                  />
+                  <video
+                    key={letter.videoPath}
+                    controls
+                    className="block h-4/5 w-4/5 object-fit"
+                  >
+                    <source src={letter.videoPath} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </SwiperSlide>
             ))}
@@ -186,6 +195,16 @@ export default function Learn() {
                 <div className="relative text-center -translate-y-8">
                   {countdown > 0 && <p>Pose the Auslan sign quickly in: {countdown}</p>}
                 </div>
+                {isSuccess && (
+                  <div className="relative text-center -translate-y-8">
+                    <p>Your last attempt was successful!</p>
+                  </div>
+                )}
+                {isFailure && (
+                  <div className="relative text-center -translate-y-8">
+                    <p>Your last attempt was unsuccessful.</p>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="h-full w-full bg-gray-300 object-contain p-2 relative rounded-t-lg">
