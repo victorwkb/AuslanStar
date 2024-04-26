@@ -10,7 +10,6 @@ const SpellingPage = () => {
       detailLinks: [
         { label: 'Star Learning!', path: 'spelling/learn-1', buttonColor: 'bg-purple-600 hover:bg-purple-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Practice!', path: 'spelling/practice-1', buttonColor: 'bg-purple-500 hover:bg-purple-800 hover:scale-125 hover:font-bold' },
-        { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-purple-400 hover:bg-purple-80 hover:scale-125 hover:font-bold0' }
       ],
       bgColor: 'bg-purple-100 hover:scale-125 hover:font-bold ',
     },
@@ -20,7 +19,6 @@ const SpellingPage = () => {
       detailLinks: [
         { label: 'Star Learning!', path: 'spelling/learn-2', buttonColor: 'bg-red-600 hover:bg-red-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Practice!', path: 'spelling/practice-2', buttonColor: 'bg-red-500 hover:bg-red-800 hover:scale-125 hover:font-bold' },
-        { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-red-400 hover:bg-red-800 hover:scale-125 hover:font-bold' }
       ],
       bgColor: 'bg-red-100 hover:scale-125 hover:font-bold',
     },
@@ -30,7 +28,6 @@ const SpellingPage = () => {
       detailLinks: [
         { label: 'Star Learning!', path: 'spelling/learn-3', buttonColor: 'bg-orange-600 hover:bg-orange-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Practice!', path: 'spelling/practice-3', buttonColor: 'bg-orange-500 hover:bg-orange-800 hover:scale-125 hover:font-bold' },
-        { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-orange-400 hover:bg-orange-800 hover:scale-125 hover:font-bold' }
       ],
       bgColor: 'bg-orange-100 hover:scale-125 hover:font-bold',
     },
@@ -40,7 +37,6 @@ const SpellingPage = () => {
       detailLinks: [
         { label: 'Star Learning!', path: 'spelling/learn-final', buttonColor: 'bg-blue-600 hover:bg-blue-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Practice!', path: 'spelling/practice-final', buttonColor: 'bg-blue-500 hover:bg-blue-800 hover:scale-125 hover:font-bold' },
-        { label: 'Play Game!', path: '/resources/support/teachingstrategies', buttonColor: 'bg-blue-400 hover:bg-blue-800 hover:scale-125 hover:font-bold' }
       ],
       bgColor: 'bg-blue-100 hover:scale-125 hover:font-bold',
     },
