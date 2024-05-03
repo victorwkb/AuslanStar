@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import Webcam from 'react-webcam'
 import { CameraIcon, CameraOffIcon, VideoIcon, VideoOffIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -16,13 +16,16 @@ import 'swiper/css/pagination';
 export default function Learn() {
   const webcamRef = useRef<Webcam>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [randomSign, setRandomSign] = useState("");
 
   const [video, setVideo] = useState<boolean>(false);
   const [mirrored] = useState<boolean>(true);
   const [sign, setSign] = useState<string>("A");
   const [countdown, setCountdown] = useState<number>(0);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showFailureModal, setShowFailureModal] = useState<boolean>(false);
+  const [attempts, setAttempts] = useState<number>(0);
+  const [correctAttempts, setCorrectAttempts] = useState<number>(0);
 
   const levels = {
     title: "Level 1",
@@ -36,15 +39,6 @@ export default function Learn() {
       { letter: "G", path: "/spellingletter/G.png", signPath: "/spellingletter/signG.png" },
       { letter: "H", path: "/spellingletter/H.png", signPath: "/spellingletter/signH.png" },
     ],
-  };
-
-  useEffect(() => {
-    generateRandomSign();
-  }, []);
-  const generateRandomSign = () => {
-    const randomIndex = Math.floor(Math.random() * levels.letters.length);
-    const randomLetter = levels.letters[randomIndex].letter;
-    setRandomSign(randomLetter);
   };
 
 
@@ -70,10 +64,16 @@ export default function Learn() {
         console.log('Image not found');
         return;
       } else {
-        await sendImageToAPI(imageSrc);
+        const success = await sendImageToAPI(imageSrc);
+        if (success) {
+          setShowModal(true);
+          return success
+        } else {
+          setShowFailureModal(true);
+        }
       }
-    }
-  };
+    };
+  }
 
   const sendImageToAPI = async (image: string) => {
     const response = await fetch('https://f5q7vzkp2l.execute-api.ap-southeast-2.amazonaws.com/invoke_sage_maker', {
@@ -88,6 +88,10 @@ export default function Learn() {
     const data = await response.json();
     console.log(data);
     const success = checkTargetSign(sign, data);
+    if (success) {
+      setCorrectAttempts((prevAttempts) => prevAttempts + 1);
+    }
+    setAttempts((prevTotal) => prevTotal + 1);
     return success;
   };
 
@@ -108,6 +112,7 @@ export default function Learn() {
           <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
             Spelling in Auslan
           </h1>
+          <p className="text-white font-bold text-xl mt-3">Select the letters or navigate via the arrows for the Auslan demonstration</p>
         </div>
         <svg width="100%" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"
           preserveAspectRatio="none" style={{ display: 'block' }}>
@@ -117,7 +122,7 @@ export default function Learn() {
       </div>
 
       <div className="container mx-auto flex flex-row gap-x-12 items-center justify-center min-h-[500px]">
-        <div className="flex flex-col items-center justify-center rounded-lg w-[500px] h-[500px] bg-purple-100">
+        <div className="flex flex-col items-center justify-center rounded-lg w-[700px] h-[700px] bg-purple-100">
           <h3 className="text-3xl font-bold text-gray-900 py-6">{levels.title}</h3>
 
           <Swiper
@@ -175,7 +180,7 @@ export default function Learn() {
 
         </div>
 
-        <div className="flex flex-col items-center justify-center rounded-lg w-[500px] h-[500px] bg-orange-200">
+        <div className="flex flex-col items-center justify-center rounded-lg w-[700px] h-[700px] bg-orange-200">
           <div className="w-full h-full items-center justify-center">
             {video ? (
               <div className="h-full items-center">
@@ -190,6 +195,47 @@ export default function Learn() {
                 <div className="relative text-center -translate-y-8">
                   {countdown > 0 && <p>Pose the Auslan sign quickly in: {countdown}</p>}
                 </div>
+                {showModal && (
+                  <div className="modal-overlay">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h3>Congratulations!</h3>
+                      </div>
+                      <div className="modal-body">
+                        <p>You've completed this round!</p>
+                        <p>You have made {correctAttempts}/{attempts} correct attempts</p>
+                        <p>Select the next sign when you are ready!</p>
+                        <div className="modal-actions">
+                          <button onClick={() => {
+                            setShowModal(false);
+                          }} className="modal-button next">
+                            Keep learning!
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {showFailureModal && (
+                  <div className="modal-overlay">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h3>Incorrect</h3>
+                      </div>
+                      <div className="modal-body">
+                        <p>Try again!</p>
+                        <p>You have made {correctAttempts}/{attempts} correct attempts</p>
+                        <div className="modal-actions">
+                          <button onClick={() => {
+                            setShowFailureModal(false);
+                          }} className="modal-button replay">
+                            Try Again
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="h-full w-full bg-gray-300 object-contain p-2 relative rounded-t-lg">
@@ -202,7 +248,9 @@ export default function Learn() {
             }
           </div>
 
-          <div className="flex flex-row items-center justify-center h-12 m-3">
+          <div>When you're ready, click the camera icon to capture your pose after a countdown</div>
+          <div>Remember to turn your video on before capturing your pose using the recording icon</div>
+          <div className="flex flex-row items-center justify-center h-12 gap-x-12 m-3">
             <Button onClick={startCountdown} >
               <CameraIcon className="w-[50px] h-[50px] border-2 border-black rounded-lg p-2 hover:scale-125 transition-all duration-100" />
             </Button>
@@ -224,23 +272,23 @@ export default function Learn() {
       </div>
 
       <footer className="text-xs text-slate-400 text-center mt-6 p-3">
-            Disclaimer: The content and simulations on this Website are for
-            educational use only and do not replace professional advice. For
-            accurate assessments and recommendations, consult a healthcare
-            professional.
-            <br/>
-            All video materials in this course are sourced from Asphyxia's blog. This course is free.
-            <br/>
-            Reference sources:
-            <a
-                href="https://helloasphyxia.wordpress.com/blog/learn-auslan-australian-sign-language-online-course/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-slate-500 underline"
-            >
-              Blog created by Asphyxia
-            </a>
-          </footer>
+        Disclaimer: The content and simulations on this Website are for
+        educational use only and do not replace professional advice. For
+        accurate assessments and recommendations, consult a healthcare
+        professional.
+        <br />
+        All video materials in this course are sourced from Asphyxia's blog. This course is free.
+        <br />
+        Reference sources:
+        <a
+          href="https://helloasphyxia.wordpress.com/blog/learn-auslan-australian-sign-language-online-course/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-slate-400 hover:text-slate-500 underline"
+        >
+          Blog created by Asphyxia
+        </a>
+      </footer>
 
       <svg width="100%" height="20%" id="svg" className="fill-current bg-yellow-50 text-indigo-900 pt-8"
         viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg"

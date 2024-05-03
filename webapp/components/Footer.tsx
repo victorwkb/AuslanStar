@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <div>
       <footer className="flexCenter bg-indigo-900 text-white">
@@ -14,20 +14,23 @@ const Footer = () => {
             </Link>
 
             <div className="flex flex-row justify-start gap-[20%] flex-1">
-              {FOOTER_LINKS.map((columns) => (
-                <FooterColumn title={columns.title}>
+              {FOOTER_LINKS.map((columns, idx) => (
+                <div key={idx} className="flex flex-col gap-5 w-20">
+                  <h4 className="font-bold">{columns.title}</h4>
                   <ul className="font-sm flex flex-col gap-4 text-white">
-                    {columns.links.map((link) => (
-                      <Link
-                        href={link.href}
-                        key={link.label}
-                        className="hover:underline hover:font-bold"
-                      >
-                        {link.label}
-                      </Link>
+                    {columns.links.map((link, index) => (
+                      <li key={index}>
+                        <Link
+                          href={link.href}
+                          key={link.label}
+                          className="hover:underline hover:font-bold"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
                     ))}
                   </ul>
-                </FooterColumn>
+                </div>
               ))}
             </div>
           </div>
@@ -47,15 +50,3 @@ type FooterColumnProps = {
   title: string;
   children: React.ReactNode;
 };
-
-const FooterColumn = ({ title, children }: FooterColumnProps) => {
-  return (
-    <div className="flex flex-col gap-5">
-      <h4 className="font-bold whitespace-nowrap">{title}</h4>
-      {children}
-    </div>
-  );
-};
-
-export default Footer;
-

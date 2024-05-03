@@ -123,6 +123,7 @@ export default function Learn() {
           <h1 className="text-5xl font-bold text-white leading-tight whitespace-normal">
             Spelling in Auslan
           </h1>
+          <p className="text-white font-bold text-xl mt-3">Select the letters or navigate via the arrows for the Auslan demonstration</p>
         </div>
         <svg width="100%" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"
           preserveAspectRatio="none" style={{ display: 'block' }}>
@@ -132,7 +133,7 @@ export default function Learn() {
       </div>
 
       <div className="container mx-auto flex flex-row gap-x-12 items-center justify-center min-h-[500px]">
-        <div className="flex flex-col items-center justify-center rounded-lg w-[500px] h-[500px] bg-blue-100">
+        <div className="flex flex-col items-center justify-center rounded-lg w-[700px] h-[700px] bg-purple-100">
           <h3 className="text-3xl font-bold text-gray-900 py-6">{levels.title}</h3>
 
           <Swiper
@@ -155,7 +156,7 @@ export default function Learn() {
                   <video
                     key={letter.videoPath}
                     controls
-                    className="block h-4/5 w-4/5 object-fit"
+                    className="block h-4/5 object-fit"
                   >
                     <source src={letter.videoPath} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -166,7 +167,7 @@ export default function Learn() {
           </Swiper>
 
           <div className="text-center mt-4">
-            <div className="flex h-12 w-12 items-center justify-center">
+            <div className="flex h-16 w-16 items-center justify-center">
               {sign && (
                 <Image
                   src={levels.letters.find((item) => newFunction(item, sign))?.path ?? ""}
@@ -180,7 +181,7 @@ export default function Learn() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center rounded-lg w-[500px] h-[500px] bg-orange-200">
+        <div className="flex flex-col items-center justify-center rounded-lg w-[700px] h-[700px] bg-orange-200">
           <div className="w-full h-full items-center justify-center">
             {video ? (
               <div className="h-full items-center">
@@ -208,7 +209,7 @@ export default function Learn() {
                           <button onClick={() => {
                             setShowModal(false);
                           }} className="modal-button next">
-                            Play Again
+                            Keep learning!
                           </button>
                         </div>
                       </div>
@@ -246,7 +247,9 @@ export default function Learn() {
             }
           </div>
 
-          <div className="flex flex-row items-center justify-center h-12 m-3">
+          <div>When you're ready, click the camera icon to capture your pose after a countdown</div>
+          <div>Remember to turn your video on before capturing your pose using the recording icon</div>
+          <div className="flex flex-row items-center justify-center h-12 gap-x-12 m-3">
             <Button onClick={startCountdown} >
               <CameraIcon className="w-[50px] h-[50px] border-2 border-black rounded-lg p-2 hover:scale-125 transition-all duration-100" />
             </Button>
