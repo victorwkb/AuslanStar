@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { NAV_LINKS, RESOURCE_LINKS } from "@/constants";
+import Image from "next/image";
+import React from "react";
 export default function Home() {
   const dictionaryLink = NAV_LINKS.find((link) => link.key === "dictionary")!;
   const spellingLink = NAV_LINKS.find((link) => link.key === "spelling")!;
@@ -21,7 +23,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <h1 className="text-6xl font-extrabold text-custom-purple-light">
-                  Practice Australian Sign Language
+                  Practice Your Australian Sign Language Here
                 </h1>
                 <div className="mt-10"></div>
                 <p className="mt-4 text-2xl font-semibold text-custom-purple-dark ">
@@ -32,18 +34,21 @@ export default function Home() {
                   {/* Dictionary Link */}
                   <Link href={dictionaryLink.href}>
                     <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                      <Image src="/navbar/dictionaryicon.png" alt="dictionary icon" width={60} height={60} />
                       {dictionaryLink.label}
                     </p>
                   </Link>
 
                   <Link href={spellingLink.href}>
                     <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                      <Image src="/navbar/spellingicon.png" alt="spelling icon" width={60} height={60} />
                       {spellingLink.label}
                     </p>
                   </Link>
 
                   <Link href={simulatorLink.href}>
                     <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                      <Image src="/navbar/aid.png" alt="aid icon" width={60} height={60} />
                       {simulatorLink.label}
                     </p>
                   </Link>
