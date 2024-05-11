@@ -50,8 +50,8 @@ export default function Navbar() {
           </div>
           <div className={
             menuOpen
-              ? "fixed right-0 top-0 w-[35%] md:hidden h-screen bg-red-50 p-10 ease-in duration-300"
-              : "fixed right-[-100%] top-0 p-10 ease-in duration-500"
+              ? "fixed z-10 right-0 top-0 w-[35%] md:hidden h-screen bg-red-50 p-10 ease-in duration-300"
+              : "fixed z-10 right-[-100%] top-0 p-10 ease-in duration-500"
           }>
             <div className="flex w-full items-center justify-end">
               <div onClick={handleNav} className="cursor-pointer">
