@@ -719,3 +719,25 @@ a {
 
 }
 
+/* Story page */
+.img-container {
+  height: 200px; 
+  overflow: hidden; 
+}
+
+.img-container img {
+  width: 100%;
+  object-fit: cover; 
+
+}
+
+.text-container {
+  min-height: 120px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  padding: 16px;
+}
