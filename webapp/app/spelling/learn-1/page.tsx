@@ -267,6 +267,7 @@ export default function Learn() {
             </div>
           </div>
         </div>
+
         <div className="max-container mt-4 flex justify-between space-x-10">
           <Link href="/spelling">
             <p className="flex items-center space-x-2 cursor-pointer hover:scale-125 active:scale-100 hover:font-bold transition-all duration-100">
