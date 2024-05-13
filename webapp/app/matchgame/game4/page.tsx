@@ -198,127 +198,148 @@ export default function Match() {
 
   return (
       <div>
-        <div className="bg-blue-200 text-white">
-          <div
-              className="animate-in max-w-5xl px-4 py-10 max-container padding-container"
-              style={{"--index": 1} as React.CSSProperties}
-          >
-            <h1 className="text-5xl font-bold leading-tight whitespace-normal">
-              Memory Match Challenge
-            </h1>
-            <p className="text-2xl mt-2">
-              Match all pairs to win!
-            </p>
+          <div className="bg-blue-200 text-white">
+              <div
+                  className="animate-in max-w-5xl px-4 py-10 max-container padding-container"
+                  style={{"--index": 1} as React.CSSProperties}
+              >
+                  <h1 className="text-5xl font-bold leading-tight whitespace-normal">
+                      Memory Match Challenge: Level 4
+                  </h1>
+                  <p className="text-2xl mt-2">
+                      Match all pairs to win!
+                  </p>
+              </div>
+
+              <svg width="100%" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"
+                   preserveAspectRatio="none" style={{display: 'block'}}>
+                  <path fill="#FEFCE8"
+                        d="M0,0 L48,14.7 C96,29,192,59,288,74.7 C384,91,480,101,576,85.3 C672,69,768,27,864,16 C960,5,1056,35,1152,48 C1248,61,1344,59,1392,57.3 L1440,56 L1440,150 L1392,150 C1344,150,1248,150,1152,150 C1056,150,960,150,864,150 C768,150,672,150,576,150 C480,150,384,150,288,150 C192,150,96,150,48,150 L0,150 Z"></path>
+              </svg>
           </div>
 
-          <svg width="100%" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"
-               preserveAspectRatio="none" style={{display: 'block'}}>
-            <path fill="#FEFCE8"
-                  d="M0,0 L48,14.7 C96,29,192,59,288,74.7 C384,91,480,101,576,85.3 C672,69,768,27,864,16 C960,5,1056,35,1152,48 C1248,61,1344,59,1392,57.3 L1440,56 L1440,150 L1392,150 C1344,150,1248,150,1152,150 C1056,150,960,150,864,150 C768,150,672,150,576,150 C480,150,384,150,288,150 C192,150,96,150,48,150 L0,150 Z"></path>
-          </svg>
-        </div>
+
+          <div className="max-w-5xl mx-auto p-4 ">
+              <div className="game-container ">
+                  <div className="menu bg-blue-200 flex justify-center items-center w-full py-4 ">
+                      <select
+                          value={difficulty}
+                          onChange={e => setDifficulty(e.target.value as Difficulty)}
+                          className="bg-white border border-blue-500 text-gray-700 py-2 px-4 rounded shadow hover:border-blue-700 focus:outline-none focus:border-blue-700 transition-colors"
+                      >
+                          <option value="easy">Easy</option>
+                          <option value="medium">Medium</option>
+                          <option value="hard">Hard</option>
+                      </select>
+                      <p className="text-center mx-4">{`Moves: ${moves}`}</p>
+
+                  </div>
+                  {/* Instruction area */}
+                  {/*<div className="girl-container" onClick={handleShowGuide}>*/}
+                  {/*    <img src="/game/girl.png" alt="Guide" className="girl-image"/>*/}
+                  {/*</div>*/}
+                  {/*<div className="girl-container">*/}
+                  {/*    <img src="/game/girl.png" alt="Guide" className="girl-image"/>*/}
+                  {/*    <div className="speech-bubble" onClick={handleShowGuide}>*/}
+                  {/*  <span className="speech-bubble-text">*/}
+                  {/*    Do you know how to play? Click here.*/}
+                  {/*  </span>*/}
+                  {/*    </div>*/}
+                  {/*</div>*/}
+                  {/*<div className="guide-container" onClick={handleShowGuide}>*/}
+                  {/*  <img src="/game/howtoplay.png" alt="How to play" className="guide-image"/>*/}
+                  {/*</div>*/}
+
+                  <div className="newboard">
+                      {boardData.map((imageName, i) => {
+                          const flipped = flippedCards.includes(i);
+                          const matched = matchedCards.includes(i);
+                          const imagePath = `/spellingletter/${imageName}`;
+                          return (
+                              <div
+                                  onClick={() => updateActiveCards(i)}
+                                  key={i}
+                                  className={`card ${flipped || matched ? "active" : ""} ${
+                                      matched ? "matched" : ""
+                                  } ${gameOver ? "gameover" : ""}`}
+                              >
+                                  {flipped || matched ? (
+                                      <img src={imagePath} alt={`Card ${imageName}`} className="card-image"/>
+                                  ) : (
+                                      <div className="card-back"></div>
+                                  )}
+                              </div>
+                          );
+                      })}
+                  </div>
 
 
-         <div className="max-w-5xl mx-auto p-4 ">
-            <div className="game-container ">
-                <div className="menu bg-blue-200 flex justify-center items-center w-full py-4 ">
-                    <select
-                        value={difficulty}
-                        onChange={e => setDifficulty(e.target.value as Difficulty)}
-                        className="bg-white border border-blue-500 text-gray-700 py-2 px-4 rounded shadow hover:border-blue-700 focus:outline-none focus:border-blue-700 transition-colors"
-                    >
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
-                    <p className="text-center mx-4">{`Moves: ${moves}`}</p>
+                  {showGuide && (
+                      <div className="guide-modal-overlay" onClick={() => setShowGuide(false)}>
+                          <div className="guide-modal-content">
+                              <img src="/game/guide.gif" alt="How to Play" className="guide-animation"/>
+                          </div>
+                      </div>
+                  )}
 
-                </div>
-                {/* Instruction area */}
-                {/*<div className="girl-container" onClick={handleShowGuide}>*/}
-                {/*    <img src="/game/girl.png" alt="Guide" className="girl-image"/>*/}
-                {/*</div>*/}
-                {/*<div className="girl-container">*/}
-                {/*    <img src="/game/girl.png" alt="Guide" className="girl-image"/>*/}
-                {/*    <div className="speech-bubble" onClick={handleShowGuide}>*/}
-                {/*  <span className="speech-bubble-text">*/}
-                {/*    Do you know how to play? Click here.*/}
-                {/*  </span>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="guide-container" onClick={handleShowGuide}>*/}
-                {/*  <img src="/game/howtoplay.png" alt="How to play" className="guide-image"/>*/}
-                {/*</div>*/}
+                  {showModal && (
+                      <div className="modal-overlay">
+                          <div className="modal-content">
+                              <div className="modal-header">
+                                  <h3>Congratulations!</h3>
+                              </div>
+                              <div className="modal-body">
+                                  <p>You've completed this round with <strong>{moves}</strong> moves!</p>
+                                  <div className="modal-actions">
 
-                <div className="newboard">
-                    {boardData.map((imageName, i) => {
-                        const flipped = flippedCards.includes(i);
-                        const matched = matchedCards.includes(i);
-                        const imagePath = `/spellingletter/${imageName}`;
-                        return (
-                            <div
-                                onClick={() => updateActiveCards(i)}
-                                key={i}
-                                className={`card ${flipped || matched ? "active" : ""} ${
-                                    matched ? "matched" : ""
-                                } ${gameOver ? "gameover" : ""}`}
-                            >
-                                {flipped || matched ? (
-                                    <img src={imagePath} alt={`Card ${imageName}`} className="card-image"/>
-                                ) : (
-                                    <div className="card-back"></div>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
+                                      <Link href="/spelling">
+                                          <button onClick={() => { /* logic for next stage */
+                                          }} className="modal-button next">
+                                              Back to Spelling Menu
+                                          </button>
+                                      </Link>
+                                      <button onClick={() => {
+                                          initialize();
+                                          setShowModal(false);
+                                      }} className="modal-button replay">
+                                          Play Again
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  )}
 
 
-                {showGuide && (
-                    <div className="guide-modal-overlay" onClick={() => setShowGuide(false)}>
-                        <div className="guide-modal-content">
-                            <img src="/game/guide.gif" alt="How to Play" className="guide-animation"/>
-                        </div>
-                    </div>
-                )}
+                  <div className="menu bg-blue-200">
+                      {/*<p>{`GameOver - ${gameOver}`}</p>*/}
+                      <button onClick={() => initialize()} className="reset-btn">
+                          Reset
+                      </button>
+                  </div>
+              </div>
+          </div>
 
-                {showModal && (
-                    <div className="modal-overlay">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h3>Congratulations!</h3>
-                            </div>
-                            <div className="modal-body">
-                                <p>You've completed this round with <strong>{moves}</strong> moves!</p>
-                                <div className="modal-actions">
+          <div className="max-container mt-4 flex justify-between space-x-10">
+              <Link href="/matchgame/game3">
+                  <p className="flex items-center space-x-2 cursor-pointer hover:scale-125 active:scale-100 hover:font-bold transition-all duration-100">
+                      <img src="/game/left.png" alt="Backward" className="w-20 h-20"/>
+                      <p className="text-lg">
+                          Back to Level 3
+                      </p>
+                  </p>
+              </Link>
 
-                                    <Link href="/spelling">
-                                        <button onClick={() => { /* logic for next stage */
-                                        }} className="modal-button next">
-                                            Back to Spelling Menu
-                                        </button>
-                                    </Link>
-                                    <button onClick={() => {
-                                        initialize();
-                                        setShowModal(false);
-                                    }} className="modal-button replay">
-                                        Play Again
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+              <Link href="/spelling">
+                  <p className="flex items-center space-x-2 cursor-pointer hover:scale-125 active:scale-100 hover:font-bold transition-all duration-100">
+                      <img src="/game/right.png" alt="Forward" className="w-20 h-20"/>
+                      <p className="text-lg">
+                          Go to Spelling Page
+                      </p>
+                  </p>
+              </Link>
+          </div>
 
-
-                <div className="menu bg-blue-200">
-                    {/*<p>{`GameOver - ${gameOver}`}</p>*/}
-                    <button onClick={() => initialize()} className="reset-btn">
-                        Reset
-                    </button>
-                </div>
-            </div>
-        </div>
           <svg width="100%" height="20%" id="svg" className="fill-current bg-yellow-50 text-indigo-900 pt-8"
                viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg"
           >
