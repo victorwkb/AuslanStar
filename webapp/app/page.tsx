@@ -5,6 +5,7 @@ import React from "react";
 export default function Home() {
   const dictionaryLink = NAV_LINKS.find((link) => link.key === "dictionary")!;
   const spellingLink = NAV_LINKS.find((link) => link.key === "spelling")!;
+  const storyLink = NAV_LINKS.find((link) => link.key === "story")!;
   const simulatorLink = RESOURCE_LINKS.find((link) => link.key === "simulator")!;
   return (
     <div>
@@ -22,36 +23,57 @@ export default function Home() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h1 className="text-6xl font-extrabold text-custom-purple-light">
-                  Practice Your Australian Sign Language Here
+                <h1 className="text-7xl font-extrabold text-custom-purple-light">
+                  Let's Practice Your Auslan Here
                 </h1>
                 <div className="mt-10"></div>
                 <p className="mt-4 text-2xl font-semibold text-custom-purple-dark ">
                   Empowering Voices through Auslan (Australian Sign Language)
                 </p>
-                <div className="mt-10"></div>
+                <div className="mt-20"></div>
                 <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
                   {/* Dictionary Link */}
                   <Link href={dictionaryLink.href}>
-                    <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
-                      <Image src="/navbar/dictionaryicon.png" alt="dictionary icon" width={60} height={60} />
-                      {dictionaryLink.label}
-                    </p>
+                    <div className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                      <div className="flex items-center justify-center space-x-4">
+                        <Image src="/navbar/dictionaryicon.png" alt="dictionary icon" width={60} height={60} />
+                        <p>{dictionaryLink.label}</p>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-2">Over 5000 Demonstrations Video</p>
+                    </div>
                   </Link>
 
                   <Link href={spellingLink.href}>
-                    <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
-                      <Image src="/navbar/spellingicon.png" alt="spelling icon" width={60} height={60} />
-                      {spellingLink.label}
-                    </p>
+                      <div className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                        <div className="flex items-center justify-center space-x-4">
+                          <Image src="/navbar/spellingicon.png" alt="spelling icon" width={60} height={60} />
+                          <p>{spellingLink.label}</p>
+                        </div>
+                        <p className="text-sm text-gray-600 mt-2">Learn & Practice Auslan Letters</p>
+                      </div>
+                  </Link>
+
+
+                  <Link href={storyLink.href}>
+                    <div className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                      <div className="flex items-center justify-center space-x-4">
+                        <Image src="/navbar/video.png" alt="video icon" width={60} height={60} />
+                        <p>{storyLink.label}</p>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-2">Interesting Story Videos </p>
+                    </div>
                   </Link>
 
                   <Link href={simulatorLink.href}>
-                    <p className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
-                      <Image src="/navbar/aid.png" alt="aid icon" width={60} height={60} />
-                      {simulatorLink.label}
-                    </p>
+                    <div className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                      <div className="flex items-center justify-center space-x-4">
+                        <Image src="/navbar/aid.png" alt="aid icon" width={60} height={60} />
+                        <p>{simulatorLink.label}</p>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-2">Experience the World Through Your Child's Ears</p>
+                    </div>
                   </Link>
+
 
 
 

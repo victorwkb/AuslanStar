@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Webcam from 'react-webcam'
 import { CameraIcon, CameraOffIcon, VideoIcon, VideoOffIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -27,7 +27,7 @@ export default function Learn() {
   const [attempts, setAttempts] = useState<number>(0);
   const [correctAttempts, setCorrectAttempts] = useState<number>(0);
 
-  const levels = {
+  const [levels, setLevels] = useState({
     title: "Level 3",
     letters: [
       { letter: "Q", path: "/spellingletter/Q.png", signPath: "/spellingletter/signQ.png" },
@@ -41,6 +41,14 @@ export default function Learn() {
       { letter: "Y", path: "/spellingletter/Y.png", signPath: "/spellingletter/signY.png" },
       { letter: "Z", path: "/spellingletter/Z.png", signPath: "/spellingletter/signZ.png" },
     ],
+  });
+  useEffect(() => {
+    shuffleLetters();
+  }, []);
+
+  const shuffleLetters = () => {
+    const shuffledLetters = [...levels.letters].sort(() => Math.random() - 0.5); // 随机排序
+    setLevels((prevLevels) => ({ ...prevLevels, letters: shuffledLetters })); // 保存回 levels
   };
 
 

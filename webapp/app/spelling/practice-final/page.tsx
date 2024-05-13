@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Webcam from 'react-webcam'
 import { CameraIcon, CameraOffIcon, VideoIcon, VideoOffIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -27,7 +27,7 @@ export default function Learn() {
   const [attempts, setAttempts] = useState<number>(0);
   const [correctAttempts, setCorrectAttempts] = useState<number>(0);
 
-  const levels = {
+  const [levels, setLevels] = useState({
     title: "Final Level",
     letters: [
       { letter: "A", path: "/spellingletter/A.png", signPath: "/spellingletter/signA.png" },
@@ -57,7 +57,16 @@ export default function Learn() {
       { letter: "Y", path: "/spellingletter/Y.png", signPath: "/spellingletter/signY.png" },
       { letter: "Z", path: "/spellingletter/Z.png", signPath: "/spellingletter/signZ.png" },
     ],
+  });
+  useEffect(() => {
+   shuffleLetters();
+  }, []);
+
+  const shuffleLetters = () => {
+    const shuffledLetters = [...levels.letters].sort(() => Math.random() - 0.5).slice(0, 8); // 保留前8个元素
+    setLevels((prevLevels) => ({ ...prevLevels, letters: shuffledLetters }));
   };
+
 
 
   const startCountdown = () => {
@@ -175,6 +184,28 @@ export default function Learn() {
                   </SwiperSlide>
               ))}
             </Swiper>
+            <Swiper
+                onSwiper={setThumbsSwiper}
+                slidesPerView={levels.letters.length}
+                freeMode={true}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className='thumbs mt-3 h-20 w-full rounded-lg justify-center'
+                watchSlidesProgress={true}
+            >
+              {levels.letters.map((letter, idx) => (
+                  <SwiperSlide key={idx}>
+                    <div className="flex h-12 w-12 items-center justify-center">
+                      <Image
+                          src={letter.path}
+                          alt={letter.letter}
+                          width={50}
+                          height={50}
+                          className="block h-full w-full object-fit hover:cursor-pointer"
+                      />
+                    </div>
+                  </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           <div className="flex flex-col items-center justify-center rounded-lg w-[700px] h-[700px] bg-orange-200">
@@ -284,7 +315,8 @@ export default function Learn() {
             <p className="flex items-center space-x-2 cursor-pointer hover:scale-125 active:scale-100 hover:font-bold transition-all duration-100">
               <p className="text-lg">
                 Go to Spelling Page
-              </p><img src="/game/right_practice.png" alt="Forward" className="w-20 h-20"/>
+              </p>
+              <img src="/game/right_practice.png" alt="Forward" className="w-20 h-20"/>
             </p>
           </Link>
         </div>
