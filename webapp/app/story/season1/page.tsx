@@ -55,20 +55,18 @@ export default function VideoPlayer() {
 
       <div className="flex min-h-screen bg-gradient-to-br">
 
-        <div className="w-1/4 bg-white p-5 shadow-lg">
+        <div className="w-1/4 bg-orange-100 p-5 shadow-lg">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Episodes</h2>
           <ul className="space-y-2">
             {episodes.map((episode, index) => (
               <li key={index}
-                className={`cursor-pointer p-3 rounded-lg hover:bg-blue-500 hover:text-white ${currentVideoId === episode.id ? 'bg-blue-600 text-white' : 'text-gray-700'}`}
+                className={`cursor-pointer p-3 rounded-lg hover:bg-orange-500 hover:text-white ${currentVideoId === episode.id ? 'bg-orange-600 text-white' : 'text-gray-700'}`}
                 onClick={() => setCurrentVideoId(episode.id)}>
                 {episode.title}
               </li>
             ))}
           </ul>
         </div>
-
-
         <div className="flex-grow p-10">
           <YouTube videoId={currentVideoId} opts={videoOptions} />
         </div>
