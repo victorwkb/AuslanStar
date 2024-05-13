@@ -1,7 +1,6 @@
 // 测试stage
-
 "use client";
-
+import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { NAV_LINKS } from "@/constants";
 // Define a type for the board
@@ -293,10 +292,13 @@ export default function Match() {
                             <div className="modal-body">
                                 <p>You've completed this round with <strong>{moves}</strong> moves!</p>
                                 <div className="modal-actions">
-                                    <button onClick={() => { /* logic for next stage */
-                                    }} className="modal-button next">
-                                        Back to Spelling Menu
-                                    </button>
+
+                                    <Link href="/spelling">
+                                        <button onClick={() => { /* logic for next stage */
+                                        }} className="modal-button next">
+                                            Back to Spelling Menu
+                                        </button>
+                                    </Link>
                                     <button onClick={() => {
                                         initialize();
                                         setShowModal(false);

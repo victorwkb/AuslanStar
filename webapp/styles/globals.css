@@ -347,7 +347,15 @@ a {
   padding-top: 10px;
   padding-bottom: 30px;
 }
-
+.newboard {
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  grid-template-columns: repeat(6, 120px);
+  grid-gap: 50px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
 .card {
   border-radius: 10px;
   perspective: 1000px;

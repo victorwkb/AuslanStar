@@ -233,8 +233,8 @@ const SimulatorPage: React.FC = () => {
           {/* Self-test volume adjustment section */}
           <div className="text-primary mb-8">
             <h2 className="text-2xl mb-4 font-bold">
-              Step 1: Please adjust the volume to find the softest tone you can
-              hear
+              Step 1: Please set the device volume to 50.
+              Then, adjust the volume by clicking different volume buttons to find the softest tone.
             </h2>
 
             <div className="volume-container">
