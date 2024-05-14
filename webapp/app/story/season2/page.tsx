@@ -97,6 +97,30 @@ export default function VideoPlayer() {
         </Link>
       </div>
 
+      {/* Reference and Disclaimer */}
+      <footer
+        style={{
+          fontSize: "12px",
+          color: "#aaa",
+          textAlign: "center",
+          marginTop: "50px",
+          padding: "10px",
+        }}
+      >
+        Reference: Video supported by{" "}
+        <a
+          href="https://www.youtube.com/@theearlyyearscount1864"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#aaa", textDecoration: "underline" }}
+        >
+          The Early Years Count
+        </a>
+        <br />
+        Disclaimer: The information contained on this website is not intended as
+        a substitute for independent professional advice.
+      </footer>
+
       <svg width="100%" height="20%" className="fill-current bg-yellow-50 text-indigo-900 pt-8" viewBox="0 80 1440 70" xmlns="http://www.w3.org/2000/svg">
         <path d="M 0,400 L 0,150 C 84.29999999999998,140.8948717948718 168.59999999999997,131.78974358974358 248,125 C 327.40000000000003,118.2102564102564 401.9,113.73589743589744 475,123 C 548.1,132.26410256410256 619.8,155.26666666666668 714,146 C 808.2,136.73333333333332 924.9000000000001,95.19743589743588 1001,87 C 1077.1,78.80256410256412 1112.6,103.94358974358974 1179,120 C 1245.4,136.05641025641026 1342.7,143.02820512820512 1440,150 L 1440,400 L 0,400 Z"></path>
       </svg>
