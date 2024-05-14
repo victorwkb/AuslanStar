@@ -13,7 +13,7 @@ const episodes = [
   { id: 'nocJRFFl60c', title: 'E5 How does your garden grow?' },
   { id: 'apbqKLID9ig', title: 'E6 Possum\'s Door' },
   { id: 't-3-ekRdt7w', title: 'E7 Surprise for Sally' },
-  { id: 'ZSfZAGwHTw', title: 'E8 Missing fridge' },
+  { id: 'JZSfZAGwHTw', title: 'E8 Missing fridge' },
   { id: 'ueYN1vZ1xjc', title: 'E9 Big Balloon Ride' },
   { id: 'M_3HdU8uhZs', title: 'E10 Sally has a party' },
   { id: 'af77Zz1yfhw', title: 'E11 Very cold day' },
