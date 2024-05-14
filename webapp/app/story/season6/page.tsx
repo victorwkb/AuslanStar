@@ -32,6 +32,7 @@ export default function VideoPlayer() {
     width: '1200',
     playerVars: {
       autoplay: 1,
+      origin: 'https://main.d3qpulcxrhg1d0.amplifyapp.com/'
     },
   };
 
