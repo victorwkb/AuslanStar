@@ -60,7 +60,7 @@ export default function VideoPlayer() {
           <ul className="space-y-2">
             {episodes.map((episode, index) => (
               <li key={index}
-                className={`cursor-pointer p-3 rounded-lg hover:bg-orange-500 hover:text-white ${currentVideoId === episode.id ? 'bg-orange-600 text-white' : 'text-gray-700'}`}
+                className={`cursor-pointer p-3 rounded-lg hover:scale-125 hover:bg-orange-500 hover:text-white ${currentVideoId === episode.id ? 'bg-orange-600 text-white' : 'text-gray-700'}`}
                 onClick={() => setCurrentVideoId(episode.id)}>
                 {episode.title}
               </li>

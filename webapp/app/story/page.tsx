@@ -11,7 +11,7 @@ export default function SeasonsOverview() {
     { id: 3, title: 'Season 3', description: 'Sally and Possum engage in a variety of educational adventures, learning about nature, animals, crafts, and everyday objects through interactive and playful experiences.', image: '/story/season3.png' },
     { id: 4, title: 'Season 4', description: 'Sally and Possum explore practical skills, safety, nature, and creativity through various engaging activities and experiments.', image: '/story/season4.png' },
     { id: 5, title: 'Season 5', description: 'Sally and Possum learn about tools, reflections, motion, and problem-solving through various fun and interactive adventures.', image: '/story/season5.png' },
-    { id: 6, title: 'Season 6', description: 'Sally and Possum learn about science, practical skills, and sustainability through fun lessons with Sally and Skip.', image: '/story/season6.png' },
+    { id: 6, title: 'Season 6', description: 'Possum learns about science, practical skills, and sustainability through fun lessons with Sally and Skip.', image: '/story/season6.png' },
   ];
 
   return (
