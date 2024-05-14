@@ -52,21 +52,26 @@ export default function VideoPlayer() {
         </svg>
       </div>
 
-      <div className="flex min-h-screen bg-gradient-to-br">
-
-
-        <div className="container w-1/4 bg-orange-100 p-5 shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Episodes</h2>
-          <ul className="space-y-2">
+      <div className="flex flex-col lg:flex-row min-h-screen">
+        <div className="w-full lg:w-1/4 bg-orange-100 p-5 shadow-lg">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6">Episodes</h2>
+          <ul className="space-y-3">
             {episodes.map((episode, index) => (
-              <li key={index}
-                className={`cursor-pointer p-3 rounded-lg hover:scale-125 hover:bg-orange-500 hover:text-white ${currentVideoId === episode.id ? 'bg-orange-600 text-white' : 'text-gray-700'}`}
-                onClick={() => setCurrentVideoId(episode.id)}>
+              <li
+                key={index}
+                className={`cursor-pointer p-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-125 ${
+                  currentVideoId === episode.id
+                    ? 'bg-orange-600 text-white'
+                    : 'bg-orange-200 text-gray-800'
+                }`}
+                onClick={() => setCurrentVideoId(episode.id)}
+              >
                 {episode.title}
               </li>
             ))}
           </ul>
         </div>
+        
         <div className="flex-grow p-10">
           <YouTube videoId={currentVideoId} opts={videoOptions} />
         </div>
@@ -74,17 +79,17 @@ export default function VideoPlayer() {
 
 
       <div className="max-w-5xl mx-auto mt-4 flex justify-between space-x-10 px-4">
-        <Link href="/story/season3">
+        <Link href="/story">
           <p className="flex items-center space-x-2 cursor-pointer hover:scale-125 active:scale-100 hover:font-bold transition-all duration-100">
-            <img src="/game/left.png" alt="Backward" className="w-20 h-20" />
+            <img src="/game/left_video.png" alt="Backward" className="w-20 h-20" />
             <span className="text-lg">Back to Season 3</span>
           </p>
         </Link>
 
-        <Link href="/story/season5">
+        <Link href="/story/season2">
           <p className="flex items-center space-x-2 cursor-pointer hover:scale-125 active:scale-100 hover:font-bold transition-all duration-100">
-            <img src="/game/right.png" alt="Forward" className="w-20 h-20" />
             <span className="text-lg">Go to Season 5</span>
+            <img src="/game/right_video.png" alt="Forward" className="w-20 h-20" />
           </p>
         </Link>
       </div>
