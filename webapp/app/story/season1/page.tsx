@@ -55,7 +55,7 @@ export default function VideoPlayer() {
 
       <div className="flex min-h-screen bg-gradient-to-br">
 
-        <div className="w-1/4 bg-orange-100 p-5 shadow-lg">
+        <div className="container w-1/4 bg-orange-100 p-5 shadow-lg">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Episodes</h2>
           <ul className="space-y-2">
             {episodes.map((episode, index) => (
