@@ -24,7 +24,10 @@ const episodes = [
 ];
 
 export default function VideoPlayer() {
-  const [currentVideoId, setCurrentVideoId] = useState(episodes[0].id);
+  const [currentVideoId, setCurrentVideoId] = useState<string>(episodes[0].id);
+  const [watchedEpisodes, setWatchedEpisodes] = useState<string[]>([]);
+  const [showPrompt, setShowPrompt] = useState<boolean>(false);
+  const [countdown, setCountdown] = useState<number>(5);
   const videoRef = useRef<HTMLDivElement | null>(null);
 
   const videoOptions = {
@@ -34,6 +37,48 @@ export default function VideoPlayer() {
       autoplay: 1,
       origin: 'https://main.d3qpulcxrhg1d0.amplifyapp.com/'
     },
+  };
+
+  const handleEnd = () => {
+    const currentIndex = episodes.findIndex(ep => ep.id === currentVideoId);
+    if (currentIndex < episodes.length - 1) {
+      setShowPrompt(true);
+      const timer = setInterval(() => {
+        setCountdown(prev => {
+          if (prev === 1) {
+            clearInterval(timer);
+            handleContinue();
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+  };
+
+  const handleContinue = () => {
+    const currentIndex = episodes.findIndex(ep => ep.id === currentVideoId);
+    if (currentIndex < episodes.length - 1) {
+      setCurrentVideoId(episodes[currentIndex + 1].id);
+      if (!watchedEpisodes.includes(currentVideoId)) {
+        setWatchedEpisodes(prev => [...prev, currentVideoId]);
+      }
+      setShowPrompt(false);
+      setCountdown(5);
+    }
+  };
+
+  const handleStay = () => {
+    setShowPrompt(false);
+    setCountdown(5);
+  };
+
+  const handleVideoClick = (id: string) => {
+    setCurrentVideoId(id);
+    if (!watchedEpisodes.includes(id)) {
+      setWatchedEpisodes(prev => [...prev, id]);
+    }
+    setShowPrompt(false);
+    setCountdown(5);
   };
 
   useEffect(() => {
@@ -69,9 +114,11 @@ export default function VideoPlayer() {
                 className={`cursor-pointer p-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-125 ${
                   currentVideoId === episode.id
                     ? 'bg-orange-600 text-white'
+                    : watchedEpisodes.includes(episode.id)
+                    ? 'bg-gray-200 text-gray-500'
                     : 'bg-orange-200 text-gray-800'
                 }`}
-                onClick={() => setCurrentVideoId(episode.id)}
+                onClick={() => handleVideoClick(episode.id)}
               >
                 {episode.title}
               </li>
@@ -81,27 +128,49 @@ export default function VideoPlayer() {
 
         <div className="flex-grow p-10">
           <div ref={videoRef} className="flex justify-center">
-            <YouTube videoId={currentVideoId} opts={videoOptions} />
+            <YouTube videoId={currentVideoId} opts={videoOptions} onEnd={handleEnd} />
           </div>
         </div>
       </div>
 
+      {showPrompt && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-2xl font-semibold mb-4">Do you want to continue to the next episode?</h2>
+            <p className="mb-4">Continuing in {countdown} seconds...</p>
+            <div className="flex justify-center space-x-4">
+              <button
+                onClick={handleContinue}
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700"
+              >
+                Continue
+              </button>
+              <button
+                onClick={handleStay}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
+              >
+                Stay
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-5xl mx-auto mt-4 flex justify-between space-x-10 px-4">
-        <Link href="/story">
+        <Link href="/story/season5">
           <p className="flex items-center space-x-2 cursor-pointer hover:scale-125 active:scale-100 hover:font-bold transition-all duration-100">
             <img src="/game/left_video.png" alt="Backward" className="w-20 h-20" />
             <span className="text-lg">Back to Season 5</span>
           </p>
         </Link>
 
-        <Link href="/story/season2">
+        <Link href="/story">
           <p className="flex items-center space-x-2 cursor-pointer hover:scale-125 active:scale-100 hover:font-bold transition-all duration-100">
             <span className="text-lg">Go to StoryTelling Page</span>
             <img src="/game/right_video.png" alt="Forward" className="w-20 h-20" />
           </p>
         </Link>
       </div>
-
 
       {/* Reference and Disclaimer */}
       <footer
