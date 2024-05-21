@@ -8,7 +8,7 @@ const SpellingPage = () => {
       title: "Level 1",
       letters: "A B C D E F G H",
       detailLinks: [
-        { label: 'Star Learning!', path: 'spelling/learn-1', buttonColor: 'bg-purple-600 hover:bg-purple-800 hover:scale-125 hover:font-bold' },
+        { label: 'Start Learning!', path: 'spelling/learn-1', buttonColor: 'bg-purple-600 hover:bg-purple-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Practice!', path: 'spelling/practice-1', buttonColor: 'bg-purple-500 hover:bg-purple-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Game!', path: 'matchgame/game1', buttonColor: 'bg-purple-400 hover:bg-red-800 hover:scale-125 hover:font-bold' },
       ],
@@ -18,7 +18,7 @@ const SpellingPage = () => {
       title: "Level 2",
       letters: "I J K L M N O P",
       detailLinks: [
-        { label: 'Star Learning!', path: 'spelling/learn-2', buttonColor: 'bg-red-600 hover:bg-red-800 hover:scale-125 hover:font-bold' },
+        { label: 'Start Learning!', path: 'spelling/learn-2', buttonColor: 'bg-red-600 hover:bg-red-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Practice!', path: 'spelling/practice-2', buttonColor: 'bg-red-500 hover:bg-red-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Game!', path: 'matchgame/game2', buttonColor: 'bg-red-400 hover:bg-red-800 hover:scale-125 hover:font-bold' },
       ],
@@ -28,7 +28,7 @@ const SpellingPage = () => {
       title: "Level 3",
       letters: "Q R S T U V W X Y Z",
       detailLinks: [
-        { label: 'Star Learning!', path: 'spelling/learn-3', buttonColor: 'bg-orange-600 hover:bg-orange-800 hover:scale-125 hover:font-bold' },
+        { label: 'Start Learning!', path: 'spelling/learn-3', buttonColor: 'bg-orange-600 hover:bg-orange-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Practice!', path: 'spelling/practice-3', buttonColor: 'bg-orange-500 hover:bg-orange-800 hover:scale-125 hover:font-bold' },
         { label: 'Let\'s Game!', path: 'matchgame/game3', buttonColor: 'bg-orange-400 hover:bg-red-800 hover:scale-125 hover:font-bold' },
       ],
