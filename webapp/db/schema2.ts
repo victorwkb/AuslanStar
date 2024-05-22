@@ -1,4 +1,4 @@
-import { pgTable, integer, varchar } from "drizzle-orm/pg-core";
+import { pgTable, integer, serial, varchar } from "drizzle-orm/pg-core";
 
 export const leaderboard = pgTable("leaderboard", {
   id: integer("id").primaryKey(),
@@ -7,7 +7,7 @@ export const leaderboard = pgTable("leaderboard", {
 });
 
 export const leaderboard_m1 = pgTable("leaderboard_m1", {
-  id: integer("id").primaryKey(),
+  id: serial("id").primaryKey(),
   username: varchar("username", { length: 50 }),
   score: integer("score"),
 });
