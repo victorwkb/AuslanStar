@@ -44,13 +44,13 @@ export default function Home() {
                   </Link>
 
                   <Link href={spellingLink.href}>
-                      <div className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
-                        <div className="flex items-center justify-center space-x-4">
-                          <Image src="/navbar/spellingicon.png" alt="spelling icon" width={60} height={60} />
-                          <p>{spellingLink.label}</p>
-                        </div>
-                        <p className="text-sm text-gray-600 mt-2">Learn & Practice Auslan Letters</p>
+                    <div className="transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-white rounded-xl py-6 px-12 text-xl font-semibold text-custom-purple-light shadow-md cursor-pointer capitalize">
+                      <div className="flex items-center justify-center space-x-4">
+                        <Image src="/navbar/spellingicon.png" alt="spelling icon" width={60} height={60} />
+                        <p>{spellingLink.label}</p>
                       </div>
+                      <p className="text-sm text-gray-600 mt-2">Learn & Practice Auslan Letters</p>
+                    </div>
                   </Link>
 
 
@@ -73,6 +73,7 @@ export default function Home() {
                       <p className="text-sm text-gray-600 mt-2">Experience the World Through Your Child's Ears</p>
                     </div>
                   </Link>
+
 
 
 

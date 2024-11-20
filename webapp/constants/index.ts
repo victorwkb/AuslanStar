@@ -75,7 +75,7 @@ export const FOOTER_LINKS = [
       { label: "Handbook", href: "/resources/support" },
     ],
   },
-    {
+  {
     title: "Spelling",
     links: [
       { label: "Practice", href: "/resources/benefits" },

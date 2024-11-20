@@ -111,13 +111,12 @@ export default function VideoPlayer() {
             {episodes.map((episode, index) => (
               <li
                 key={index}
-                className={`cursor-pointer p-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-125 ${
-                  currentVideoId === episode.id
-                    ? 'bg-orange-600 text-white'
-                    : watchedEpisodes.includes(episode.id)
+                className={`cursor-pointer p-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-125 ${currentVideoId === episode.id
+                  ? 'bg-orange-600 text-white'
+                  : watchedEpisodes.includes(episode.id)
                     ? 'bg-gray-200 text-gray-500'
                     : 'bg-orange-200 text-gray-800'
-                }`}
+                  }`}
                 onClick={() => handleVideoClick(episode.id)}
               >
                 {episode.title}

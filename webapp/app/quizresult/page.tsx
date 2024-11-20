@@ -23,9 +23,8 @@ export default function Results() {
         {mockResults.results.map((result, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center justify-center p-4 rounded-lg shadow-lg ${
-              result.isCorrect ? 'bg-green-100' : 'bg-red-100'
-            }`}
+            className={`flex flex-col items-center justify-center p-4 rounded-lg shadow-lg ${result.isCorrect ? 'bg-green-100' : 'bg-red-100'
+              }`}
           >
             <span className="text-2xl font-semibold">{result.letter}</span>
             <span className={`mt-1 ${result.isCorrect ? 'text-green-600' : 'text-red-600'}`}>

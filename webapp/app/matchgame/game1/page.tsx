@@ -378,7 +378,7 @@ export default function Match() {
 
   const insertUser = async (username: string, score: number) => {
     let insert = await db2.insert(leaderboard_m1)
-      .values({ username: username , score: score })
+      .values({ username: username, score: score })
   }
 
   return (
@@ -496,8 +496,8 @@ export default function Match() {
                     onChange={(e) => setUsername(e.target.value)}
                     className="w-full"
                   ></Input>
-                    
-                  <button onClick={(e:any) => insertUser(username, moves)}>
+
+                  <button onClick={(e: any) => insertUser(username, moves)}>
                     Enter Leaderboard
                   </button>
                 </div>
